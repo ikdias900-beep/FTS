@@ -48,9 +48,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         try:
             result = run_smoke(
                 args.config,
-                command="fts reproduce-smoke"
+                command="uv run fts reproduce-smoke"
                 if args.config is None
-                else f"fts reproduce-smoke --config {args.config}",
+                else f"uv run fts reproduce-smoke --config {args.config}",
             )
         except (OSError, ValueError, ManifestError) as exc:
             print(f"smoke failed: {exc}")

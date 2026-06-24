@@ -118,7 +118,14 @@ def collect_checks(root: Path, *, release_check: bool) -> list[Check]:
     )
 
     uv_path = shutil.which("uv")
-    checks.append(Check("uv", uv_path is not None, uv_path or "uv not found in PATH"))
+    uv_version = _command_output(uv_path, "--version") if uv_path is not None else None
+    checks.append(
+        Check(
+            "uv",
+            uv_version is not None,
+            f"{uv_version} at {uv_path}" if uv_version is not None else "uv not found in PATH",
+        )
+    )
 
     context = check_required_context_files(root)
     for path, exists in context.items():
@@ -161,6 +168,18 @@ def _git_output(root: Path, *args: str) -> str | None:
     result = subprocess.run(
         ["git", *args],
         cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    return result.stdout.strip() or None
+
+
+def _command_output(executable: str, *args: str) -> str | None:
+    result = subprocess.run(
+        [executable, *args],
         capture_output=True,
         text=True,
         check=False,
