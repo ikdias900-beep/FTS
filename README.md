@@ -1,8 +1,8 @@
 # Fitness, Truth & Structure Lab
 
-Stage 0 bootstrap for an auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
+Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-000` only. This repository currently provides infrastructure, traceability registries, a deterministic smoke run, and quality gates. It does not implement FBT, FFF, evolutionary dynamics, ML, or scientific figures.
+Current status: `TASK-001` is in progress on branch `stage1-fff-core`. `TASK-000` bootstrap is complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -52,6 +52,20 @@ uv run fts validate-manifest experiments/manifests/<manifest>.json
 
 Two runs from the same config should produce the same payload checksum. Manifest timestamps, run IDs, absolute paths, and environment metadata may differ.
 
+## Stage 1 Exact Helpers
+
+Run small exact FFF counts:
+
+```bash
+uv run fts fff admissible-count 2 2
+uv run fts fff total-order-count 2 2
+uv run fts fff total-order-count 2 2 --mode unique
+uv run fts fff cyclic-count 2 2
+uv run fts fff cyclic-count 2 2 --admissible-only
+```
+
+The total-order helper intentionally separates the source orientation-witness count from the unique-function count because `ASM-FFF-0001` remains open pending independent review.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -68,7 +82,8 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Research strategy](01_research_strategy.md)
 - [Stage tasks and roles](02_stage_tasks_roles.md)
 - [Repository instructions](AGENTS.md)
-- [Current task](tasks/TASK-000_bootstrap_repo.md)
+- [Bootstrap task](tasks/TASK-000_bootstrap_repo.md)
+- [Current Stage 1 task](tasks/TASK-001_fff_core_orders_cyclic.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

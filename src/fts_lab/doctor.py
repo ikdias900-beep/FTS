@@ -14,13 +14,14 @@ from typing import Any
 from fts_lab import __version__
 from fts_lab.manifests import SCHEMA_PATH, canonical_json_text, sha256_file
 
-ACTIVE_TASK = "TASK-000"
+ACTIVE_TASK = "TASK-001"
 
 REQUIRED_CONTEXT_FILES = (
     "AGENTS.md",
     "01_research_strategy.md",
     "02_stage_tasks_roles.md",
     "tasks/TASK-000_bootstrap_repo.md",
+    "tasks/TASK-001_fff_core_orders_cyclic.md",
     "sources/source_map.md",
     "sources/claim_matrix.csv",
     "assumptions/register.md",
@@ -117,13 +118,12 @@ def collect_checks(root: Path, *, release_check: bool) -> list[Check]:
         )
     )
 
-    uv_path = shutil.which("uv")
-    uv_version = _command_output(uv_path, "--version") if uv_path is not None else None
+    uv_ok, uv_detail = _uv_availability()
     checks.append(
         Check(
             "uv",
-            uv_version is not None,
-            f"{uv_version} at {uv_path}" if uv_version is not None else "uv not found in PATH",
+            uv_ok,
+            uv_detail,
         )
     )
 
@@ -187,6 +187,50 @@ def _command_output(executable: str, *args: str) -> str | None:
     if result.returncode != 0:
         return None
     return result.stdout.strip() or None
+
+
+def _uv_availability() -> tuple[bool, str]:
+    uv_path = shutil.which("uv")
+    if uv_path is not None:
+        uv_version = _command_output(uv_path, "--version")
+        if uv_version is not None:
+            return True, f"{uv_version} at {uv_path}"
+
+    for candidate in _uv_candidate_paths():
+        if candidate.is_file():
+            uv_version = _command_output(str(candidate), "--version")
+            if uv_version is not None:
+                return True, f"{uv_version} at {candidate}"
+
+    for args in (("-m", "uv", "--version"), ("-3.13", "-m", "uv", "--version")):
+        uv_version = _command_output("py", *args)
+        if uv_version is not None:
+            return True, f"{uv_version} via py {' '.join(args)}"
+
+    return False, "uv not found in PATH, user scripts, or Python launcher modules"
+
+
+def _uv_candidate_paths() -> list[Path]:
+    candidates: list[Path] = []
+    appdata = os.environ.get("APPDATA")
+    if appdata:
+        base = Path(appdata) / "Python"
+        candidates.extend(
+            [
+                base / "Python313" / "Scripts" / "uv.exe",
+                base / "Python312" / "Scripts" / "uv.exe",
+                base / "Python311" / "Scripts" / "uv.exe",
+            ]
+        )
+    local_appdata = os.environ.get("LOCALAPPDATA")
+    if local_appdata:
+        candidates.extend(
+            [
+                Path(local_appdata) / "Programs" / "Python" / "Python313" / "Scripts" / "uv.exe",
+                Path(local_appdata) / "Programs" / "Python" / "Python312" / "Scripts" / "uv.exe",
+            ]
+        )
+    return candidates
 
 
 def doctor_json() -> dict[str, Any]:
