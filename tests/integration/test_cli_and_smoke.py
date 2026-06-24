@@ -27,7 +27,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-000" in result.stdout
+    assert "Active task: TASK-001" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -66,6 +66,56 @@ def test_cli_records_documented_smoke_command() -> None:
 
     assert result.returncode == 0, result.stdout + result.stderr
     assert manifest["command"] == "uv run fts reproduce-smoke"
+
+
+@pytest.mark.parametrize(
+    ("args", "expected_lines"),
+    [
+        (
+            ["fff", "admissible-count", "2", "2"],
+            ["claim_ids=CLM-FFF-ADM-001", "count=3"],
+        ),
+        (
+            ["fff", "total-order-count", "2", "2"],
+            [
+                "claim_ids=CLM-FFF-ORD-001",
+                "assumption_ids=ASM-FFF-0001",
+                "mode=source-witness",
+                "count=4",
+                "ratio=4/3",
+            ],
+        ),
+        (
+            ["fff", "total-order-count", "2", "2", "--mode", "unique"],
+            ["mode=unique", "count=3", "ratio=1/1"],
+        ),
+        (
+            ["fff", "cyclic-count", "2", "2"],
+            ["claim_ids=CLM-FFF-CYC-001,CLM-FFF-CYC-002", "mode=source", "count=2"],
+        ),
+        (
+            ["fff", "cyclic-count", "2", "2", "--admissible-only"],
+            ["mode=admissible-filtered-audit", "count=1"],
+        ),
+    ],
+)
+def test_fff_cli_commands_emit_traceable_counts(
+    args: list[str],
+    expected_lines: list[str],
+) -> None:
+    result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", *args],
+        cwd=find_project_root(),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "task_ids=TASK-001" in result.stdout
+    assert "source_ids=SRC-FFF-2020" in result.stdout
+    for expected_line in expected_lines:
+        assert expected_line in result.stdout
 
 
 def test_manifest_validation_fails_after_artifact_corruption(tmp_path: Path) -> None:
