@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001` is in progress on branch `stage1-fff-core`. `TASK-000` bootstrap is complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-001` is reviewed and ready for merge on branch `stage1-fff-core`. `TASK-000` bootstrap is complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -64,7 +64,7 @@ uv run fts fff cyclic-count 2 2
 uv run fts fff cyclic-count 2 2 --admissible-only
 ```
 
-The total-order helper intentionally separates the source orientation-witness count from the unique-function count because `ASM-FFF-0001` remains open pending independent review.
+The total-order helper intentionally separates the source orientation-witness count from the distinct unique-function count. `RDR-0002` records the Human PI decision to show both values in Stage 1 outputs.
 
 ## Epistemic Status
 

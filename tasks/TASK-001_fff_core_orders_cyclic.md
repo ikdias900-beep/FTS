@@ -6,7 +6,7 @@ STAGE: 1 - FFF total orders and cyclic groups
 EPISTEMIC STATUS: R, with explicit assumption-sensitive total-order notes
 OWNER: Codex Implementer
 REVIEWER: Fresh-context AI/Codex Verifier
-STATUS: REVIEWED_PENDING_PI_DECISION
+STATUS: READY_FOR_MERGE
 ```
 
 ## 1. Objective
@@ -42,9 +42,9 @@ Implementation locators:
 
 ## 4. Linked Assumptions
 
-- `ASM-FFF-0001` remains `OPEN` for public R-status claims about the exact source interpretation of total-order homomorphisms.
+- `ASM-FFF-0001` is `APPROVED` for Stage 1 reporting: public total-order outputs must show both the source orientation-witness count and the distinct unique-function count.
 
-No new approved scientific assumptions are introduced by this task.
+The approval is recorded in `RDR-0002`.
 
 ## 4.1 Linked Issues
 
@@ -53,6 +53,10 @@ No new approved scientific assumptions are introduced by this task.
 ## 4.2 Linked Reviews
 
 - `REV-TASK-001-001`: independent implementation review passed with no fatal or major findings.
+
+## 4.3 Linked Decisions
+
+- `RDR-0002`: Human PI approved showing both total-order count objects.
 
 ## 5. Formal Definitions
 
@@ -153,6 +157,6 @@ No scientific result artifacts are saved in this task. This task creates reusabl
 2. the `fts_lab.fff` package implements all files listed above;
 3. exact and property tests pass for the declared small grids;
 4. `ruff`, `ruff format --check`, `mypy`, and `pytest` pass;
-5. the total-order double-counting issue is documented, not hidden;
+5. the total-order double-counting issue is documented, not hidden, and both counts are shown;
 6. no saved result artifact or public scientific conclusion is produced without manifest/review;
 7. an independent review is still required before treating Stage 1 as accepted.

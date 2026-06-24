@@ -6,7 +6,7 @@ TASK IDS: TASK-001
 SOURCE IDS: SRC-FFF-2020
 CLAIM IDS: CLM-FFF-ORD-001
 ASSUMPTION IDS: ASM-FFF-0001
-EPISTEMIC STATUS: R, assumption-sensitive
+EPISTEMIC STATUS: R, with approved dual-count presentation
 ```
 
 ## Source Locator
@@ -58,12 +58,12 @@ For Stage 1 enumeration, only admissible functions are counted for total-order r
 
 ## Double-Counting Note
 
-`ASM-FFF-0001` remains open because preserving/reversing/constant-map treatment affects whether the source formula is interpreted as:
+`ASM-FFF-0001` and `RDR-0002` require Stage 1 outputs to report both possible count objects because preserving/reversing/constant-map treatment affects whether the source formula is interpreted as:
 
 - an orientation-witness count; or
 - a count of unique payoff functions.
 
-GitHub issue #1 tracks this discrepancy/interpretation risk for independent source transcription and Human PI decision.
+GitHub issue #1 tracks the discrepancy/interpretation risk. `RDR-0002` records the Human PI decision to show both counts.
 
 The implementation therefore exposes both quantities:
 
@@ -83,7 +83,7 @@ source orientation witnesses: 4
 unique admissible monotone functions: 3
 ```
 
-This distinction must be reported before any public Stage 1 total-order claim.
+This distinction must be reported in every public Stage 1 total-order claim, table, or demo.
 
 ## Required Checks
 
@@ -94,4 +94,4 @@ This distinction must be reported before any public Stage 1 total-order claim.
 
 ## Forbidden Interpretation
 
-Do not claim that the source formula is the unique-function count without the double-counting note and independent review.
+Do not claim that the source formula is the unique-function count. Do not publish a total-order count without naming whether it is the source orientation-witness count or the distinct unique-function count.
