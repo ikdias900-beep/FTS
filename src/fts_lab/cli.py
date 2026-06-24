@@ -14,6 +14,7 @@ from fts_lab.fff.cyclic_groups import (
     cyclic_homomorphism_count_formula,
     source_cyclic_ratio,
 )
+from fts_lab.fff.sweeps import run_stage1_sweep
 from fts_lab.fff.total_orders import (
     source_total_order_ratio,
     source_total_order_witness_count,
@@ -79,6 +80,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Audit count after admissibility filtering",
     )
 
+    sweep = fff_subcommands.add_parser(
+        "sweep",
+        help="Run manifest-backed Stage 1 finite count sweep",
+    )
+    sweep.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to Stage 1 sweep config JSON",
+    )
+
     return parser
 
 
@@ -129,6 +141,19 @@ def _add_size_arguments(parser: argparse.ArgumentParser) -> None:
 
 
 def _run_fff_command(args: argparse.Namespace) -> int:
+    if args.fff_command == "sweep":
+        result = run_stage1_sweep(
+            args.config,
+            command="uv run fts fff sweep"
+            if args.config is None
+            else f"uv run fts fff sweep --config {args.config}",
+        )
+        print(f"csv_checksum={result['csv_checksum']}")
+        print(f"csv_path={result['csv_path']}")
+        print(f"manifest_path={result['manifest_path']}")
+        print(f"row_count={result['row_count']}")
+        return 0
+
     domain_size = args.domain_size
     codomain_size = args.codomain_size
     denominator = admissible_count(domain_size, codomain_size)

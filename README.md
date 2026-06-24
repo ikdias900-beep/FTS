@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001` is reviewed and ready for merge on branch `stage1-fff-core`. `TASK-000` bootstrap is complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-001-SWEEP` is in progress. `TASK-000` bootstrap and `TASK-001` exact core are complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -62,6 +62,7 @@ uv run fts fff total-order-count 2 2
 uv run fts fff total-order-count 2 2 --mode unique
 uv run fts fff cyclic-count 2 2
 uv run fts fff cyclic-count 2 2 --admissible-only
+uv run fts fff sweep --config experiments/configs/fff_stage1_small.json
 ```
 
 The total-order helper intentionally separates the source orientation-witness count from the distinct unique-function count. `RDR-0002` records the Human PI decision to show both values in Stage 1 outputs.
@@ -83,7 +84,8 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage tasks and roles](02_stage_tasks_roles.md)
 - [Repository instructions](AGENTS.md)
 - [Bootstrap task](tasks/TASK-000_bootstrap_repo.md)
-- [Current Stage 1 task](tasks/TASK-001_fff_core_orders_cyclic.md)
+- [Stage 1 core task](tasks/TASK-001_fff_core_orders_cyclic.md)
+- [Current Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)
