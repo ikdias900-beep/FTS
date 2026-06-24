@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Generated run artifacts are immutable but not committed by default.
+experiments/manifests/*
+!experiments/manifests/.gitkeep
+results/raw/*
+!results/raw/.gitkeep
+results/derived/*
+!results/derived/.gitkeep
+results/reports/*
+!results/reports/.gitkeep

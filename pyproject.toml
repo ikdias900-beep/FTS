@@ -1,0 +1,47 @@
+[project]
+name = "fts-lab"
+version = "0.1.0"
+description = "Bootstrap infrastructure for the Fitness, Truth & Structure Lab research repository."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "jsonschema>=4.23",
+]
+
+[project.scripts]
+fts = "fts_lab.cli:main"
+
+[dependency-groups]
+dev = [
+  "hypothesis>=6.127",
+  "mypy>=1.15",
+  "pre-commit>=4.1",
+  "pytest>=8.3",
+  "ruff>=0.9",
+  "types-jsonschema>=4.23",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM", "RUF"]
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
