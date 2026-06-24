@@ -22,7 +22,8 @@
 | `02_stage_tasks_roles.md` | Participant roles, stage tasks, acceptance criteria, review process. |
 | `AGENTS.md` | Repository-wide Codex instructions and integrity rules. |
 | `tasks/TASK-000_bootstrap_repo.md` | Completed bootstrap task. |
-| `tasks/TASK-001_fff_core_orders_cyclic.md` | Current Stage 1 exact-count task. |
+| `tasks/TASK-001_fff_core_orders_cyclic.md` | Completed Stage 1 exact-count core task. |
+| `tasks/TASK-001_stage1_sweeps_tables.md` | Current Stage 1 manifest-backed sweep/table task. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 

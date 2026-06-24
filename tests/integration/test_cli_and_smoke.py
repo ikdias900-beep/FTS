@@ -8,6 +8,7 @@ from pathlib import Path
 import pytest
 
 from fts_lab.doctor import check_required_context_files, find_project_root
+from fts_lab.fff.sweeps import run_stage1_sweep
 from fts_lab.manifests import (
     ManifestError,
     read_json_object,
@@ -27,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-001" in result.stdout
+    assert "Active task: TASK-001-SWEEP" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -116,6 +117,54 @@ def test_fff_cli_commands_emit_traceable_counts(
     assert "source_ids=SRC-FFF-2020" in result.stdout
     for expected_line in expected_lines:
         assert expected_line in result.stdout
+
+
+def test_stage1_sweep_writes_csv_and_valid_manifest() -> None:
+    root = find_project_root()
+    result = run_stage1_sweep(command="test fff sweep")
+    csv_path = Path(result["csv_path"])
+    manifest_path = Path(result["manifest_path"])
+
+    assert csv_path.is_file()
+    assert manifest_path.is_file()
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fff_stage1_finite_count_sweep"
+    assert manifest["epistemic_status"] == "C"
+    assert manifest["task_ids"] == ["TASK-001-SWEEP"]
+    assert manifest["assumption_ids"] == ["ASM-FFF-0001"]
+    assert result["csv_checksum"] == manifest["outputs"][0]["sha256"]
+
+
+def test_stage1_sweep_cli_emits_artifact_paths() -> None:
+    result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", "fff", "sweep"],
+        cwd=find_project_root(),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "csv_checksum=" in result.stdout
+    assert "csv_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+    assert "row_count=112" in result.stdout
+
+
+def test_stage1_sweep_manifest_validation_fails_after_csv_corruption(tmp_path: Path) -> None:
+    root = find_project_root()
+    result = run_stage1_sweep(command="test fff sweep corrupt")
+    manifest_path = Path(result["manifest_path"])
+    manifest = read_json_object(manifest_path)
+    csv_path = tmp_path / "sweep-copy.csv"
+    copied_manifest_path = tmp_path / "manifest-copy.json"
+    shutil.copy2(Path(manifest["outputs"][0]["path"]), csv_path)
+    manifest["outputs"][0]["path"] = str(csv_path)
+    write_immutable_json(copied_manifest_path, manifest)
+    csv_path.write_bytes(csv_path.read_bytes() + b"\n")
+
+    with pytest.raises(ManifestError, match="Checksum mismatch"):
+        validate_manifest_file(copied_manifest_path, project_root=root)
 
 
 def test_manifest_validation_fails_after_artifact_corruption(tmp_path: Path) -> None:

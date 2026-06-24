@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "fff_stage1_finite_count_sweep",
+  "epistemic_status": "C",
+  "task_ids": ["TASK-001-SWEEP"],
+  "claim_ids": [
+    "CLM-FFF-ADM-001",
+    "CLM-FFF-ORD-001",
+    "CLM-FFF-CYC-001",
+    "CLM-FFF-CYC-002"
+  ],
+  "source_ids": ["SRC-FFF-2020"],
+  "assumption_ids": ["ASM-FFF-0001"],
+  "domain_sizes": [1, 2, 3, 4],
+  "codomain_sizes": [1, 2, 3, 4],
+  "include_admissible_cyclic_audit": false,
+  "notes": "Small finite Stage 1 P1 table sweep. Total-order output includes both source orientation-witness and distinct unique-function counts per RDR-0002."
+}
