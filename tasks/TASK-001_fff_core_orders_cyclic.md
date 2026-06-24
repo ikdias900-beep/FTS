@@ -6,7 +6,7 @@ STAGE: 1 - FFF total orders and cyclic groups
 EPISTEMIC STATUS: R, with explicit assumption-sensitive total-order notes
 OWNER: Codex Implementer
 REVIEWER: Fresh-context AI/Codex Verifier
-STATUS: IN_PROGRESS
+STATUS: REVIEWED_PENDING_PI_DECISION
 ```
 
 ## 1. Objective
@@ -49,6 +49,10 @@ No new approved scientific assumptions are introduced by this task.
 ## 4.1 Linked Issues
 
 - GitHub issue #1: total-order witness count vs unique functions discrepancy/interpretation risk.
+
+## 4.2 Linked Reviews
+
+- `REV-TASK-001-001`: independent implementation review passed with no fatal or major findings.
 
 ## 5. Formal Definitions
 
