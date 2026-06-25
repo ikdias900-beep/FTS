@@ -103,6 +103,6 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Assumption register](assumptions/register.md)
 - [Reproducibility contract](docs/reproducibility.md)
 
-## Release Blockers
+## License
 
-No final software license has been selected. See [RDR-0001-license](docs/decisions/RDR-0001-license.md). Public release remains blocked until the Human Principal Investigator approves a license.
+Project-authored repository contents are released under the MIT License. See [LICENSE](LICENSE) and [RDR-0001-license](docs/decisions/RDR-0001-license.md). External sources and third-party dependencies keep their own terms.
