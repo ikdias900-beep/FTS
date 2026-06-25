@@ -8,3 +8,4 @@
 - Start `TASK-001` with exact FFF admissibility, total-order, and cyclic-group helpers plus brute-force tests.
 - Record `RDR-0002`, approving side-by-side total-order source witness and unique-function counts.
 - Add `TASK-001-SWEEP` with manifest-backed Stage 1 finite-count CSV export.
+- Record `REV-TASK-001-SWEEP-001` and start `TASK-001-PUBTABLES` with derived publication tables and result documentation.

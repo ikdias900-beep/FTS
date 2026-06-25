@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-001-SWEEP" in result.stdout
+    assert "Active task: TASK-001-PUBTABLES" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -62,6 +62,7 @@ def test_cli_records_documented_smoke_command() -> None:
         text=True,
         check=False,
     )
+    assert result.returncode == 0, result.stdout + result.stderr
     manifest_path = _manifest_path_from_output(result.stdout)
     manifest = read_json_object(manifest_path)
 
@@ -162,6 +163,77 @@ def test_stage1_sweep_manifest_validation_fails_after_csv_corruption(tmp_path: P
     manifest["outputs"][0]["path"] = str(csv_path)
     write_immutable_json(copied_manifest_path, manifest)
     csv_path.write_bytes(csv_path.read_bytes() + b"\n")
+
+    with pytest.raises(ManifestError, match="Checksum mismatch"):
+        validate_manifest_file(copied_manifest_path, project_root=root)
+
+
+def test_stage1_publication_tables_cli_writes_outputs_and_valid_manifest() -> None:
+    root = find_project_root()
+    sweep_result = run_stage1_sweep(command="test fff publication source sweep")
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "fff",
+            "publication-tables",
+            "--sweep-manifest",
+            sweep_result["manifest_path"],
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "summary_csv_checksum=" in result.stdout
+    assert "summary_csv_path=" in result.stdout
+    assert "report_checksum=" in result.stdout
+    assert "report_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+    assert "row_count=16" in result.stdout
+
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fff_stage1_publication_tables"
+    assert manifest["epistemic_status"] == "C"
+    assert manifest["task_ids"] == ["TASK-001-PUBTABLES"]
+    assert manifest["assumption_ids"] == ["ASM-FFF-0001"]
+    assert len(manifest["inputs"]) == 2
+    assert len(manifest["outputs"]) == 2
+
+
+def test_stage1_publication_tables_manifest_validation_fails_after_output_corruption(
+    tmp_path: Path,
+) -> None:
+    root = find_project_root()
+    sweep_result = run_stage1_sweep(command="test fff publication corrupt source sweep")
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "fff",
+            "publication-tables",
+            "--sweep-manifest",
+            sweep_result["manifest_path"],
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = read_json_object(manifest_path)
+    copied_manifest_path = tmp_path / "publication-manifest-copy.json"
+    copied_summary_path = tmp_path / "summary-copy.csv"
+    original_summary_path = Path(manifest["outputs"][0]["path"])
+    shutil.copy2(original_summary_path, copied_summary_path)
+    manifest["outputs"][0]["path"] = str(copied_summary_path)
+    write_immutable_json(copied_manifest_path, manifest)
+    copied_summary_path.write_bytes(copied_summary_path.read_bytes() + b"\n")
 
     with pytest.raises(ManifestError, match="Checksum mismatch"):
         validate_manifest_file(copied_manifest_path, project_root=root)

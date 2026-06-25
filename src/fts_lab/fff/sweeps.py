@@ -40,6 +40,15 @@ from fts_lab.manifests import (
 )
 
 SWEEP_ARTIFACT_KIND = "fff_stage1_finite_count_sweep"
+EXPECTED_TASK_IDS = ("TASK-001-SWEEP",)
+EXPECTED_CLAIM_IDS = (
+    "CLM-FFF-ADM-001",
+    "CLM-FFF-ORD-001",
+    "CLM-FFF-CYC-001",
+    "CLM-FFF-CYC-002",
+)
+EXPECTED_SOURCE_IDS = ("SRC-FFF-2020",)
+EXPECTED_ASSUMPTION_IDS = ("ASM-FFF-0001",)
 CSV_FILENAME = "fff_stage1_counts.csv"
 CSV_FIELDNAMES = (
     "schema_version",
@@ -156,14 +165,23 @@ def load_sweep_config(path: Path) -> SweepConfig:
     if epistemic_status != "C":
         raise ValueError("Stage 1 sweep artifact must use epistemic_status 'C'")
 
+    task_ids = _string_tuple(data, "task_ids", min_items=1)
+    claim_ids = _string_tuple(data, "claim_ids", min_items=1)
+    source_ids = _string_tuple(data, "source_ids", min_items=1)
+    assumption_ids = _string_tuple(data, "assumption_ids", min_items=1)
+    _require_exact_tuple("task_ids", task_ids, EXPECTED_TASK_IDS)
+    _require_exact_tuple("claim_ids", claim_ids, EXPECTED_CLAIM_IDS)
+    _require_exact_tuple("source_ids", source_ids, EXPECTED_SOURCE_IDS)
+    _require_exact_tuple("assumption_ids", assumption_ids, EXPECTED_ASSUMPTION_IDS)
+
     return SweepConfig(
         path=path,
         artifact_kind=artifact_kind,
         epistemic_status=epistemic_status,
-        task_ids=_string_tuple(data, "task_ids", min_items=1),
-        claim_ids=_string_tuple(data, "claim_ids", min_items=1),
-        source_ids=_string_tuple(data, "source_ids", min_items=1),
-        assumption_ids=_string_tuple(data, "assumption_ids", min_items=1),
+        task_ids=task_ids,
+        claim_ids=claim_ids,
+        source_ids=source_ids,
+        assumption_ids=assumption_ids,
         domain_sizes=_positive_int_tuple(data, "domain_sizes"),
         codomain_sizes=_positive_int_tuple(data, "codomain_sizes"),
         include_admissible_cyclic_audit=_bool_value(data, "include_admissible_cyclic_audit"),
@@ -371,6 +389,11 @@ def _string_tuple(data: dict[str, Any], key: str, *, min_items: int) -> tuple[st
     if len(set(strings)) != len(strings):
         raise ValueError(f"{key} must not contain duplicates")
     return tuple(strings)
+
+
+def _require_exact_tuple(key: str, actual: tuple[str, ...], expected: tuple[str, ...]) -> None:
+    if actual != expected:
+        raise ValueError(f"{key} must be exactly {expected!r}")
 
 
 def _positive_int_tuple(data: dict[str, Any], key: str) -> tuple[int, ...]:
