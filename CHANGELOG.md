@@ -9,3 +9,4 @@
 - Record `RDR-0002`, approving side-by-side total-order source witness and unique-function counts.
 - Add `TASK-001-SWEEP` with manifest-backed Stage 1 finite-count CSV export.
 - Record `REV-TASK-001-SWEEP-001` and start `TASK-001-PUBTABLES` with derived publication tables and result documentation.
+- Record `REV-TASK-001-PUBTABLES-001`, fix source sweep task-lineage validation, and mark `TASK-001-PUBTABLES` accepted with minor findings.

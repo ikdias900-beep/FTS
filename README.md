@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001-PUBTABLES` is ready for independent review. `TASK-000` bootstrap, `TASK-001` exact core, and `TASK-001-SWEEP` are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, and manifest-backed publication table generation. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-001-PUBTABLES` is accepted with minor findings after independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, and Stage 1 publication-table documentation are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, and manifest-backed publication table generation. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 

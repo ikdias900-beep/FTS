@@ -90,4 +90,6 @@ The `C` columns are the approved `RDR-0002` presentation companion required by `
 
 `REV-TASK-001-SWEEP-001` accepted the source sweep with minor findings only. No fatal or major findings block `TASK-001-SWEEP`.
 
-`TASK-001-PUBTABLES` still requires its own fresh-context review before a P1 release package.
+`REV-TASK-001-PUBTABLES-001` accepted `TASK-001-PUBTABLES` with minor findings only. No fatal or major findings block the publication-table package.
+
+The review-identified source sweep `task_ids` lineage check is fixed in commit `446eb187775ad2c5f327d06c0efcaf5b1201ef19`. The remaining local-environment note is that bare `uv` is not available on the reviewed PowerShell `PATH`; the documented `py -m uv ...` fallback passed the required checks.

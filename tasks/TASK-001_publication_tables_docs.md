@@ -6,7 +6,7 @@ STAGE: 1 - FFF total orders and cyclic groups
 EPISTEMIC STATUS: C for the derived publication table package; per-column status is preserved
 OWNER: Codex Implementer
 REVIEWER: Fresh-context AI/Codex Verifier for publication package before P1 release
-STATUS: READY_FOR_REVIEW
+STATUS: ACCEPTED_WITH_MINOR_FINDINGS
 ```
 
 ## 1. Objective
@@ -23,6 +23,15 @@ The output must be derived from a validated Stage 1 sweep manifest. It must pres
 - verdict: `accepted_with_minor_findings`
 - unresolved fatal findings: none
 - unresolved major findings: none
+
+`TASK-001-PUBTABLES` passed independent review:
+
+- `REV-TASK-001-PUBTABLES-001`
+- verdict: `accepted_with_minor_findings`
+- unresolved fatal findings: none
+- unresolved major findings: none
+- source sweep `task_ids` lineage validation fix committed in `446eb187775ad2c5f327d06c0efcaf5b1201ef19`
+- remaining minor finding: bare `uv` is not on the local PowerShell `PATH`; use the documented `py -m uv ...` fallback on that machine
 
 ## 3. Primary Source
 
