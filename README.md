@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001-PUBTABLES` is accepted with minor findings after independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, and Stage 1 publication-table documentation are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, and manifest-backed publication table generation. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-001-P1-CAPSULE` is ready for independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, and `TASK-001-PUBTABLES` are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, and a draft Stage 1 release capsule. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -96,7 +96,8 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Bootstrap task](tasks/TASK-000_bootstrap_repo.md)
 - [Stage 1 core task](tasks/TASK-001_fff_core_orders_cyclic.md)
 - [Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
-- [Current Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
+- [Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
+- [Current Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
