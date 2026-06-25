@@ -2,7 +2,7 @@
 
 **Project:** Fitness, Truth & Structure Lab  
 **Version:** 0.1  
-**Last verified:** 2026-06-24  
+**Last verified:** 2026-06-25
 **Purpose:** canonical source IDs, editions, links, stage usage, and source-handling rules.
 
 ## 1. Source policy
@@ -23,7 +23,8 @@
 | `AGENTS.md` | Repository-wide Codex instructions and integrity rules. |
 | `tasks/TASK-000_bootstrap_repo.md` | Completed bootstrap task. |
 | `tasks/TASK-001_fff_core_orders_cyclic.md` | Completed Stage 1 exact-count core task. |
-| `tasks/TASK-001_stage1_sweeps_tables.md` | Current Stage 1 manifest-backed sweep/table task. |
+| `tasks/TASK-001_stage1_sweeps_tables.md` | Completed Stage 1 manifest-backed sweep/table task. |
+| `tasks/TASK-001_publication_tables_docs.md` | Current Stage 1 publication-table and result-documentation task. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 

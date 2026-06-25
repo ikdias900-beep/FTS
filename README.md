@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001-SWEEP` is in progress. `TASK-000` bootstrap and `TASK-001` exact core are complete and green in CI. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, and cyclic groups. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-001-PUBTABLES` is accepted with minor findings after independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, and Stage 1 publication-table documentation are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, and manifest-backed publication table generation. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -13,6 +13,8 @@ The reference runtime is Python `>=3.12,<3.13` managed by `uv`.
 ```bash
 uv sync --all-groups
 ```
+
+On Windows, if `uv` is installed but not on `PATH`, the same commands can usually be run as `py -m uv ...`.
 
 `jsonschema` is the only runtime dependency because `fts validate-manifest` validates machine-readable experiment manifests against `experiments/schemas/experiment_manifest.schema.json`. Test, lint, typing, and pre-commit tools are development dependencies.
 
@@ -67,6 +69,14 @@ uv run fts fff sweep --config experiments/configs/fff_stage1_small.json
 
 The total-order helper intentionally separates the source orientation-witness count from the distinct unique-function count. `RDR-0002` records the Human PI decision to show both values in Stage 1 outputs.
 
+Build derived publication tables after a sweep:
+
+```bash
+uv run fts fff publication-tables --sweep-manifest experiments/manifests/<sweep-manifest>.json
+```
+
+The derived package writes a wide CSV under `results/derived/`, a Markdown report under `results/reports/`, and a manifest under `experiments/manifests/`.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -85,7 +95,9 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Repository instructions](AGENTS.md)
 - [Bootstrap task](tasks/TASK-000_bootstrap_repo.md)
 - [Stage 1 core task](tasks/TASK-001_fff_core_orders_cyclic.md)
-- [Current Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
+- [Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
+- [Current Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
+- [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

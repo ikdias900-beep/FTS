@@ -14,7 +14,7 @@ from typing import Any
 from fts_lab import __version__
 from fts_lab.manifests import SCHEMA_PATH, canonical_json_text, sha256_file
 
-ACTIVE_TASK = "TASK-001-SWEEP"
+ACTIVE_TASK = "TASK-001-PUBTABLES"
 
 REQUIRED_CONTEXT_FILES = (
     "AGENTS.md",
@@ -23,6 +23,7 @@ REQUIRED_CONTEXT_FILES = (
     "tasks/TASK-000_bootstrap_repo.md",
     "tasks/TASK-001_fff_core_orders_cyclic.md",
     "tasks/TASK-001_stage1_sweeps_tables.md",
+    "tasks/TASK-001_publication_tables_docs.md",
     "sources/source_map.md",
     "sources/claim_matrix.csv",
     "assumptions/register.md",

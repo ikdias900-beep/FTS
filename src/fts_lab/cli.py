@@ -14,6 +14,7 @@ from fts_lab.fff.cyclic_groups import (
     cyclic_homomorphism_count_formula,
     source_cyclic_ratio,
 )
+from fts_lab.fff.publication_tables import run_stage1_publication_tables
 from fts_lab.fff.sweeps import run_stage1_sweep
 from fts_lab.fff.total_orders import (
     source_total_order_ratio,
@@ -91,6 +92,17 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to Stage 1 sweep config JSON",
     )
 
+    publication_tables = fff_subcommands.add_parser(
+        "publication-tables",
+        help="Build derived Stage 1 publication tables from a sweep manifest",
+    )
+    publication_tables.add_argument(
+        "--sweep-manifest",
+        type=Path,
+        required=True,
+        help="Path to a validated Stage 1 sweep manifest",
+    )
+
     return parser
 
 
@@ -150,6 +162,19 @@ def _run_fff_command(args: argparse.Namespace) -> int:
         )
         print(f"csv_checksum={result['csv_checksum']}")
         print(f"csv_path={result['csv_path']}")
+        print(f"manifest_path={result['manifest_path']}")
+        print(f"row_count={result['row_count']}")
+        return 0
+
+    if args.fff_command == "publication-tables":
+        result = run_stage1_publication_tables(
+            args.sweep_manifest,
+            command=f"uv run fts fff publication-tables --sweep-manifest {args.sweep_manifest}",
+        )
+        print(f"summary_csv_checksum={result['summary_csv_checksum']}")
+        print(f"summary_csv_path={result['summary_csv_path']}")
+        print(f"report_checksum={result['report_checksum']}")
+        print(f"report_path={result['report_path']}")
         print(f"manifest_path={result['manifest_path']}")
         print(f"row_count={result['row_count']}")
         return 0
