@@ -205,6 +205,36 @@ def test_stage1_publication_tables_cli_writes_outputs_and_valid_manifest() -> No
     assert len(manifest["outputs"]) == 2
 
 
+def test_stage1_publication_tables_rejects_manifest_with_wrong_source_task(
+    tmp_path: Path,
+) -> None:
+    root = find_project_root()
+    sweep_result = run_stage1_sweep(command="test fff publication wrong task")
+    manifest = read_json_object(Path(sweep_result["manifest_path"]))
+    manifest["task_ids"] = ["TASK-BOGUS"]
+    bad_manifest_path = tmp_path / "bad-source-task-manifest.json"
+    write_immutable_json(bad_manifest_path, manifest)
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "fff",
+            "publication-tables",
+            "--sweep-manifest",
+            str(bad_manifest_path),
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 1
+    assert "task_ids must be exactly ['TASK-001-SWEEP']" in result.stdout
+
+
 def test_stage1_publication_tables_manifest_validation_fails_after_output_corruption(
     tmp_path: Path,
 ) -> None:

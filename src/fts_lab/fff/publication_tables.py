@@ -19,6 +19,7 @@ from fts_lab.fff.sweeps import (
     EXPECTED_ASSUMPTION_IDS,
     EXPECTED_CLAIM_IDS,
     EXPECTED_SOURCE_IDS,
+    EXPECTED_TASK_IDS,
     SWEEP_ARTIFACT_KIND,
 )
 from fts_lab.manifests import (
@@ -368,6 +369,7 @@ def _validate_sweep_manifest(manifest: Mapping[str, Any]) -> None:
         raise ManifestError(f"Expected sweep artifact kind {SWEEP_ARTIFACT_KIND!r}")
     if manifest.get("epistemic_status") != "C":
         raise ManifestError("Stage 1 sweep manifest must use epistemic_status 'C'")
+    _require_manifest_list("task_ids", manifest, EXPECTED_TASK_IDS)
     _require_manifest_list("claim_ids", manifest, EXPECTED_CLAIM_IDS)
     _require_manifest_list("source_ids", manifest, EXPECTED_SOURCE_IDS)
     _require_manifest_list("assumption_ids", manifest, EXPECTED_ASSUMPTION_IDS)
