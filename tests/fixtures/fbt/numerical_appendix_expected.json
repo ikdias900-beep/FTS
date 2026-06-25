@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "task_ids": ["TASK-002-FBT-NUMERICAL"],
+  "claim_ids": [
+    "CLM-FBT-APP-001",
+    "CLM-FBT-APP-002",
+    "CLM-FBT-APP-003",
+    "CLM-FBT-APP-004"
+  ],
+  "source_ids": ["SRC-FBT-2021"],
+  "assumption_ids": [],
+  "source_locator": "SRC-FBT-2021; version of record; Appendix: Calculations for the Numerical Example in Table 1",
+  "expected": {
+    "marginals": {
+      "x1": "13/28",
+      "x2": "15/28"
+    },
+    "posteriors": {
+      "x1": {
+        "w1": "1/13",
+        "w2": "9/13",
+        "w3": "3/13"
+      },
+      "x2": {
+        "w1": "1/5",
+        "w2": "1/5",
+        "w3": "3/5"
+      }
+    },
+    "map_estimates": {
+      "x1": "w2",
+      "x2": "w3"
+    },
+    "expected_fitness": {
+      "x1": "5",
+      "x2": "33/5"
+    },
+    "fitness_winner": "x2"
+  }
+}

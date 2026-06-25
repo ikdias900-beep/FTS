@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-001-P1-CAPSULE` is accepted with minor findings after independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are complete through independent review. The repository now provides infrastructure plus Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, and a draft Stage 1 release capsule. It does not implement FBT, evolutionary dynamics, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-002-FBT-NUMERICAL` is active. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, and Stage 2 source-table scaffolding for exact FBT numerical appendix reproduction. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -27,6 +27,7 @@ uv run mypy src
 uv run pytest
 uv run fts doctor
 uv run fts reproduce-smoke
+uv run fts fbt reproduce-numerical-example
 ```
 
 Equivalent Make targets are available:
@@ -77,6 +78,20 @@ uv run fts fff publication-tables --sweep-manifest experiments/manifests/<sweep-
 
 The derived package writes a wide CSV under `results/derived/`, a Markdown report under `results/reports/`, and a manifest under `experiments/manifests/`.
 
+## Stage 2 FBT Numerical Appendix
+
+Reproduce the FBT numerical appendix with exact rational arithmetic:
+
+```bash
+uv run fts fbt reproduce-numerical-example
+```
+
+The command reads `experiments/configs/fbt_numerical_example.json`, computes
+marginals, posteriors, unique MAP estimates, expected-fitness values, writes a JSON
+result and Markdown derivation report, then validates a scientific manifest with
+`epistemic_status: R`. This is a reproduction of one appendix example only; it is not an
+evolutionary simulation or a proof of the general FBT theorem.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -97,7 +112,9 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 1 core task](tasks/TASK-001_fff_core_orders_cyclic.md)
 - [Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
 - [Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
-- [Current Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
+- [Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
+- [Current Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
+- [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
