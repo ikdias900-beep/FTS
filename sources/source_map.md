@@ -24,7 +24,8 @@
 | `tasks/TASK-000_bootstrap_repo.md` | Completed bootstrap task. |
 | `tasks/TASK-001_fff_core_orders_cyclic.md` | Completed Stage 1 exact-count core task. |
 | `tasks/TASK-001_stage1_sweeps_tables.md` | Completed Stage 1 manifest-backed sweep/table task. |
-| `tasks/TASK-001_publication_tables_docs.md` | Current Stage 1 publication-table and result-documentation task. |
+| `tasks/TASK-001_publication_tables_docs.md` | Completed Stage 1 publication-table and result-documentation task. |
+| `tasks/TASK-001_p1_release_capsule.md` | Completed Stage 1 draft release-capsule task. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 

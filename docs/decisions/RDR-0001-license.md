@@ -1,8 +1,8 @@
-# RDR-0001: Software License
+# RDR-0001: Repository License
 
 ## Status
 
-PENDING
+APPROVED
 
 ## Intent
 
@@ -26,12 +26,18 @@ A license defines what other people may legally do with the code and artifacts. 
 
 ## Human Decision
 
-Pending Human Principal Investigator decision.
+Use the MIT License for project-authored repository contents, including code, documentation, and generated release data unless a file explicitly states different third-party terms.
+
+Copyright notice:
+
+```text
+Copyright (c) 2026 Fitness, Truth & Structure Lab contributors
+```
 
 ## What This Does Not Mean
 
-This record does not select a license and does not permit public release.
+This does not relicense external primary-source papers, publisher content, third-party packages, or any other material not authored for this repository.
 
 ## When To Revisit
 
-Before the first public release, package publication, archival deposit, or external reuse invitation.
+Before adding third-party assets, archived source PDFs, externally contributed datasets, or publication assets requiring a more specific license.

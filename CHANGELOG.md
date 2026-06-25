@@ -10,3 +10,6 @@
 - Add `TASK-001-SWEEP` with manifest-backed Stage 1 finite-count CSV export.
 - Record `REV-TASK-001-SWEEP-001` and start `TASK-001-PUBTABLES` with derived publication tables and result documentation.
 - Record `REV-TASK-001-PUBTABLES-001`, fix source sweep task-lineage validation, and mark `TASK-001-PUBTABLES` accepted with minor findings.
+- Approve the MIT License in `RDR-0001-license`.
+- Add `TASK-001-P1-CAPSULE` and a draft Stage 1 release capsule with manifests, raw/derived data, review summary, limitations, reproduction commands, and checksums.
+- Record `REV-TASK-001-P1-CAPSULE-001` and mark `TASK-001-P1-CAPSULE` accepted with minor findings.
