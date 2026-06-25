@@ -6,7 +6,7 @@ STAGE: 1 - FFF total orders and cyclic groups
 EPISTEMIC STATUS: C for release packaging; no new scientific claims
 OWNER: Codex Implementer
 REVIEWER: Fresh-context AI/Codex Verifier before publication
-STATUS: READY_FOR_REVIEW
+STATUS: ACCEPTED_WITH_MINOR_FINDINGS
 ```
 
 ## 1. Objective
@@ -21,6 +21,11 @@ This task packages already reviewed outputs. It does not change mathematical def
 - `TASK-001-SWEEP` passed independent review with verdict `accepted_with_minor_findings`.
 - `TASK-001-PUBTABLES` passed independent review with verdict `accepted_with_minor_findings`.
 - `RDR-0001-license` is approved as MIT for project-authored repository contents.
+- `TASK-001-P1-CAPSULE` passed independent review:
+  - `REV-TASK-001-P1-CAPSULE-001`
+  - verdict: `accepted_with_minor_findings`
+  - unresolved fatal findings: none
+  - unresolved major findings: none
 
 ## 3. Linked Sources, Claims, Assumptions, and Decisions
 
