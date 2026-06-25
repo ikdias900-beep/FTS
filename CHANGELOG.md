@@ -14,3 +14,4 @@
 - Add `TASK-001-P1-CAPSULE` and a draft Stage 1 release capsule with manifests, raw/derived data, review summary, limitations, reproduction commands, and checksums.
 - Record `REV-TASK-001-P1-CAPSULE-001` and mark `TASK-001-P1-CAPSULE` accepted with minor findings.
 - Start `TASK-002-FBT-NUMERICAL` with exact source-table config, specification, fixtures, FBT Bayes/decision helpers, and manifest-backed CLI reproduction.
+- Add a draft Stage 2 P2 checkpoint capsule for the FBT numerical appendix, with review deferred to the next batched Stage 2 independent review.
