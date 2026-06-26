@@ -8,6 +8,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from fts_lab.doctor import find_project_root, run_doctor
+from fts_lab.fbt.numerical_example import run_fbt_numerical_example
 from fts_lab.fff.admissibility import admissible_count
 from fts_lab.fff.cyclic_groups import (
     count_admissible_cyclic_homomorphisms_by_enumeration,
@@ -48,6 +49,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     validate = subcommands.add_parser("validate-manifest", help="Validate a manifest and checksums")
     validate.add_argument("path", type=Path, help="Manifest path")
+
+    fbt = subcommands.add_parser("fbt", help="Run exact FBT Stage 2 helpers")
+    fbt_subcommands = fbt.add_subparsers(dest="fbt_command", required=True)
+
+    reproduce_numerical = fbt_subcommands.add_parser(
+        "reproduce-numerical-example",
+        help="Reproduce the FBT numerical appendix with exact arithmetic",
+    )
+    reproduce_numerical.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to the FBT numerical example source-table JSON",
+    )
 
     fff = subcommands.add_parser("fff", help="Run exact FFF Stage 1 helpers")
     fff_subcommands = fff.add_subparsers(dest="fff_command", required=True)
@@ -144,6 +159,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         except ValueError as exc:
             print(f"fff failed: {exc}")
             return 1
+    if args.command == "fbt":
+        try:
+            return _run_fbt_command(args)
+        except (OSError, ValueError, ManifestError) as exc:
+            print(f"fbt failed: {exc}")
+            return 1
     raise AssertionError(f"unhandled command: {args.command}")
 
 
@@ -223,6 +244,24 @@ def _run_fff_command(args: argparse.Namespace) -> int:
         return 0
 
     raise AssertionError(f"unhandled FFF command: {args.fff_command}")
+
+
+def _run_fbt_command(args: argparse.Namespace) -> int:
+    if args.fbt_command == "reproduce-numerical-example":
+        result = run_fbt_numerical_example(
+            args.config,
+            command="uv run fts fbt reproduce-numerical-example"
+            if args.config is None
+            else f"uv run fts fbt reproduce-numerical-example --config {args.config}",
+        )
+        print(f"json_report_checksum={result['json_report_checksum']}")
+        print(f"json_report_path={result['json_report_path']}")
+        print(f"markdown_report_checksum={result['markdown_report_checksum']}")
+        print(f"markdown_report_path={result['markdown_report_path']}")
+        print(f"manifest_path={result['manifest_path']}")
+        return 0
+
+    raise AssertionError(f"unhandled FBT command: {args.fbt_command}")
 
 
 def _print_ratio(ratio: Fraction, *, denominator: int) -> None:

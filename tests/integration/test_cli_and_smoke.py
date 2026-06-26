@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-001-P1-CAPSULE" in result.stdout
+    assert "Active task: TASK-002-FBT-NUMERICAL" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -267,6 +267,40 @@ def test_stage1_publication_tables_manifest_validation_fails_after_output_corrup
 
     with pytest.raises(ManifestError, match="Checksum mismatch"):
         validate_manifest_file(copied_manifest_path, project_root=root)
+
+
+def test_fbt_numerical_example_cli_writes_outputs_and_valid_manifest() -> None:
+    root = find_project_root()
+    result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", "fbt", "reproduce-numerical-example"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "json_report_checksum=" in result.stdout
+    assert "json_report_path=" in result.stdout
+    assert "markdown_report_checksum=" in result.stdout
+    assert "markdown_report_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fbt_numerical_appendix_reproduction"
+    assert manifest["epistemic_status"] == "R"
+    assert manifest["task_ids"] == ["TASK-002-FBT-NUMERICAL"]
+    assert manifest["claim_ids"] == [
+        "CLM-FBT-APP-001",
+        "CLM-FBT-APP-002",
+        "CLM-FBT-APP-003",
+        "CLM-FBT-APP-004",
+    ]
+    assert manifest["source_ids"] == ["SRC-FBT-2021"]
+    assert manifest["assumption_ids"] == []
+    assert len(manifest["inputs"]) == 1
+    assert len(manifest["outputs"]) == 2
 
 
 def test_manifest_validation_fails_after_artifact_corruption(tmp_path: Path) -> None:

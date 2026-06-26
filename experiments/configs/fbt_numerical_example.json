@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "fbt_numerical_appendix_source_table",
+  "task_ids": ["TASK-002-FBT-NUMERICAL"],
+  "claim_ids": [
+    "CLM-FBT-APP-001",
+    "CLM-FBT-APP-002",
+    "CLM-FBT-APP-003",
+    "CLM-FBT-APP-004"
+  ],
+  "source_ids": ["SRC-FBT-2021"],
+  "assumption_ids": [],
+  "source_locator": "SRC-FBT-2021; version of record; Appendix: Calculations for the Numerical Example in Table 1",
+  "source_urls": {
+    "doi": "https://doi.org/10.1007/s10441-020-09400-0",
+    "publisher": "https://link.springer.com/article/10.1007/s10441-020-09400-0",
+    "author_manuscript_pdf": "https://sites.socsci.uci.edu/~ddhoff/FitnessBeatsTruth_apa_PBR.pdf"
+  },
+  "observations": ["x1", "x2"],
+  "world_states": [
+    {
+      "id": "w1",
+      "prior": "1/7",
+      "fitness": "20",
+      "likelihoods": {
+        "x1": "1/4",
+        "x2": "3/4"
+      }
+    },
+    {
+      "id": "w2",
+      "prior": "3/7",
+      "fitness": "4",
+      "likelihoods": {
+        "x1": "3/4",
+        "x2": "1/4"
+      }
+    },
+    {
+      "id": "w3",
+      "prior": "3/7",
+      "fitness": "3",
+      "likelihoods": {
+        "x1": "1/4",
+        "x2": "3/4"
+      }
+    }
+  ],
+  "notes": "Source input table only. Published target results live in tests/fixtures/fbt/numerical_appendix_expected.json, not in production implementation."
+}
