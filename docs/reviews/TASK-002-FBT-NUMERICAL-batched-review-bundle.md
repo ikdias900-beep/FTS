@@ -2,8 +2,8 @@
 
 ```text
 TASK ID: TASK-002-FBT-NUMERICAL
-REVIEW TYPE: deferred independent Stage 2 batch review input
-CURRENT VERDICT: none; not yet independently reviewed
+REVIEW TYPE: end-of-Stage 2 independent review input
+CURRENT VERDICT: none; ready for independent review, not yet reviewed
 SOURCE ID: SRC-FBT-2021
 CLAIM IDS: CLM-FBT-APP-001, CLM-FBT-APP-002, CLM-FBT-APP-003, CLM-FBT-APP-004
 ASSUMPTION IDS: none for the source example
@@ -11,7 +11,7 @@ ASSUMPTION IDS: none for the source example
 
 ## Purpose
 
-This file is a review bundle for the later batched Stage 2 independent review.
+This file is a review bundle for the end-of-Stage 2 independent review.
 It is not a review result and does not change any claim to accepted/reviewed
 status.
 
@@ -35,12 +35,12 @@ Primary files:
 - `src/fts_lab/fbt/decision.py`;
 - `src/fts_lab/fbt/numerical_example.py`;
 - `src/fts_lab/cli.py`;
-- `tests/unit/fbt/test_bayes.py`;
-- `tests/unit/fbt/test_decision.py`;
-- `tests/unit/fbt/test_numerical_example.py`;
+- `tests/exact/test_fbt_numerical_appendix.py`;
 - `tests/integration/test_cli_and_smoke.py`;
+- `tests/integration/test_release_capsules.py`;
 - `release/stage2-p2-draft/`;
 - `docs/research_notes/stage2_fbt_numerical_appendix.md`;
+- `docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md`;
 - `sources/claim_matrix.csv`;
 - `assumptions/register.md`.
 

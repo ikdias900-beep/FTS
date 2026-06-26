@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-002-FBT-NUMERICAL` is active. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, exact FBT numerical appendix reproduction, and a draft Stage 2 checkpoint capsule. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-002-FBT-NUMERICAL` implementation is merged and pending the end-of-Stage 2 independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, exact FBT numerical appendix reproduction, and a draft Stage 2 checkpoint capsule. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -116,12 +116,13 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 1 sweep task](tasks/TASK-001_stage1_sweeps_tables.md)
 - [Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
 - [Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
-- [Current Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
+- [Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)
+- [Stage 2 independent review brief](docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)
