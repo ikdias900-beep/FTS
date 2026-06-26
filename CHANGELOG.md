@@ -18,3 +18,4 @@
 - Record `RDR-0003`, documenting the Human PI decision to merge intermediate Stage 2 PRs after local checks and CI while deferring independent review to an end-of-Stage 2 batch.
 - Add a human-facing Stage 2 FBT numerical appendix note and a deferred batched-review bundle for `TASK-002-FBT-NUMERICAL`.
 - Normalize Stage 2 capsule checksum paths for cross-platform validation.
+- Add the end-of-Stage 2 independent review brief and closeout status wording for `TASK-002-FBT-NUMERICAL`.
