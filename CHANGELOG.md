@@ -15,3 +15,5 @@
 - Record `REV-TASK-001-P1-CAPSULE-001` and mark `TASK-001-P1-CAPSULE` accepted with minor findings.
 - Start `TASK-002-FBT-NUMERICAL` with exact source-table config, specification, fixtures, FBT Bayes/decision helpers, and manifest-backed CLI reproduction.
 - Add a draft Stage 2 P2 checkpoint capsule for the FBT numerical appendix, with review deferred to the next batched Stage 2 independent review.
+- Record `RDR-0003`, documenting the Human PI decision to merge intermediate Stage 2 PRs after local checks and CI while deferring independent review to an end-of-Stage 2 batch.
+- Add a human-facing Stage 2 FBT numerical appendix note and a deferred batched-review bundle for `TASK-002-FBT-NUMERICAL`.
