@@ -2,7 +2,7 @@
 
 **Project:** Fitness, Truth & Structure Lab  
 **Version:** 0.1  
-**Last verified:** 2026-06-26
+**Last verified:** 2026-06-27
 **Purpose:** canonical source IDs, editions, links, stage usage, and source-handling rules.
 
 ## 1. Source policy
@@ -26,11 +26,12 @@
 | `tasks/TASK-001_stage1_sweeps_tables.md` | Completed Stage 1 manifest-backed sweep/table task. |
 | `tasks/TASK-001_publication_tables_docs.md` | Completed Stage 1 publication-table and result-documentation task. |
 | `tasks/TASK-001_p1_release_capsule.md` | Completed Stage 1 draft release-capsule task. |
-| `tasks/TASK-002_fbt_numerical_appendix.md` | Stage 2 FBT numerical appendix reproduction task; implementation merged, independent review pending. |
-| `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; independent review pending by batch cadence. |
+| `tasks/TASK-002_fbt_numerical_appendix.md` | Completed Stage 2 FBT numerical appendix reproduction task. |
+| `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md` | End-of-Stage 2 independent review brief for the FBT appendix reproduction. |
+| `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md` | Independent review report accepting `TASK-002-FBT-NUMERICAL` with minor findings only. |
 | `docs/decisions/RDR-0003-stage2-batched-review-cadence.md` | Approved Stage 2 review cadence decision. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |

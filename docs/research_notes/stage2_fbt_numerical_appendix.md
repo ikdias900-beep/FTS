@@ -7,7 +7,7 @@ EPISTEMIC STATUS: R
 SOURCE ID: SRC-FBT-2021
 CLAIM IDS: CLM-FBT-APP-001, CLM-FBT-APP-002, CLM-FBT-APP-003, CLM-FBT-APP-004
 ASSUMPTION IDS: none for the source example
-REVIEW STATUS: pending batched Stage 2 independent review
+REVIEW STATUS: accepted_with_minor_findings in REV-TASK-002-FBT-NUMERICAL-001
 ```
 
 ## Purpose
@@ -117,6 +117,9 @@ The current committed checkpoint capsule is under `release/stage2-p2-draft/`.
 
 ## Review State
 
-Per `RDR-0003`, this work is allowed to merge as an intermediate Stage 2 result
-after local checks and CI pass, while remaining pending independent review. The
-independent review is deferred to the batched end-of-Stage 2 review.
+`REV-TASK-002-FBT-NUMERICAL-001` accepted this Stage 2 reproduction with minor
+findings only. There are no unresolved fatal or major findings.
+
+The minor finding is packaging-related: the copied release manifest preserves
+the original absolute generated-artifact paths. The capsule remains verifiable
+through committed raw/derived files and `checksums.txt`.
