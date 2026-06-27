@@ -24,3 +24,4 @@
 - Start `TASK-003-FFF-STRUCTURE-SPEC` with draft permutation-group and measurable-space specs plus small spec-gate fixtures/tests, without production Stage 3 implementation.
 - Start `TASK-003-FFF-STRUCTURE-IMPL` with pending-review permutation-group and measurable-space finite validators, exact tests, and property invariants.
 - Add the independent review brief for the full Stage 3 FFF structure bundle.
+- Record `REV-TASK-003-FFF-STRUCTURE-001`, close its two minor findings, mark `CLM-FFF-PERM-001` and `CLM-FFF-MEAS-001` as `implemented_reviewed`, and mark `ASM-FFF-0002` and `ASM-FFF-0003` as `SOURCE_RESOLVED` for the reviewed Stage 3 finite-helper scope.

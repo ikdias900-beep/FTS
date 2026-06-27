@@ -1,4 +1,4 @@
-"""Exact finite companions for Stage 1 FFF structures."""
+"""Exact finite companions for implemented FFF structure checks."""
 
 from fts_lab.fff.admissibility import (
     admissible_count,
