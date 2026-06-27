@@ -39,8 +39,8 @@ Do not put the following here:
 | `ASM-FBT-0001` | 2/4 | tie handling | How should a general Truth strategy act when multiple world states share the maximum posterior probability? | The numerical example has a unique MAP result, but the reusable engine must not silently choose a tie rule. | `SRC-FBT-2021` | future general FBT claims | return a set; deterministic lexical rule; randomize uniformly; preserve full posterior | HIGH | OPEN | — | — | Implement no general tie behavior until the source is re-read and the Human PI approves a rule; test all approved variants separately. | Does not block exact Stage 2 calculations if no tie occurs. |
 | `ASM-FBT-0002` | 2/4 | zero-probability observation | What should the API return when an observation has zero marginal probability? | Bayes posterior is undefined; silent normalization would fabricate information. | `SRC-FBT-2021` | future general FBT claims | explicit exception; undefined result object; exclude by domain contract | MEDIUM | OPEN | — | — | Add a failing test first; approve one behavior for production and retain alternatives in extension tests. | Stage 2 source example has nonzero marginals. |
 | `ASM-FFF-0001` | 1 | total-order morphism transcription | Stage 1 public total-order outputs must show both the source orientation-witness count and the distinct unique-function count. | The source formula counts preserving/reversing monotonicity witnesses; finite unique-function counts differ because the admissible maximum constant function has both witnesses. | `SRC-FFF-2020` | `CLM-FFF-ORD-001` | show only source witnesses; show only unique functions; show both counts | HIGH | APPROVED | Human PI | 2026-06-25 | `REV-TASK-001-001` independently derived the small case; tests must keep both source witness and unique-function counts visible. | Approved via `RDR-0002`; GitHub issue #1 remains the discrepancy/interpretation record. |
-| `ASM-FFF-0002` | 3 | symmetric-group morphism | What exact data constitute the paper's “second-order homomorphism,” and how are ordinary homomorphisms, respectful maps, and automorphisms combined? | Replacing the construction with an ordinary group-homomorphism count would test a different theorem. | `SRC-FFF-2020` | `CLM-FFF-PERM-001` | exact Appendix A.3 construction only for R; simplified variants only as E | HIGH | OPEN | — | — | Produce a formal typed specification and independent small checker before implementation. | Blocks Stage 3 permutation module, not earlier stages. |
-| `ASM-FFF-0003` | 3 | measurable structures | How will finite algebras, their order k, exceptional trivial/discrete cases, and the theorem's bound be represented without treating the bound as an exact count? | Multiple reasonable encodings can create duplicate structures or alter counts. | `SRC-FFF-2020` | `CLM-FFF-MEAS-001` | canonical partitions; explicit event algebras; isomorphism-reduced variants | HIGH | OPEN | — | — | Validate generated algebras, compare partition and event-algebra constructions, and approve canonicalization before sweeps. | Blocks Stage 3 measurable-space module. |
+| `ASM-FFF-0002` | 3 | symmetric-group morphism | What exact data constitute the paper's “second-order homomorphism,” and how are ordinary homomorphisms, respectful maps, and automorphisms combined? | Replacing the construction with an ordinary group-homomorphism count would test a different theorem. | `SRC-FFF-2020` | `CLM-FFF-PERM-001` | exact Appendix A.3 construction only for R; simplified variants only as E | HIGH | SOURCE_RESOLVED | Human PI | 2026-06-28 | `REV-TASK-003-FFF-STRUCTURE-001` found no fatal or major source/spec/code finding; retain tests for action-law and `n >= 5` scope. | Source/spec issue resolved for the reviewed Stage 3 finite-helper scope. Future exhaustive automorphism enumeration, alternate count-object reporting, or extensions require a new task or decision. |
+| `ASM-FFF-0003` | 3 | measurable structures | How will finite algebras, their order k, exceptional trivial/discrete cases, and the theorem's bound be represented without treating the bound as an exact count? | Multiple reasonable encodings can create duplicate structures or alter counts. | `SRC-FFF-2020` | `CLM-FFF-MEAS-001` | canonical partitions; explicit event algebras; isomorphism-reduced variants | HIGH | SOURCE_RESOLVED | Human PI | 2026-06-28 | `REV-TASK-003-FFF-STRUCTURE-001` found no fatal or major source/spec/code finding; retain tests for partition validation, inverse-image measurability, special cases, and bound/exact separation. | Source/spec issue resolved for the reviewed Stage 3 finite-helper scope. Future algebra-isomorphism sweeps, alternate canonicalization, or extensions require a new task or decision. |
 
 ## 4.1 Stage 3 spec-gate notes
 
@@ -52,8 +52,8 @@ checks for `ASM-FFF-0002` and `ASM-FFF-0003`:
 - `tests/fixtures/fff/stage3_structure_spec_cases.json`
 - `tests/exact/test_fff_stage3_spec_gate.py`
 
-These artifacts do not approve the assumptions and do not unblock production Stage 3
-implementation by themselves. The statuses remain `OPEN` until independent review and
+These artifacts did not approve the assumptions or unblock production Stage 3
+implementation by themselves. The statuses remained `OPEN` until independent review and
 Human PI acceptance of the formalization.
 
 ## 4.2 Stage 3 implementation-bundle notes
@@ -66,9 +66,10 @@ tests for the Stage 3 draft specs:
 - `tests/exact/test_fff_permutation_groups.py`
 - `tests/exact/test_fff_measurable_spaces.py`
 
-This implementation does not approve `ASM-FFF-0002` or `ASM-FFF-0003`. The code is
-tracked as `implemented_pending_review`; public claim upgrade remains blocked until
-fresh-context independent review and Human PI acceptance.
+This implementation did not by itself approve `ASM-FFF-0002` or `ASM-FFF-0003`. After
+`REV-TASK-003-FFF-STRUCTURE-001` recorded no fatal or major findings and the Human PI
+requested status updates on 2026-06-28, both assumptions were marked
+`SOURCE_RESOLVED` for the reviewed Stage 3 finite-helper scope.
 
 ## 5. Entry template
 

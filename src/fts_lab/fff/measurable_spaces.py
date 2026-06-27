@@ -203,7 +203,12 @@ def source_measurable_upper_bound(
     codomain_size: int,
     domain_order: int,
 ) -> int:
-    """Return the Appendix A.5 integer upper bound for the theorem scope."""
+    """Return the Appendix A.5 integer upper bound for numeric theorem parameters.
+
+    This helper validates only ``n``, ``m``, and ``k``. Use
+    ``measurable_bound_applies_to_partitions`` when concrete partition bases are
+    available, because trivial/discrete special cases are partition-level properties.
+    """
     require_measurable_bound_scope(domain_size, codomain_size, domain_order)
     return int(
         codomain_size ** (domain_order - 1)

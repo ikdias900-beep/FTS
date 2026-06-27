@@ -2,8 +2,9 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-003-FFF-STRUCTURE-IMPL` is active as a Stage 3 implementation
-bundle for FFF permutation groups and measurable spaces, pending independent review.
+Current status: `TASK-003-FFF-STRUCTURE-IMPL` is complete as a Stage 3 implementation
+bundle for FFF permutation groups and measurable spaces, with independent review
+accepted with minor findings and follow-up cleanup completed.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -12,8 +13,8 @@ provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff 
 total orders, cyclic groups, manifest-backed publication table generation, a draft Stage
 1 release capsule, exact FBT numerical appendix reproduction, an independently reviewed
 draft Stage 2 checkpoint capsule, draft Stage 3 source-transcription specs, and
-pending-review Stage 3 finite validators for permutation/measurable structures. It does
-not provide reviewed Stage 3 theorem claims, FBT evolutionary dynamics, the general FBT
+reviewed Stage 3 finite validators for permutation/measurable structures. It does not
+provide FBT evolutionary dynamics, the general FBT
 theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
@@ -119,7 +120,8 @@ it verifies the archived files without depending on original absolute manifest p
 
 ## Stage 3 FFF Structure Implementation
 
-Stage 3 has moved from a specification gate into a pending-review implementation bundle:
+Stage 3 has moved from a specification gate into an independently reviewed implementation
+bundle:
 
 ```text
 TASK-003-FFF-STRUCTURE-IMPL
@@ -142,9 +144,10 @@ The fixture and tests are:
 - `tests/exact/test_fff_permutation_groups.py`
 - `tests/exact/test_fff_measurable_spaces.py`
 
-`CLM-FFF-PERM-001` and `CLM-FFF-MEAS-001` are `implemented_pending_review`.
-`ASM-FFF-0002` and `ASM-FFF-0003` remain open pending independent review; the
-measurable-space bound is not treated as an exact count.
+`CLM-FFF-PERM-001` and `CLM-FFF-MEAS-001` are `implemented_reviewed`, with review
+status `REV-TASK-003-FFF-STRUCTURE-001_no_fatal_or_major`. `ASM-FFF-0002` and
+`ASM-FFF-0003` are `SOURCE_RESOLVED` for the reviewed Stage 3 finite-helper scope after
+Human PI status acceptance. The measurable-space bound is not treated as an exact count.
 
 ## Epistemic Status
 
