@@ -29,6 +29,7 @@
 | `tasks/TASK-002_fbt_numerical_appendix.md` | Completed Stage 2 FBT numerical appendix reproduction task. |
 | `tasks/TASK-003_fff_structure_spec.md` | Completed Stage 3 FFF permutation/measurable structure spec-gate task. |
 | `tasks/TASK-003_fff_structure_impl.md` | Completed Stage 3 FFF permutation/measurable structure implementation bundle. |
+| `tasks/TASK-003_p3_release_capsule.md` | Stage 3 P3 draft checkpoint capsule task. |
 | `specs/fff/permutation_groups.md` | Reviewed Stage 3 permutation-group source transcription and oracle-design spec. |
 | `specs/fff/measurable_spaces.md` | Reviewed Stage 3 measurable-space source transcription and oracle-design spec. |
 | `tests/fixtures/fff/stage3_structure_spec_cases.json` | Stage 3 spec-gate fixture cases for future oracles. |
@@ -39,6 +40,7 @@
 | `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |
+| `release/stage3-p3-draft/` | Draft Stage 3 P3 checkpoint capsule packaging the reviewed FFF permutation/measurable structure bundle. |
 | `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
