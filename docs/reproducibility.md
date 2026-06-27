@@ -32,6 +32,7 @@ a committed capsule without relying on original run-machine absolute paths:
 
 ```bash
 uv run fts validate-release-capsule release/stage2-p2-draft
+uv run fts validate-release-capsule release/stage3-p3-draft
 ```
 
 The validator checks that every listed file exists, every SHA-256 hash matches, paths
@@ -59,6 +60,7 @@ uv run pytest
 uv run fts doctor
 uv run fts reproduce-smoke
 uv run fts validate-release-capsule release/stage2-p2-draft
+uv run fts validate-release-capsule release/stage3-p3-draft
 ```
 
 The smoke payload checksum should match across repeated runs from the same config.

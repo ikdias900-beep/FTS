@@ -1,0 +1,58 @@
+{
+  "capsule_id": "STAGE3-P3-DRAFT",
+  "artifact_kind": "release_checkpoint_summary",
+  "epistemic_status": "R",
+  "task_ids": [
+    "TASK-003-P3-CAPSULE",
+    "TASK-003-FFF-STRUCTURE-SPEC",
+    "TASK-003-FFF-STRUCTURE-IMPL"
+  ],
+  "source_ids": [
+    "SRC-FFF-2020"
+  ],
+  "claim_ids": [
+    "CLM-FFF-PERM-001",
+    "CLM-FFF-MEAS-001"
+  ],
+  "assumption_ids": [
+    "ASM-FFF-0002",
+    "ASM-FFF-0003"
+  ],
+  "review_ids": [
+    "REV-TASK-003-FFF-STRUCTURE-001",
+    "REV-TASK-003-FFF-STRUCTURE-001-followup"
+  ],
+  "review_status": "REV-TASK-003-FFF-STRUCTURE-001_no_fatal_or_major",
+  "packaging_source": {
+    "git_commit": "e917ce0c63435316d12fedfd7bc48332cf016689",
+    "git_branch": "main",
+    "git_dirty": false,
+    "dependency_lock_sha256": "6b81fceadcb3fe17172ce56a239b581332675e7045058459a5871f2982e609c8"
+  },
+  "packaged_repository_paths": [
+    "specs/fff/permutation_groups.md",
+    "specs/fff/measurable_spaces.md",
+    "tests/fixtures/fff/stage3_structure_spec_cases.json",
+    "src/fts_lab/fff/permutation_groups.py",
+    "src/fts_lab/fff/measurable_spaces.py",
+    "tests/exact/test_fff_stage3_spec_gate.py",
+    "tests/exact/test_fff_permutation_groups.py",
+    "tests/exact/test_fff_measurable_spaces.py",
+    "tests/properties/test_fff_properties.py",
+    "docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md",
+    "docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md"
+  ],
+  "capsule_paths": [
+    "release/stage3-p3-draft/raw_data/stage3_structure_spec_cases.json",
+    "release/stage3-p3-draft/derived_data/stage3_fff_structure_checkpoint.md",
+    "release/stage3-p3-draft/derived_data/stage3_fff_structure_checkpoint.json",
+    "release/stage3-p3-draft/checksums.txt"
+  ],
+  "claims_added_by_capsule": [],
+  "forbidden_upgrade": [
+    "Do not treat the measurable-space source bound as a universal exact count.",
+    "Do not replace the source permutation construction with ordinary group-homomorphism enumeration.",
+    "Do not present the capsule as a GitHub release, DOI archive, or final public P3 publication."
+  ]
+}
+

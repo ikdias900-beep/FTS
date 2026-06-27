@@ -14,7 +14,7 @@ from typing import Any
 from fts_lab import __version__
 from fts_lab.manifests import SCHEMA_PATH, canonical_json_text, sha256_file
 
-ACTIVE_TASK = "TASK-003-FFF-STRUCTURE-IMPL"
+ACTIVE_TASK = "TASK-003-P3-CAPSULE"
 
 REQUIRED_CONTEXT_FILES = (
     "AGENTS.md",
@@ -28,6 +28,7 @@ REQUIRED_CONTEXT_FILES = (
     "tasks/TASK-002_fbt_numerical_appendix.md",
     "tasks/TASK-003_fff_structure_spec.md",
     "tasks/TASK-003_fff_structure_impl.md",
+    "tasks/TASK-003_p3_release_capsule.md",
     "sources/source_map.md",
     "sources/claim_matrix.csv",
     "assumptions/register.md",

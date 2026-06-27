@@ -4,7 +4,8 @@ Auditable computational research program around FBT, FFF, and later structure/re
 
 Current status: `TASK-003-FFF-STRUCTURE-IMPL` is complete as a Stage 3 implementation
 bundle for FFF permutation groups and measurable spaces, with independent review
-accepted with minor findings and follow-up cleanup completed.
+accepted with minor findings and follow-up cleanup completed. A repository-local Stage
+3 P3 draft checkpoint capsule is available under `release/stage3-p3-draft/`.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -13,7 +14,8 @@ provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff 
 total orders, cyclic groups, manifest-backed publication table generation, a draft Stage
 1 release capsule, exact FBT numerical appendix reproduction, an independently reviewed
 draft Stage 2 checkpoint capsule, draft Stage 3 source-transcription specs, and
-reviewed Stage 3 finite validators for permutation/measurable structures. It does not
+reviewed Stage 3 finite validators for permutation/measurable structures. It also
+includes a draft Stage 3 checkpoint capsule. It does not
 provide FBT evolutionary dynamics, the general FBT
 theorem, ML, dashboards, notebooks, or scientific figures.
 
@@ -42,6 +44,7 @@ uv run fts doctor
 uv run fts reproduce-smoke
 uv run fts fbt reproduce-numerical-example
 uv run fts validate-release-capsule release/stage2-p2-draft
+uv run fts validate-release-capsule release/stage3-p3-draft
 ```
 
 Equivalent Make targets are available:
@@ -149,6 +152,16 @@ status `REV-TASK-003-FFF-STRUCTURE-001_no_fatal_or_major`. `ASM-FFF-0002` and
 `ASM-FFF-0003` are `SOURCE_RESOLVED` for the reviewed Stage 3 finite-helper scope after
 Human PI status acceptance. The measurable-space bound is not treated as an exact count.
 
+The Stage 3 checkpoint package is under `release/stage3-p3-draft/`. Validate the
+committed archive contents with:
+
+```bash
+uv run fts validate-release-capsule release/stage3-p3-draft
+```
+
+This capsule packages the already reviewed Stage 3 bundle. It adds no new scientific
+claims, generated figures, sweeps, or public release status.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -173,10 +186,12 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
 - [Stage 3 FFF structure spec task](tasks/TASK-003_fff_structure_spec.md)
 - [Stage 3 FFF structure implementation task](tasks/TASK-003_fff_structure_impl.md)
+- [Stage 3 P3 checkpoint capsule task](tasks/TASK-003_p3_release_capsule.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 3 permutation-group spec](specs/fff/permutation_groups.md)
 - [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
+- [Stage 3 draft checkpoint capsule](release/stage3-p3-draft/README.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)

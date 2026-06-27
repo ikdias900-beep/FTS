@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-003-FFF-STRUCTURE-IMPL" in result.stdout
+    assert "Active task: TASK-003-P3-CAPSULE" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
