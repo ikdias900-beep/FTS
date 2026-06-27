@@ -56,6 +56,20 @@ These artifacts do not approve the assumptions and do not unblock production Sta
 implementation by themselves. The statuses remain `OPEN` until independent review and
 Human PI acceptance of the formalization.
 
+## 4.2 Stage 3 implementation-bundle notes
+
+`TASK-003-FFF-STRUCTURE-IMPL` adds source-explicit finite helper implementations and
+tests for the Stage 3 draft specs:
+
+- `src/fts_lab/fff/permutation_groups.py`
+- `src/fts_lab/fff/measurable_spaces.py`
+- `tests/exact/test_fff_permutation_groups.py`
+- `tests/exact/test_fff_measurable_spaces.py`
+
+This implementation does not approve `ASM-FFF-0002` or `ASM-FFF-0003`. The code is
+tracked as `implemented_pending_review`; public claim upgrade remains blocked until
+fresh-context independent review and Human PI acceptance.
+
 ## 5. Entry template
 
 Copy this section for each new assumption:

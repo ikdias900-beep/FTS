@@ -2,17 +2,19 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-003-FFF-STRUCTURE-SPEC` is active as a Stage 3 spec gate for
-FFF permutation groups and measurable spaces. `TASK-002-FBT-NUMERICAL` is complete
+Current status: `TASK-003-FFF-STRUCTURE-IMPL` is active as a Stage 3 implementation
+bundle for FFF permutation groups and measurable spaces, pending independent review.
+`TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
 release capsule are also complete through independent review. The repository now
 provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts,
 total orders, cyclic groups, manifest-backed publication table generation, a draft Stage
 1 release capsule, exact FBT numerical appendix reproduction, an independently reviewed
-draft Stage 2 checkpoint capsule, and draft Stage 3 source-transcription specs. It does
-not implement Stage 3 production permutation/measurable modules, FBT evolutionary
-dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
+draft Stage 2 checkpoint capsule, draft Stage 3 source-transcription specs, and
+pending-review Stage 3 finite validators for permutation/measurable structures. It does
+not provide reviewed Stage 3 theorem claims, FBT evolutionary dynamics, the general FBT
+theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -115,26 +117,34 @@ findings only. No fatal or major findings block the Stage 2 checkpoint. The
 packaging portability follow-up is the release-capsule checksum validator above;
 it verifies the archived files without depending on original absolute manifest paths.
 
-## Stage 3 FFF Structure Spec Gate
+## Stage 3 FFF Structure Implementation
 
-Stage 3 has started as a specification gate only:
+Stage 3 has moved from a specification gate into a pending-review implementation bundle:
 
 ```text
-TASK-003-FFF-STRUCTURE-SPEC
+TASK-003-FFF-STRUCTURE-IMPL
 ```
 
-The current draft specs are:
+The draft specs are:
 
 - `specs/fff/permutation_groups.md`
 - `specs/fff/measurable_spaces.md`
 
-The spec-gate fixtures and tests are:
+The implementation helpers are:
+
+- `src/fts_lab/fff/permutation_groups.py`
+- `src/fts_lab/fff/measurable_spaces.py`
+
+The fixture and tests are:
 
 - `tests/fixtures/fff/stage3_structure_spec_cases.json`
 - `tests/exact/test_fff_stage3_spec_gate.py`
+- `tests/exact/test_fff_permutation_groups.py`
+- `tests/exact/test_fff_measurable_spaces.py`
 
-No production Stage 3 modules or public implementation claims are present yet.
-`ASM-FFF-0002` and `ASM-FFF-0003` remain open pending independent review.
+`CLM-FFF-PERM-001` and `CLM-FFF-MEAS-001` are `implemented_pending_review`.
+`ASM-FFF-0002` and `ASM-FFF-0003` remain open pending independent review; the
+measurable-space bound is not treated as an exact count.
 
 ## Epistemic Status
 
@@ -159,6 +169,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
 - [Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
 - [Stage 3 FFF structure spec task](tasks/TASK-003_fff_structure_spec.md)
+- [Stage 3 FFF structure implementation task](tasks/TASK-003_fff_structure_impl.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 3 permutation-group spec](specs/fff/permutation_groups.md)
 - [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
