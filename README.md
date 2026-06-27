@@ -2,7 +2,17 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-002-FBT-NUMERICAL` is complete through independent review with minor findings only. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are also complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, exact FBT numerical appendix reproduction, and an independently reviewed draft Stage 2 checkpoint capsule. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-003-FFF-STRUCTURE-SPEC` is active as a Stage 3 spec gate for
+FFF permutation groups and measurable spaces. `TASK-002-FBT-NUMERICAL` is complete
+through independent review with minor findings only; `TASK-000` bootstrap,
+`TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
+release capsule are also complete through independent review. The repository now
+provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts,
+total orders, cyclic groups, manifest-backed publication table generation, a draft Stage
+1 release capsule, exact FBT numerical appendix reproduction, an independently reviewed
+draft Stage 2 checkpoint capsule, and draft Stage 3 source-transcription specs. It does
+not implement Stage 3 production permutation/measurable modules, FBT evolutionary
+dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -105,6 +115,27 @@ findings only. No fatal or major findings block the Stage 2 checkpoint. The
 packaging portability follow-up is the release-capsule checksum validator above;
 it verifies the archived files without depending on original absolute manifest paths.
 
+## Stage 3 FFF Structure Spec Gate
+
+Stage 3 has started as a specification gate only:
+
+```text
+TASK-003-FFF-STRUCTURE-SPEC
+```
+
+The current draft specs are:
+
+- `specs/fff/permutation_groups.md`
+- `specs/fff/measurable_spaces.md`
+
+The spec-gate fixtures and tests are:
+
+- `tests/fixtures/fff/stage3_structure_spec_cases.json`
+- `tests/exact/test_fff_stage3_spec_gate.py`
+
+No production Stage 3 modules or public implementation claims are present yet.
+`ASM-FFF-0002` and `ASM-FFF-0003` remain open pending independent review.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -127,7 +158,10 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 1 publication tables task](tasks/TASK-001_publication_tables_docs.md)
 - [Stage 1 draft release capsule task](tasks/TASK-001_p1_release_capsule.md)
 - [Stage 2 FBT numerical appendix task](tasks/TASK-002_fbt_numerical_appendix.md)
+- [Stage 3 FFF structure spec task](tasks/TASK-003_fff_structure_spec.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
+- [Stage 3 permutation-group spec](specs/fff/permutation_groups.md)
+- [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)

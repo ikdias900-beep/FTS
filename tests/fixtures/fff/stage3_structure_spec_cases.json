@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "task_id": "TASK-003-FFF-STRUCTURE-SPEC",
+    "source_id": "SRC-FFF-2020",
+    "claim_ids": [
+      "CLM-FFF-PERM-001",
+      "CLM-FFF-MEAS-001"
+    ],
+    "assumption_ids": [
+      "ASM-FFF-0002",
+      "ASM-FFF-0003"
+    ],
+    "epistemic_status": "R",
+    "purpose": "Small spec-gate fixtures for Stage 3 FFF permutation/measurable oracle design."
+  },
+  "permutation_groups": {
+    "source_formula": "2*n + factorial(n)",
+    "admissible_denominator": "n^n - (n - 1)^n",
+    "formula_valid_for_n_at_least": 5,
+    "cases": [
+      {
+        "case_id": "source_formula_n5",
+        "n": 5,
+        "respectful_function_count": 130,
+        "admissible_denominator": 2101
+      },
+      {
+        "case_id": "source_formula_n6",
+        "n": 6,
+        "respectful_function_count": 732,
+        "admissible_denominator": 31031
+      }
+    ]
+  },
+  "measurable_spaces": {
+    "bound_formula_integer": "m^(k - 1) + m^(k - 1) * (m - 1)^(n - k + 1)",
+    "bound_cases": [
+      {
+        "case_id": "bound_n3_m2_k2",
+        "n": 3,
+        "m": 2,
+        "k": 2,
+        "bound": 4
+      },
+      {
+        "case_id": "bound_n4_m3_k2",
+        "n": 4,
+        "m": 3,
+        "k": 2,
+        "bound": 27
+      },
+      {
+        "case_id": "bound_n5_m3_k3",
+        "n": 5,
+        "m": 3,
+        "k": 3,
+        "bound": 81
+      }
+    ],
+    "exact_cases": [
+      {
+        "case_id": "nontrivial_w_discrete_v_bound_tight",
+        "w_elements": [0, 1, 2],
+        "v_elements": [0, 1],
+        "w_base": [[0, 1], [2]],
+        "v_base": [[0], [1]],
+        "total_measurable_functions": 4,
+        "admissible_measurable_functions": 3,
+        "bound": 4
+      },
+      {
+        "case_id": "w_discrete_all_functions",
+        "w_elements": [0, 1, 2],
+        "v_elements": [0, 1],
+        "w_base": [[0], [1], [2]],
+        "v_base": [[0], [1]],
+        "total_measurable_functions": 8,
+        "admissible_measurable_functions": 7,
+        "special_case": "w_discrete"
+      },
+      {
+        "case_id": "v_trivial_all_functions",
+        "w_elements": [0, 1, 2],
+        "v_elements": [0, 1],
+        "w_base": [[0, 1], [2]],
+        "v_base": [[0, 1]],
+        "total_measurable_functions": 8,
+        "admissible_measurable_functions": 7,
+        "special_case": "v_trivial"
+      }
+    ],
+    "non_measurable_witnesses": [
+      {
+        "case_id": "splits_w_base_block",
+        "w_elements": [0, 1, 2],
+        "v_elements": [0, 1],
+        "w_base": [[0, 1], [2]],
+        "v_base": [[0], [1]],
+        "function": [0, 1, 1],
+        "is_measurable": false,
+        "reason": "The inverse image of V block [0] is [0], which is not a union of W base blocks."
+      }
+    ]
+  }
+}
