@@ -3,7 +3,7 @@
 ```text
 CAPSULE ID: STAGE2-P2-DRAFT
 TASK ID: TASK-002-FBT-NUMERICAL
-STATUS: draft checkpoint capsule, not independently reviewed yet
+STATUS: draft checkpoint capsule, accepted with minor findings in independent review
 LICENSE: MIT for project-authored repository contents
 SCIENTIFIC CLAIMS ADDED: CLM-FBT-APP-001; CLM-FBT-APP-002; CLM-FBT-APP-003; CLM-FBT-APP-004
 ```
@@ -11,7 +11,8 @@ SCIENTIFIC CLAIMS ADDED: CLM-FBT-APP-001; CLM-FBT-APP-002; CLM-FBT-APP-003; CLM-
 ## Scope
 
 This capsule packages the current Stage 2 exact reproduction of the FBT numerical
-appendix. It is a checkpoint package for inspection, not a final reviewed release.
+appendix. It is an independently reviewed checkpoint package, not a final public
+release, DOI archive, or external publication package.
 
 It includes:
 
@@ -64,6 +65,10 @@ release/stage2-p2-draft/
 
 ## Review Cadence
 
-Per current project workflow, this capsule is not being sent to an immediate standalone
-independent review. It should be included in the next batched independent review of the
-Stage 2 checkpoint.
+`REV-TASK-002-FBT-NUMERICAL-001` accepted this capsule and the Stage 2 FBT
+numerical reproduction with minor findings only. There are no unresolved fatal or
+major findings.
+
+The minor finding is that the copied manifest retains original absolute paths
+outside the release capsule. The archived capsule contents remain independently
+verifiable through committed raw/derived files and `checksums.txt`.

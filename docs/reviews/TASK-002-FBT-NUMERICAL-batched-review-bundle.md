@@ -3,7 +3,7 @@
 ```text
 TASK ID: TASK-002-FBT-NUMERICAL
 REVIEW TYPE: end-of-Stage 2 independent review input
-CURRENT VERDICT: none; ready for independent review, not yet reviewed
+CURRENT VERDICT: completed by REV-TASK-002-FBT-NUMERICAL-001; accepted_with_minor_findings
 SOURCE ID: SRC-FBT-2021
 CLAIM IDS: CLM-FBT-APP-001, CLM-FBT-APP-002, CLM-FBT-APP-003, CLM-FBT-APP-004
 ASSUMPTION IDS: none for the source example
@@ -11,13 +11,12 @@ ASSUMPTION IDS: none for the source example
 
 ## Purpose
 
-This file is a review bundle for the end-of-Stage 2 independent review.
-It is not a review result and does not change any claim to accepted/reviewed
-status.
+This file was the review bundle for the end-of-Stage 2 independent review.
+The completed review is `REV-TASK-002-FBT-NUMERICAL-001`.
 
-Per `RDR-0003`, intermediate Stage 2 work may merge before independent review
-when local checks and CI pass. The end-of-Stage 2 independent review must still
-verify this block before any reviewed-release claim is made.
+Per `RDR-0003`, intermediate Stage 2 work was allowed to merge before independent
+review when local checks and CI passed. The end-of-Stage 2 independent review has
+now accepted this block with minor findings only.
 
 ## Review Scope
 
@@ -129,14 +128,15 @@ The reviewer should reject or flag any wording that claims:
   ontology claims;
 - MAP inference and expected-fitness maximization are the same criterion.
 
-## Review Output Expected Later
+## Review Output
 
-The later independent review should produce a `REV-...` file that records:
+The independent review produced `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md`
+with:
 
-- verdict: `accepted`, `accepted_with_minor_findings`, `blocked_major`, or
-  `blocked_fatal`;
+- verdict: `accepted_with_minor_findings`;
 - source transcription findings;
 - independent arithmetic recomputation;
 - code/test/manifest findings;
 - overclaim findings;
-- any required fixes before Stage 2 can be called independently reviewed.
+- one minor packaging portability finding and no unresolved fatal or major
+  findings.

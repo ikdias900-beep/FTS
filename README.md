@@ -2,7 +2,7 @@
 
 Auditable computational research program around FBT, FFF, and later structure/reward/robustness questions.
 
-Current status: `TASK-002-FBT-NUMERICAL` implementation is merged and pending the end-of-Stage 2 independent review. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, exact FBT numerical appendix reproduction, and a draft Stage 2 checkpoint capsule. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
+Current status: `TASK-002-FBT-NUMERICAL` is complete through independent review with minor findings only. `TASK-000` bootstrap, `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft release capsule are also complete through independent review. The repository now provides infrastructure, Stage 1 exact finite helpers for FFF admissible payoff counts, total orders, cyclic groups, manifest-backed publication table generation, a draft Stage 1 release capsule, exact FBT numerical appendix reproduction, and an independently reviewed draft Stage 2 checkpoint capsule. It does not implement FBT evolutionary dynamics, the general FBT theorem, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -92,8 +92,7 @@ result and Markdown derivation report, then validates a scientific manifest with
 `epistemic_status: R`. This is a reproduction of one appendix example only; it is not an
 evolutionary simulation or a proof of the general FBT theorem.
 
-The current checkpoint package is under `release/stage2-p2-draft/`. It is not independently
-reviewed yet; review is intentionally deferred to a batched Stage 2 checkpoint review.
+The current checkpoint package is under `release/stage2-p2-draft/`. `REV-TASK-002-FBT-NUMERICAL-001` accepted the Stage 2 reproduction with minor findings only. No fatal or major findings block the Stage 2 checkpoint.
 
 ## Epistemic Status
 
@@ -123,6 +122,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)
 - [Stage 2 independent review brief](docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md)
+- [Stage 2 independent review report](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)
