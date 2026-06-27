@@ -23,3 +23,4 @@
 - Add release-capsule archive validation and follow-up documentation for the Stage 2 packaging portability minor finding.
 - Start `TASK-003-FFF-STRUCTURE-SPEC` with draft permutation-group and measurable-space specs plus small spec-gate fixtures/tests, without production Stage 3 implementation.
 - Start `TASK-003-FFF-STRUCTURE-IMPL` with pending-review permutation-group and measurable-space finite validators, exact tests, and property invariants.
+- Add the independent review brief for the full Stage 3 FFF structure bundle.

@@ -2,7 +2,7 @@
 
 **Project:** Fitness, Truth & Structure Lab  
 **Version:** 0.1  
-**Last verified:** 2026-06-27
+**Last verified:** 2026-06-28
 **Purpose:** canonical source IDs, editions, links, stage usage, and source-handling rules.
 
 ## 1. Source policy
@@ -36,6 +36,7 @@
 | `src/fts_lab/fff/measurable_spaces.py` | Stage 3 measurable-space finite partition validators and source bound helpers pending review. |
 | `tests/exact/test_fff_permutation_groups.py` | Exact tests for Stage 3 permutation helpers. |
 | `tests/exact/test_fff_measurable_spaces.py` | Exact tests for Stage 3 measurable-space helpers. |
+| `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
