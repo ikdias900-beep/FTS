@@ -1,41 +1,55 @@
 from __future__ import annotations
 
-import hashlib
-from pathlib import Path, PurePosixPath
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
 
 from fts_lab.doctor import find_project_root
+from fts_lab.release_capsules import (
+    ReleaseCapsuleError,
+    validate_release_capsule,
+)
 
 
 def test_stage2_p2_draft_capsule_checksums_match_files() -> None:
     capsule_root = find_project_root() / "release/stage2-p2-draft"
-    checksum_file = capsule_root / "checksums.txt"
+    result = validate_release_capsule(capsule_root)
 
-    assert checksum_file.is_file()
-    rows = _read_checksum_rows(checksum_file)
-    assert rows
-    assert "derived_data/fbt_numerical_appendix.json" in rows
-    assert "derived_data/fbt_numerical_appendix.md" in rows
-    assert "raw_data/fbt_numerical_example_source_table.json" in rows
-
-    for relative_path, expected_hash in rows.items():
-        path = capsule_root.joinpath(*PurePosixPath(relative_path).parts)
-        assert path.is_file(), relative_path
-        assert _sha256_file(path) == expected_hash
+    assert result.checksum_file == capsule_root.resolve() / "checksums.txt"
+    assert "derived_data/fbt_numerical_appendix.json" in result.checked_files
+    assert "derived_data/fbt_numerical_appendix.md" in result.checked_files
+    assert "raw_data/fbt_numerical_example_source_table.json" in result.checked_files
 
 
-def _read_checksum_rows(path: Path) -> dict[str, str]:
-    rows: dict[str, str] = {}
-    for line in path.read_text(encoding="utf-8").splitlines():
-        if not line:
-            continue
-        expected_hash, relative_path = line.split("  ", maxsplit=1)
-        rows[relative_path] = expected_hash
-    return rows
+def test_stage2_p2_draft_capsule_cli_validates_local_archive() -> None:
+    root = find_project_root()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "validate-release-capsule",
+            "release/stage2-p2-draft",
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "release_capsule_valid=" in result.stdout
+    assert "checked_files=12" in result.stdout
 
 
-def _sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def test_release_capsule_validation_rejects_unlisted_files(tmp_path: Path) -> None:
+    source_root = find_project_root() / "release/stage2-p2-draft"
+    capsule_copy = tmp_path / "stage2-p2-draft"
+    shutil.copytree(source_root, capsule_copy)
+    (capsule_copy / "unexpected.txt").write_text("not in checksums\n", encoding="utf-8")
+
+    with pytest.raises(ReleaseCapsuleError, match=r"not listed in checksums\.txt"):
+        validate_release_capsule(capsule_copy)

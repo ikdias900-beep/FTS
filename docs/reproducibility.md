@@ -25,6 +25,19 @@ Every run manifest records:
 
 Infrastructure smoke manifests use `artifact_kind: infrastructure_smoke`, `epistemic_status: null`, and empty claim/source/assumption lists.
 
+## Release Capsules
+
+Release capsules include a local `checksums.txt` inventory of archived files. Validate
+a committed capsule without relying on original run-machine absolute paths:
+
+```bash
+uv run fts validate-release-capsule release/stage2-p2-draft
+```
+
+The validator checks that every listed file exists, every SHA-256 hash matches, paths
+are relative normalized POSIX paths inside the capsule, and no unlisted file is present
+except `checksums.txt` itself.
+
 ## Exact Oracles
 
 Future scientific modules must prefer exact arithmetic and brute-force small-case oracles before optimized or stochastic implementations. `TASK-000` contains no scientific oracle.
@@ -45,6 +58,7 @@ uv run mypy src
 uv run pytest
 uv run fts doctor
 uv run fts reproduce-smoke
+uv run fts validate-release-capsule release/stage2-p2-draft
 ```
 
 The smoke payload checksum should match across repeated runs from the same config.

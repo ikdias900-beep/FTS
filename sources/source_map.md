@@ -32,6 +32,7 @@
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md` | End-of-Stage 2 independent review brief for the FBT appendix reproduction. |
 | `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md` | Independent review report accepting `TASK-002-FBT-NUMERICAL` with minor findings only. |
+| `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md` | Implementer-side follow-up recording the Stage 2 release-capsule portability fix. |
 | `docs/decisions/RDR-0003-stage2-batched-review-cadence.md` | Approved Stage 2 review cadence decision. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
