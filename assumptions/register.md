@@ -42,6 +42,20 @@ Do not put the following here:
 | `ASM-FFF-0002` | 3 | symmetric-group morphism | What exact data constitute the paper's “second-order homomorphism,” and how are ordinary homomorphisms, respectful maps, and automorphisms combined? | Replacing the construction with an ordinary group-homomorphism count would test a different theorem. | `SRC-FFF-2020` | `CLM-FFF-PERM-001` | exact Appendix A.3 construction only for R; simplified variants only as E | HIGH | OPEN | — | — | Produce a formal typed specification and independent small checker before implementation. | Blocks Stage 3 permutation module, not earlier stages. |
 | `ASM-FFF-0003` | 3 | measurable structures | How will finite algebras, their order k, exceptional trivial/discrete cases, and the theorem's bound be represented without treating the bound as an exact count? | Multiple reasonable encodings can create duplicate structures or alter counts. | `SRC-FFF-2020` | `CLM-FFF-MEAS-001` | canonical partitions; explicit event algebras; isomorphism-reduced variants | HIGH | OPEN | — | — | Validate generated algebras, compare partition and event-algebra constructions, and approve canonicalization before sweeps. | Blocks Stage 3 measurable-space module. |
 
+## 4.1 Stage 3 spec-gate notes
+
+`TASK-003-FFF-STRUCTURE-SPEC` adds draft specifications and small-case fixture
+checks for `ASM-FFF-0002` and `ASM-FFF-0003`:
+
+- `specs/fff/permutation_groups.md`
+- `specs/fff/measurable_spaces.md`
+- `tests/fixtures/fff/stage3_structure_spec_cases.json`
+- `tests/exact/test_fff_stage3_spec_gate.py`
+
+These artifacts do not approve the assumptions and do not unblock production Stage 3
+implementation by themselves. The statuses remain `OPEN` until independent review and
+Human PI acceptance of the formalization.
+
 ## 5. Entry template
 
 Copy this section for each new assumption:

@@ -27,6 +27,10 @@
 | `tasks/TASK-001_publication_tables_docs.md` | Completed Stage 1 publication-table and result-documentation task. |
 | `tasks/TASK-001_p1_release_capsule.md` | Completed Stage 1 draft release-capsule task. |
 | `tasks/TASK-002_fbt_numerical_appendix.md` | Completed Stage 2 FBT numerical appendix reproduction task. |
+| `tasks/TASK-003_fff_structure_spec.md` | Active Stage 3 FFF permutation/measurable structure spec-gate task. |
+| `specs/fff/permutation_groups.md` | Draft Stage 3 permutation-group source transcription and oracle-design spec. |
+| `specs/fff/measurable_spaces.md` | Draft Stage 3 measurable-space source transcription and oracle-design spec. |
+| `tests/fixtures/fff/stage3_structure_spec_cases.json` | Stage 3 spec-gate fixture cases for future oracles. |
 | `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |

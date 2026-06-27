@@ -21,3 +21,4 @@
 - Add the end-of-Stage 2 independent review brief and closeout status wording for `TASK-002-FBT-NUMERICAL`.
 - Record `REV-TASK-002-FBT-NUMERICAL-001` and mark `TASK-002-FBT-NUMERICAL` accepted with minor findings.
 - Add release-capsule archive validation and follow-up documentation for the Stage 2 packaging portability minor finding.
+- Start `TASK-003-FFF-STRUCTURE-SPEC` with draft permutation-group and measurable-space specs plus small spec-gate fixtures/tests, without production Stage 3 implementation.
