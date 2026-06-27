@@ -24,6 +24,7 @@ from fts_lab.fff.total_orders import (
     unique_total_order_ratio,
 )
 from fts_lab.manifests import ManifestError, validate_manifest_file
+from fts_lab.release_capsules import ReleaseCapsuleError, validate_release_capsule
 from fts_lab.smoke import run_smoke
 
 
@@ -49,6 +50,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     validate = subcommands.add_parser("validate-manifest", help="Validate a manifest and checksums")
     validate.add_argument("path", type=Path, help="Manifest path")
+
+    validate_capsule = subcommands.add_parser(
+        "validate-release-capsule",
+        help="Validate a release capsule against its local checksums.txt inventory",
+    )
+    validate_capsule.add_argument("path", type=Path, help="Release capsule root")
 
     fbt = subcommands.add_parser("fbt", help="Run exact FBT Stage 2 helpers")
     fbt_subcommands = fbt.add_subparsers(dest="fbt_command", required=True)
@@ -151,6 +158,17 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(f"manifest invalid: {exc}")
             return 1
         print(f"manifest valid: {args.path}")
+        return 0
+
+    if args.command == "validate-release-capsule":
+        try:
+            capsule_validation = validate_release_capsule(args.path)
+        except ReleaseCapsuleError as exc:
+            print(f"release capsule invalid: {exc}")
+            return 1
+        print(f"release_capsule_valid={capsule_validation.capsule_root}")
+        print(f"checksum_file={capsule_validation.checksum_file}")
+        print(f"checked_files={len(capsule_validation.checked_files)}")
         return 0
 
     if args.command == "fff":

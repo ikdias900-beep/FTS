@@ -19,6 +19,7 @@ The review verdict was `accepted_with_minor_findings`.
 - `py -m uv run fts fbt reproduce-numerical-example`
 - `py -m uv run fts validate-manifest experiments/manifests/ART-TASK-002-FBT-NUMERICAL-MANIFEST-20260625T222000Z-2A277325.json`
 - `py -m uv run fts validate-manifest release/stage2-p2-draft/manifests/ART-TASK-002-FBT-NUMERICAL-MANIFEST-20260625T222000Z-2A277325.json`
+- `py -m uv run fts validate-release-capsule release/stage2-p2-draft`
 
 ## Independent Review Findings
 
@@ -43,6 +44,11 @@ The review found no fatal findings and no major findings.
    The capsule remains independently verifiable through committed raw/derived
    files and `checksums.txt`. A future release-local manifest or
    archive-validation mode would make this more portable.
+
+Follow-up: archive-validation mode has been added as
+`fts validate-release-capsule release/stage2-p2-draft`. It validates the committed
+capsule files directly from local relative paths and `checksums.txt`, so capsule
+verification no longer depends on the original absolute run paths.
 
 ## Known Non-Blocking Gaps
 

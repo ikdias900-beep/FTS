@@ -72,3 +72,13 @@ major findings.
 The minor finding is that the copied manifest retains original absolute paths
 outside the release capsule. The archived capsule contents remain independently
 verifiable through committed raw/derived files and `checksums.txt`.
+
+Follow-up archive validation is now available:
+
+```bash
+py -m uv run fts validate-release-capsule release/stage2-p2-draft
+```
+
+This command validates the committed capsule files against the local checksum
+inventory and does not depend on the original absolute paths retained in the
+copied run manifest.

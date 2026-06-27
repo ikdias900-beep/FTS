@@ -28,6 +28,7 @@ uv run pytest
 uv run fts doctor
 uv run fts reproduce-smoke
 uv run fts fbt reproduce-numerical-example
+uv run fts validate-release-capsule release/stage2-p2-draft
 ```
 
 Equivalent Make targets are available:
@@ -92,7 +93,17 @@ result and Markdown derivation report, then validates a scientific manifest with
 `epistemic_status: R`. This is a reproduction of one appendix example only; it is not an
 evolutionary simulation or a proof of the general FBT theorem.
 
-The current checkpoint package is under `release/stage2-p2-draft/`. `REV-TASK-002-FBT-NUMERICAL-001` accepted the Stage 2 reproduction with minor findings only. No fatal or major findings block the Stage 2 checkpoint.
+The current checkpoint package is under `release/stage2-p2-draft/`. Validate the
+committed archive contents with:
+
+```bash
+uv run fts validate-release-capsule release/stage2-p2-draft
+```
+
+`REV-TASK-002-FBT-NUMERICAL-001` accepted the Stage 2 reproduction with minor
+findings only. No fatal or major findings block the Stage 2 checkpoint. The
+packaging portability follow-up is the release-capsule checksum validator above;
+it verifies the archived files without depending on original absolute manifest paths.
 
 ## Epistemic Status
 
@@ -123,6 +134,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)
 - [Stage 2 independent review brief](docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md)
 - [Stage 2 independent review report](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md)
+- [Stage 2 review follow-up](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

@@ -87,6 +87,7 @@ table has unique MAP estimates and nonzero observation marginals.
 ```bash
 uv run fts fbt reproduce-numerical-example
 uv run fts validate-manifest experiments/manifests/<manifest>.json
+uv run fts validate-release-capsule release/stage2-p2-draft
 ```
 
 On Windows, if bare `uv` is not available on `PATH`, use:
@@ -94,6 +95,7 @@ On Windows, if bare `uv` is not available on `PATH`, use:
 ```bash
 py -m uv run fts fbt reproduce-numerical-example
 py -m uv run fts validate-manifest experiments/manifests/<manifest>.json
+py -m uv run fts validate-release-capsule release/stage2-p2-draft
 ```
 
 The current committed checkpoint capsule is under `release/stage2-p2-draft/`.
@@ -122,4 +124,6 @@ findings only. There are no unresolved fatal or major findings.
 
 The minor finding is packaging-related: the copied release manifest preserves
 the original absolute generated-artifact paths. The capsule remains verifiable
-through committed raw/derived files and `checksums.txt`.
+through committed raw/derived files and `checksums.txt`. The follow-up command
+`fts validate-release-capsule release/stage2-p2-draft` validates those archived
+files directly and does not depend on the original run-machine paths.
