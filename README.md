@@ -6,6 +6,7 @@ Current status: `TASK-003-FFF-STRUCTURE-IMPL` is complete as a Stage 3 implement
 bundle for FFF permutation groups and measurable spaces, with independent review
 accepted with minor findings and follow-up cleanup completed. A repository-local Stage
 3 P3 draft checkpoint capsule is available under `release/stage3-p3-draft/`.
+`TASK-004-FBT-ATLAS-SPEC` has started as a Stage 4 spec gate only.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -17,7 +18,8 @@ draft Stage 2 checkpoint capsule, draft Stage 3 source-transcription specs, and
 reviewed Stage 3 finite validators for permutation/measurable structures. It also
 includes a draft Stage 3 checkpoint capsule. It does not
 provide FBT evolutionary dynamics, the general FBT
-theorem, ML, dashboards, notebooks, or scientific figures.
+theorem implementation, finite FBT atlas runs, ML, dashboards, notebooks, or scientific
+figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -162,6 +164,24 @@ uv run fts validate-release-capsule release/stage3-p3-draft
 This capsule packages the already reviewed Stage 3 bundle. It adds no new scientific
 claims, generated figures, sweeps, or public release status.
 
+## Stage 4 FBT Finite Atlas Spec Gate
+
+Stage 4 has started as a spec gate:
+
+```text
+TASK-004-FBT-ATLAS-SPEC
+```
+
+The current Stage 4 outputs are draft specs and fixture checks only:
+
+- `specs/fbt/theorem4_domain.md`
+- `specs/fbt/finite_atlas_design.md`
+- `tests/fixtures/fbt/stage4_fbt_spec_cases.json`
+- `tests/exact/test_fbt_stage4_spec_gate.py`
+
+No finite atlas engine, sweeps, generated atlas artifacts, figures, or theorem
+implementation have been added.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -187,7 +207,10 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 3 FFF structure spec task](tasks/TASK-003_fff_structure_spec.md)
 - [Stage 3 FFF structure implementation task](tasks/TASK-003_fff_structure_impl.md)
 - [Stage 3 P3 checkpoint capsule task](tasks/TASK-003_p3_release_capsule.md)
+- [Stage 4 FBT finite atlas spec task](tasks/TASK-004_fbt_finite_atlas_spec.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
+- [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
+- [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
 - [Stage 3 permutation-group spec](specs/fff/permutation_groups.md)
 - [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
