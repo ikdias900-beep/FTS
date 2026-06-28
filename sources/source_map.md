@@ -30,6 +30,9 @@
 | `tasks/TASK-003_fff_structure_spec.md` | Completed Stage 3 FFF permutation/measurable structure spec-gate task. |
 | `tasks/TASK-003_fff_structure_impl.md` | Completed Stage 3 FFF permutation/measurable structure implementation bundle. |
 | `tasks/TASK-003_p3_release_capsule.md` | Stage 3 P3 draft checkpoint capsule task. |
+| `tasks/TASK-004_fbt_finite_atlas_spec.md` | Stage 4 FBT theorem-domain and finite-atlas spec-gate task. |
+| `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
+| `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fff/permutation_groups.md` | Reviewed Stage 3 permutation-group source transcription and oracle-design spec. |
 | `specs/fff/measurable_spaces.md` | Reviewed Stage 3 measurable-space source transcription and oracle-design spec. |
 | `tests/fixtures/fff/stage3_structure_spec_cases.json` | Stage 3 spec-gate fixture cases for future oracles. |
@@ -37,6 +40,8 @@
 | `src/fts_lab/fff/measurable_spaces.py` | Reviewed Stage 3 measurable-space finite partition validators and source bound helpers. |
 | `tests/exact/test_fff_permutation_groups.py` | Exact tests for Stage 3 permutation helpers. |
 | `tests/exact/test_fff_measurable_spaces.py` | Exact tests for Stage 3 measurable-space helpers. |
+| `tests/fixtures/fbt/stage4_fbt_spec_cases.json` | Stage 4 spec-gate fixture cases for theorem-bound arithmetic and atlas-design boundaries. |
+| `tests/exact/test_fbt_stage4_spec_gate.py` | Stage 4 spec-gate fixture and boundary tests that do not import production atlas code. |
 | `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |
