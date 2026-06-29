@@ -2,7 +2,7 @@
 
 **Project:** Fitness, Truth & Structure Lab  
 **Version:** 0.1  
-**Last verified:** 2026-06-28
+**Last verified:** 2026-06-29
 **Purpose:** canonical source IDs, editions, links, stage usage, and source-handling rules.
 
 ## 1. Source policy
@@ -53,6 +53,7 @@
 | `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md` | Independent review report accepting `TASK-002-FBT-NUMERICAL` with minor findings only. |
 | `docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md` | Implementer-side follow-up recording the Stage 2 release-capsule portability fix. |
 | `docs/decisions/RDR-0003-stage2-batched-review-cadence.md` | Approved Stage 2 review cadence decision. |
+| `docs/decisions/RDR-0004-stage4-fbt-blockers.md` | Pending Stage 4 decision brief for FBT finite-atlas MAP ties, zero-marginal observations, grid semantics, and primary truth-strategy policy. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 

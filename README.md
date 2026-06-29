@@ -182,6 +182,10 @@ The current Stage 4 outputs are draft specs and fixture checks only:
 No finite atlas engine, sweeps, generated atlas artifacts, figures, or theorem
 implementation have been added.
 
+A pending Russian decision brief for the four Stage 4 blockers is available at
+`docs/decisions/RDR-0004-stage4-fbt-blockers.md`. It is not approved yet and does not
+close `ASM-FBT-0001..0004` until the Human PI records a decision.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -221,6 +225,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 independent review brief](docs/reviews/TASK-002-FBT-NUMERICAL-independent-review-brief.md)
 - [Stage 2 independent review report](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md)
 - [Stage 2 review follow-up](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md)
+- [Stage 4 FBT blocker decision brief](docs/decisions/RDR-0004-stage4-fbt-blockers.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)
