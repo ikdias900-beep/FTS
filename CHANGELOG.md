@@ -28,3 +28,4 @@
 - Add `TASK-003-P3-CAPSULE` and a draft Stage 3 P3 checkpoint capsule packaging the reviewed FFF permutation/measurable structure bundle with claims, limitations, review summary, reproduction commands, and checksums.
 - Start `TASK-004-FBT-ATLAS-SPEC` with draft FBT Theorem 4 domain and finite-atlas design specs, fixture checks, and explicit Stage 4 blockers, without production atlas implementation.
 - Approve `RDR-0004` for the four Stage 4 FBT finite-atlas blocker policies and mark `ASM-FBT-0001..0004` approved for the Stage 4 scope.
+- Start `TASK-004-FBT-ATLAS-ORACLE` with an exact finite-cell oracle and small fixtures for approved Stage 4 MAP-tie, zero-marginal, and primary-comparison policies, without running a full atlas.
