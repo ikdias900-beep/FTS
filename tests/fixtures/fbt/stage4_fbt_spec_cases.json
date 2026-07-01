@@ -60,7 +60,7 @@
       "posterior_mean_requires_metric",
       "full_posterior_decision"
     ],
-    "blocked_policy_ids": [
+    "approved_policy_ids": [
       "ASM-FBT-0001",
       "ASM-FBT-0002",
       "ASM-FBT-0003",
@@ -72,4 +72,3 @@
     ]
   }
 }
-

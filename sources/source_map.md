@@ -31,6 +31,7 @@
 | `tasks/TASK-003_fff_structure_impl.md` | Completed Stage 3 FFF permutation/measurable structure implementation bundle. |
 | `tasks/TASK-003_p3_release_capsule.md` | Stage 3 P3 draft checkpoint capsule task. |
 | `tasks/TASK-004_fbt_finite_atlas_spec.md` | Stage 4 FBT theorem-domain and finite-atlas spec-gate task. |
+| `tasks/TASK-004_fbt_atlas_oracle.md` | Stage 4 FBT finite-cell exact oracle task implementing approved edge-case policies without a full atlas run. |
 | `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
 | `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fff/permutation_groups.md` | Reviewed Stage 3 permutation-group source transcription and oracle-design spec. |
@@ -42,6 +43,9 @@
 | `tests/exact/test_fff_measurable_spaces.py` | Exact tests for Stage 3 measurable-space helpers. |
 | `tests/fixtures/fbt/stage4_fbt_spec_cases.json` | Stage 4 spec-gate fixture cases for theorem-bound arithmetic and atlas-design boundaries. |
 | `tests/exact/test_fbt_stage4_spec_gate.py` | Stage 4 spec-gate fixture and boundary tests that do not import production atlas code. |
+| `src/fts_lab/fbt/atlas_oracle.py` | Stage 4 exact finite-cell oracle for the approved primary comparison and edge-case policies. |
+| `tests/fixtures/fbt/stage4_fbt_oracle_cases.json` | Stage 4 exact small-cell oracle fixtures covering MAP ties, zero-marginal observations, and strict dominance. |
+| `tests/exact/test_fbt_atlas_oracle.py` | Exact tests for the Stage 4 finite-cell oracle. |
 | `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |

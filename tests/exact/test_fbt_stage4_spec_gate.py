@@ -64,7 +64,7 @@ def test_stage4_spec_gate_does_not_add_production_modules() -> None:
         assert not (PROJECT_ROOT / relative_path).exists()
 
 
-def test_stage4_specs_record_open_blockers_and_forbidden_interpretations() -> None:
+def test_stage4_specs_record_approved_policies_and_forbidden_interpretations() -> None:
     theorem_spec = THEOREM_SPEC_PATH.read_text(encoding="utf-8")
     atlas_spec = ATLAS_SPEC_PATH.read_text(encoding="utf-8")
 
@@ -75,6 +75,7 @@ def test_stage4_specs_record_open_blockers_and_forbidden_interpretations() -> No
         "ASM-FBT-0004",
         "(abs(X) - 3) / (abs(X) - 1)",
         "finite grid frequency is the theorem probability",
+        "RDR-0004",
     ):
         assert required in theorem_spec
 
@@ -83,6 +84,8 @@ def test_stage4_specs_record_open_blockers_and_forbidden_interpretations() -> No
         "truth_map",
         "fitness_only_expected",
         "grid frequencies versus theorem probabilities",
+        "map_tie_policy_sensitive",
+        "blocked_zero_marginal",
     ):
         assert required in atlas_spec
 

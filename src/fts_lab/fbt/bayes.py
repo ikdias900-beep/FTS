@@ -127,7 +127,8 @@ def unique_map_estimate(posterior_distribution: Mapping[str, Fraction]) -> str:
     )
     if len(winners) != 1:
         raise AmbiguousMapEstimateError(
-            "MAP estimate is ambiguous; unresolved ASM-FBT-0001 forbids tie-breaking"
+            "MAP estimate is ambiguous; use the Stage 4 full-MAP-set oracle "
+            "for approved ASM-FBT-0001 behavior"
         )
     return winners[0]
 

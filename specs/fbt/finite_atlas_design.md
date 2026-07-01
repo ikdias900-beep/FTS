@@ -120,6 +120,26 @@ Each evaluated cell must record:
 - strict dominance, reverse dominance, equality, or blocked status;
 - command, commit, dependency-lock checksum, and manifest checksum.
 
+## Finite-Cell Oracle
+
+`TASK-004-FBT-ATLAS-ORACLE` implements the exact finite-cell oracle in:
+
+- `src/fts_lab/fbt/atlas_oracle.py`
+
+The oracle evaluates the approved primary comparison for one finite cell and records:
+
+- observation marginals;
+- posteriors for nonzero-marginal observations;
+- full MAP sets;
+- MAP-tie kind;
+- expected fitness;
+- Fitness-only best observations;
+- possible Truth best observations;
+- comparison status.
+
+The oracle is not a grid enumerator, does not freeze a `grid_version`, does not write
+manifests, and does not produce atlas aggregates.
+
 ## Aggregate Statistics
 
 Aggregate statistics may be reported only after raw cell results are saved. Aggregates

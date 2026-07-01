@@ -186,8 +186,16 @@ implementation have been added.
 MAP ties are represented as full MAP sets, zero-marginal observations remain undefined
 without smoothing, finite atlas aggregates are `grid_frequency` under frozen grid
 versions, and the primary comparison is `truth_map` versus `fitness_only_expected`.
-`ASM-FBT-0001..0004` are approved for this scope, but no atlas run or theorem
-implementation has been added.
+`ASM-FBT-0001..0004` are approved for this scope.
+
+Stage 4 now includes a finite-cell exact oracle:
+
+- `src/fts_lab/fbt/atlas_oracle.py`
+- `tests/fixtures/fbt/stage4_fbt_oracle_cases.json`
+- `tests/exact/test_fbt_atlas_oracle.py`
+
+This is not a full atlas run, theorem implementation, aggregate grid-frequency report,
+or reviewed release result.
 
 ## Epistemic Status
 
@@ -215,6 +223,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 3 FFF structure implementation task](tasks/TASK-003_fff_structure_impl.md)
 - [Stage 3 P3 checkpoint capsule task](tasks/TASK-003_p3_release_capsule.md)
 - [Stage 4 FBT finite atlas spec task](tasks/TASK-004_fbt_finite_atlas_spec.md)
+- [Stage 4 FBT finite-cell oracle task](tasks/TASK-004_fbt_atlas_oracle.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
