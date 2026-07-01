@@ -27,4 +27,4 @@
 - Record `REV-TASK-003-FFF-STRUCTURE-001`, close its two minor findings, mark `CLM-FFF-PERM-001` and `CLM-FFF-MEAS-001` as `implemented_reviewed`, and mark `ASM-FFF-0002` and `ASM-FFF-0003` as `SOURCE_RESOLVED` for the reviewed Stage 3 finite-helper scope.
 - Add `TASK-003-P3-CAPSULE` and a draft Stage 3 P3 checkpoint capsule packaging the reviewed FFF permutation/measurable structure bundle with claims, limitations, review summary, reproduction commands, and checksums.
 - Start `TASK-004-FBT-ATLAS-SPEC` with draft FBT Theorem 4 domain and finite-atlas design specs, fixture checks, and explicit Stage 4 blockers, without production atlas implementation.
-- Add `RDR-0004` as a pending Russian decision brief for the four Stage 4 FBT finite-atlas blockers; no assumption is approved yet.
+- Approve `RDR-0004` for the four Stage 4 FBT finite-atlas blocker policies and mark `ASM-FBT-0001..0004` approved for the Stage 4 scope.

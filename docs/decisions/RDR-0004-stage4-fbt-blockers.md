@@ -1,11 +1,11 @@
-# RDR-0004: decision brief по Stage 4 FBT blockers
+# RDR-0004: Stage 4 FBT blocker policies
 
 ## Статус
 
-PENDING HUMAN DECISION
+APPROVED
 
-Это не утвержденный RDR. Это короткий документ для Human Principal Investigator
-перед запуском production-реализации Stage 4 finite atlas.
+Решение утверждено Human Principal Investigator 2026-07-01 после review
+decision brief и явного согласия с рекомендациями.
 
 ## Цель
 
@@ -226,9 +226,9 @@ fitness_only_expected
   theorem.
 - Это не разрешает claim "Fitness beats every truth-like strategy".
 
-## Рекомендуемое сводное решение
+## Решение человека
 
-Если Human PI утверждает рекомендацию как есть:
+Human PI утверждает recommended combined decision as written:
 
 | Assumption | Decision |
 |---|---|
@@ -237,24 +237,16 @@ fitness_only_expected
 | `ASM-FBT-0003` | use frozen finite grid versions and report `grid_frequency`, never source theorem probability |
 | `ASM-FBT-0004` | primary comparison is `truth_map` vs `fitness_only_expected`; extension baselines are separate |
 
-## Checklist для решения Human PI
-
-Human PI может утвердить один из вариантов:
-
-- Утвердить recommended combined decision без изменений.
-- Утвердить с изменениями MAP tie policy.
-- Утвердить с изменениями zero-marginal policy.
-- Утвердить с изменениями finite-grid semantics.
-- Утвердить с изменениями primary/secondary truth-strategy policy.
-- Не переходить к Stage 4 production implementation пока.
-
 ## После утверждения
 
-Если решение утверждено, следующий implementation PR должен:
+Документационный follow-up после утверждения:
 
 - update `assumptions/register.md` statuses for `ASM-FBT-0001..0004`;
 - update `specs/fbt/theorem4_domain.md` and
-  `specs/fbt/finite_atlas_design.md` with the approved policy IDs;
+  `specs/fbt/finite_atlas_design.md` with the approved policy IDs.
+
+Следующий implementation PR должен:
+
 - создать первый exact oracle / fixture task для Stage 4;
 - держать все atlas outputs manifest-backed и labeled as extension, если только
   явно не реализован source reproduction target;
@@ -265,9 +257,10 @@ Human PI может утвердить один из вариантов:
 
 Пересмотреть этот RDR, если:
 
-- source re-reading shows a different source tie policy;
-- the first finite grid produces too many blocked/tie-sensitive cells to be useful;
-- Stage 4 adds action sets, metrics on `W`, weighted grids, or evolutionary
+- source re-reading покажет другой source tie policy;
+- первый finite grid даст слишком много blocked/tie-sensitive cells для
+  содержательного отчета;
+- Stage 4 добавит action sets, metrics on `W`, weighted grids или evolutionary
   dynamics;
-- a future public release wants to upgrade any atlas result beyond
+- будущий public release захочет поднять любой atlas result выше
   project-defined extension status.

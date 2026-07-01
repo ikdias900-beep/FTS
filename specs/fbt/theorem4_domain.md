@@ -75,8 +75,9 @@ P(x) = sum_w p(x | w) * mu(w)
 p(w | x) = p(x | w) * mu(w) / P(x)
 ```
 
-If `P(x) = 0`, the posterior is undefined. This remains blocked by `ASM-FBT-0002` for
-general production work.
+If `P(x) = 0`, the posterior is undefined. `RDR-0004` approves the Stage 4 policy:
+primary exact paths do not smooth with epsilon; the observation-level result is
+`zero_marginal_undefined`, and dependent comparisons are `blocked_zero_marginal`.
 
 ## MAP Estimate
 
@@ -84,8 +85,10 @@ The source Truth strategy uses a maximum-a-posteriori world estimate for each
 perception. MAP estimates may be non-unique. The source theorem discussion treats
 generic uniqueness separately from possible ties.
 
-Stage 4 production implementation must not silently choose among MAP ties. This remains
-blocked by `ASM-FBT-0001`.
+Stage 4 production implementation must not silently choose among MAP ties. `RDR-0004`
+approves the Stage 4 policy: represent ties as full MAP sets; classify cases whose
+outcome depends on the tied maximizer as `map_tie_policy_sensitive`; do not use lexical
+or random tie-breaks in primary results.
 
 ## Expected Fitness
 
@@ -139,13 +142,22 @@ Future finite atlas grids may be useful extensions, but their frequencies must b
 as grid frequencies under an explicit project measure. They must not be reported as the
 source theorem probability without a separate proof or approved reconstruction.
 
-## Open Blockers
+## Approved Stage 4 Policies
 
-- `ASM-FBT-0001`: MAP tie handling remains open.
-- `ASM-FBT-0002`: zero-probability observation behavior remains open.
-- `ASM-FBT-0003`: finite-grid measure semantics remain open.
-- `ASM-FBT-0004`: future truth-strategy family and primary comparison policy remain
-  open.
+`RDR-0004` approves the policy boundary for `ASM-FBT-0001`, `ASM-FBT-0002`,
+`ASM-FBT-0003`, and `ASM-FBT-0004`:
+
+- MAP ties are represented as full MAP sets; tie-sensitive outcomes are reported
+  separately.
+- Zero-marginal observations remain undefined and block dependent comparisons; no
+  primary exact path uses smoothing.
+- Finite atlas aggregates are `grid_frequency` under frozen project grid versions, not
+  source theorem probabilities.
+- The primary source-aligned comparison is `truth_map` versus
+  `fitness_only_expected`; extension truth-like baselines are reported separately.
+
+These approvals unblock Stage 4 oracle/design implementation. They do not implement or
+prove Theorem 4, run a finite atlas, or upgrade any claim to reviewed status.
 
 ## Forbidden Interpretations
 
@@ -155,4 +167,3 @@ source theorem probability without a separate proof or approved reconstruction.
   or ML agents.
 - Do not use the theorem statement to claim that real perception, consciousness,
   spacetime, ontology, or conscious agents have been established.
-

@@ -43,6 +43,10 @@ The finite atlas will later define a grid over:
 The grid is a project object. Its cell counts and aggregate frequencies are not source
 theorem probabilities.
 
+`RDR-0004` approves the Stage 4 reporting semantics: every atlas run must name a frozen
+`grid_version`, aggregates must use `grid_frequency` labels, and blocked or
+tie-sensitive cells must remain visible in denominator accounting.
+
 ## Strategy Families
 
 ### Source Strategy Family
@@ -51,6 +55,8 @@ The source-derived primary comparison is:
 
 - `truth_map`: MAP point estimate followed by fitness ranking of the MAP world state;
 - `fitness_only_expected`: posterior expected fitness ranking.
+
+`RDR-0004` approves this as the primary Stage 4 comparison.
 
 ### Future Extension Baselines
 
@@ -63,6 +69,24 @@ extension and reported separately:
 - regret-minimizing variants.
 
 These variants must not be described as the source Truth strategy.
+
+`truth_posterior_mean` remains unavailable until a separate metric or vector semantics
+for `W` is approved.
+
+## Approved Edge-Case Policies
+
+`RDR-0004` approves these Stage 4 policies:
+
+- MAP ties are represented as full MAP sets. If tied maximizers imply different
+  comparison outcomes, the cell is `map_tie_policy_sensitive`; primary results must not
+  use lexical or random tie-breaks.
+- Observations with `P(x) = 0` produce `zero_marginal_undefined`. Comparisons depending
+  on such observations are `blocked_zero_marginal`; primary exact paths must not use
+  epsilon smoothing.
+- Finite-grid summaries are project `grid_frequency` values under the declared
+  `grid_version`, not source theorem probabilities.
+- Extension baselines are reported separately from the primary `truth_map` versus
+  `fitness_only_expected` comparison.
 
 ## Cell Identity
 
@@ -107,13 +131,11 @@ must keep separate:
 - ties and blocked cells;
 - confirmatory metrics versus exploratory summaries.
 
-## Blockers Before Production Implementation
+## Remaining Gates Before Production Implementation
 
-- Human PI decision for `ASM-FBT-0001`.
-- Human PI decision for `ASM-FBT-0002`.
-- Human PI decision for `ASM-FBT-0003`.
-- Human PI decision for `ASM-FBT-0004`.
-- Independent review of this specification bundle.
+- exact oracle / fixture design using the approved `RDR-0004` policies;
+- independent review of the Stage 4 spec/oracle/implementation bundle before public
+  claim upgrade.
 
 ## Out Of Scope For This Spec Gate
 
@@ -124,4 +146,3 @@ must keep separate:
 - UI;
 - evolutionary dynamics;
 - ML/RL.
-

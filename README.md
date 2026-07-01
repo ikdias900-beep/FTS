@@ -182,9 +182,12 @@ The current Stage 4 outputs are draft specs and fixture checks only:
 No finite atlas engine, sweeps, generated atlas artifacts, figures, or theorem
 implementation have been added.
 
-A pending Russian decision brief for the four Stage 4 blockers is available at
-`docs/decisions/RDR-0004-stage4-fbt-blockers.md`. It is not approved yet and does not
-close `ASM-FBT-0001..0004` until the Human PI records a decision.
+`RDR-0004` records the Human PI decision approving the four Stage 4 blocker policies:
+MAP ties are represented as full MAP sets, zero-marginal observations remain undefined
+without smoothing, finite atlas aggregates are `grid_frequency` under frozen grid
+versions, and the primary comparison is `truth_map` versus `fitness_only_expected`.
+`ASM-FBT-0001..0004` are approved for this scope, but no atlas run or theorem
+implementation has been added.
 
 ## Epistemic Status
 

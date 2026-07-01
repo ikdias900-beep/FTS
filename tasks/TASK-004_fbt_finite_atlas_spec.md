@@ -87,14 +87,18 @@ The fixture also records that same-best-territory probability is the complement
   `src/fts_lab/fbt/finite_atlas.py` is created in this task.
 - Tests for this task must not import future production Stage 4 code.
 - The source theorem probability must not be equated with a project finite-grid count.
-- `ASM-FBT-0001` and `ASM-FBT-0002` remain open and block general production behavior.
-- New Stage 4 atlas design decisions remain open until Human PI approval.
+- This task originally recorded `ASM-FBT-0001..0004` as open blockers for production
+  Stage 4 work.
+- `RDR-0004` later approved the Stage 4 MAP-tie, zero-marginal, finite-grid, and
+  primary truth-strategy policies. That approval unblocks oracle/design implementation
+  but does not add a production atlas engine in this task.
 
 ## Assumptions
 
-No new approved scientific assumption is introduced.
+This spec gate introduced no approved scientific assumption at initial merge time.
 
-Open assumptions acknowledged and not resolved:
+Post-brief update: `RDR-0004` approved the following assumptions for the Stage 4 scope
+on 2026-07-01:
 
 - `ASM-FBT-0001`: general MAP tie handling.
 - `ASM-FBT-0002`: zero-probability observation behavior.
@@ -152,4 +156,3 @@ Committed files are:
 Independent review is deferred until the Stage 4 spec/oracle-design bundle is ready for
 a fresh-context reviewer to audit source transcription, ambiguity handling, and atlas
 claim boundaries.
-
