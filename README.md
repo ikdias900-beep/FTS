@@ -6,7 +6,8 @@ Current status: `TASK-003-FFF-STRUCTURE-IMPL` is complete as a Stage 3 implement
 bundle for FFF permutation groups and measurable spaces, with independent review
 accepted with minor findings and follow-up cleanup completed. A repository-local Stage
 3 P3 draft checkpoint capsule is available under `release/stage3-p3-draft/`.
-`TASK-004-FBT-ATLAS-SPEC` has started as a Stage 4 spec gate only.
+`TASK-004-FBT-ATLAS-GRID-V0` is active as a Stage 4 frozen small-grid smoke-run
+task after the Stage 4 spec gate and finite-cell oracle.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -16,10 +17,9 @@ total orders, cyclic groups, manifest-backed publication table generation, a dra
 1 release capsule, exact FBT numerical appendix reproduction, an independently reviewed
 draft Stage 2 checkpoint capsule, draft Stage 3 source-transcription specs, and
 reviewed Stage 3 finite validators for permutation/measurable structures. It also
-includes a draft Stage 3 checkpoint capsule. It does not
-provide FBT evolutionary dynamics, the general FBT
-theorem implementation, finite FBT atlas runs, ML, dashboards, notebooks, or scientific
-figures.
+includes a draft Stage 3 checkpoint capsule and a Stage 4 exact finite-cell oracle. It
+does not provide FBT evolutionary dynamics, the general FBT theorem implementation,
+full finite FBT atlas runs, ML, dashboards, notebooks, or scientific figures.
 
 This project does not prove Hoffman's metaphysical proposals. Future scientific claims must be tied to source IDs, claim IDs, assumptions, manifests, tests, and independent review.
 
@@ -45,6 +45,7 @@ uv run pytest
 uv run fts doctor
 uv run fts reproduce-smoke
 uv run fts fbt reproduce-numerical-example
+uv run fts fbt atlas-grid-v0-smoke
 uv run fts validate-release-capsule release/stage2-p2-draft
 uv run fts validate-release-capsule release/stage3-p3-draft
 ```
@@ -194,7 +195,18 @@ Stage 4 now includes a finite-cell exact oracle:
 - `tests/fixtures/fbt/stage4_fbt_oracle_cases.json`
 - `tests/exact/test_fbt_atlas_oracle.py`
 
-This is not a full atlas run, theorem implementation, aggregate grid-frequency report,
+Stage 4 also includes a frozen small-grid smoke-run:
+
+```bash
+uv run fts fbt atlas-grid-v0-smoke
+```
+
+The smoke-run reads `experiments/configs/fbt_atlas_v0.json`, enumerates 24 exact cells
+through `src/fts_lab/fbt/atlas_grid.py`, writes JSON and Markdown outputs, and validates
+a scientific manifest with `epistemic_status: E`. Its aggregate values are
+`grid_frequency` values for `fbt_atlas_v0` only.
+
+This is not a full atlas run, theorem implementation, theorem-probability calculation,
 or reviewed release result.
 
 ## Epistemic Status
@@ -224,6 +236,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 3 P3 checkpoint capsule task](tasks/TASK-003_p3_release_capsule.md)
 - [Stage 4 FBT finite atlas spec task](tasks/TASK-004_fbt_finite_atlas_spec.md)
 - [Stage 4 FBT finite-cell oracle task](tasks/TASK-004_fbt_atlas_oracle.md)
+- [Stage 4 FBT atlas grid v0 smoke task](tasks/TASK-004_fbt_atlas_grid_v0.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
