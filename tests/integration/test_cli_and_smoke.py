@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-004-FBT-ATLAS-V1-SPEC" in result.stdout
+    assert "Active task: TASK-004-FBT-ATLAS-V1-ENGINE" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -338,6 +338,45 @@ def test_fbt_atlas_grid_v0_cli_writes_outputs_and_valid_manifest() -> None:
     assert manifest["parameters"]["aggregate_label"] == "grid_frequency"
     assert len(manifest["inputs"]) == 1
     assert len(manifest["outputs"]) == 2
+
+
+def test_fbt_atlas_v1_raw_cells_cli_writes_output_and_valid_manifest() -> None:
+    root = find_project_root()
+    result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", "fbt", "atlas-v1-raw-cells"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "raw_cell_table_checksum=" in result.stdout
+    assert "raw_cell_table_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+    assert "cell_count=144" in result.stdout
+
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fbt_atlas_v1_raw_cell_table"
+    assert manifest["epistemic_status"] == "E"
+    assert manifest["task_ids"] == [
+        "TASK-004-FBT-ATLAS-V1-SPEC",
+        "TASK-004-FBT-ATLAS-V1-ENGINE",
+    ]
+    assert manifest["claim_ids"] == ["CLM-FBT-ATLAS-001"]
+    assert manifest["source_ids"] == ["SRC-FBT-2021"]
+    assert manifest["assumption_ids"] == [
+        "ASM-FBT-0001",
+        "ASM-FBT-0002",
+        "ASM-FBT-0003",
+        "ASM-FBT-0004",
+    ]
+    assert manifest["parameters"]["grid_version"] == "fbt_atlas_v1_draft"
+    assert manifest["parameters"]["result_level"] == "raw_cells_only"
+    assert manifest["parameters"]["aggregate_report"] is False
+    assert len(manifest["inputs"]) == 1
+    assert len(manifest["outputs"]) == 1
 
 
 def test_manifest_validation_fails_after_artifact_corruption(tmp_path: Path) -> None:

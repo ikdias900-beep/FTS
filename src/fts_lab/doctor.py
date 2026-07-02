@@ -14,7 +14,7 @@ from typing import Any
 from fts_lab import __version__
 from fts_lab.manifests import SCHEMA_PATH, canonical_json_text, sha256_file
 
-ACTIVE_TASK = "TASK-004-FBT-ATLAS-V1-SPEC"
+ACTIVE_TASK = "TASK-004-FBT-ATLAS-V1-ENGINE"
 
 REQUIRED_CONTEXT_FILES = (
     "AGENTS.md",
@@ -34,6 +34,7 @@ REQUIRED_CONTEXT_FILES = (
     "tasks/TASK-004_fbt_atlas_grid_v0.md",
     "tasks/TASK-004_p4_release_capsule.md",
     "tasks/TASK-004_fbt_atlas_v1_spec.md",
+    "tasks/TASK-004_fbt_atlas_v1_engine.md",
     "sources/source_map.md",
     "sources/claim_matrix.csv",
     "assumptions/register.md",
