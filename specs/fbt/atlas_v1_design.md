@@ -22,9 +22,10 @@ The first v1 deliverable was a spec gate:
 - denominator and edge-case semantics;
 - tests that reject claim-boundary drift.
 
-`TASK-004-FBT-ATLAS-V1-ENGINE` now implements the first production path: a
-manifest-backed raw-cell table. Aggregate reports and public claim upgrades still come
-later.
+`TASK-004-FBT-ATLAS-V1-ENGINE` implements the first production path: a
+manifest-backed raw-cell table. `TASK-004-FBT-ATLAS-V1-AGGREGATE` adds a derived
+aggregate/report layer that consumes those raw-cell artifacts. Public claim upgrades
+still come later.
 
 ## Source-Derived Core
 
@@ -127,6 +128,32 @@ representative families into exact finite cells, evaluates each cell through the
 reviewed Stage 4 finite-cell oracle, and saves the raw table. It does not compute
 aggregate frequencies.
 
+## Aggregate/Report Layer
+
+`TASK-004-FBT-ATLAS-V1-AGGREGATE` adds:
+
+- module: `src/fts_lab/fbt/atlas_v1_aggregate.py`;
+- CLI: `fts fbt atlas-v1-aggregate --raw-cells <path>`;
+- output: `results/derived/<run_id>/fbt_atlas_v1_aggregate.json`;
+- report: `results/reports/<run_id>/fbt_atlas_v1_report.md`;
+- manifest: `experiments/manifests/<manifest_id>.json`.
+
+The aggregate command accepts a saved `fbt_atlas_v1_raw_cell_table` JSON artifact as
+its only scientific input. It validates that artifact, counts `cells[*].status`, and
+writes exact rational `grid_frequency` summaries over all raw cells in the input.
+
+The aggregate command must not read `experiments/configs/fbt_atlas_v1_draft.json`,
+must not regenerate cells, and must not import the raw-cell enumeration helpers. This
+preserves the raw/derived boundary: raw artifacts are the auditable data source, while
+reports are reproducible summaries of those artifacts.
+
+The denominator semantics remain:
+
+- `aggregate_label: grid_frequency`;
+- `denominator_policy: all_enumerated_cells`;
+- `denominator_basis: all_raw_cells`;
+- blocked and tie-sensitive cells stay in the denominator.
+
 ## Forbidden For The Spec Gate
 
 - full atlas run;
@@ -146,4 +173,6 @@ This engine gate is complete when:
   semantics;
 - tests verify that draft config wording cannot be mistaken for a source-level
   probability claim;
-- the CLI writes a manifest-backed raw-cell table and no aggregate result.
+- the raw-cell CLI writes a manifest-backed raw-cell table;
+- the aggregate CLI writes derived JSON/Markdown reports from a raw-cell artifact
+  without hidden recomputation.

@@ -2,7 +2,7 @@
 
 **Project:** Fitness, Truth & Structure Lab  
 **Version:** 0.1  
-**Last verified:** 2026-07-01
+**Last verified:** 2026-07-02
 **Purpose:** canonical source IDs, editions, links, stage usage, and source-handling rules.
 
 ## 1. Source policy
@@ -36,6 +36,7 @@
 | `tasks/TASK-004_p4_release_capsule.md` | Stage 4 P4 draft checkpoint capsule task packaging the reviewed spec/oracle/grid-smoke bundle. |
 | `tasks/TASK-004_fbt_atlas_v1_spec.md` | Stage 4 atlas v1 spec-gate task for design/config contract only, without engine or full run. |
 | `tasks/TASK-004_fbt_atlas_v1_engine.md` | Stage 4 atlas v1 raw-cell engine task for manifest-backed exact raw-cell tables without aggregate claims. |
+| `tasks/TASK-004_fbt_atlas_v1_aggregate.md` | Stage 4 atlas v1 aggregate/report task for derived summaries from raw-cell artifacts only. |
 | `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
 | `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fbt/atlas_v1_design.md` | Draft Stage 4 atlas v1 design spec for grid identity, exact enumeration, and denominator semantics. |
@@ -55,9 +56,11 @@
 | `experiments/configs/fbt_atlas_v1_draft.json` | Draft Stage 4 atlas v1 config contract used by the raw-cell engine; not a full run. |
 | `src/fts_lab/fbt/atlas_grid.py` | Manifest-backed Stage 4 `fbt_atlas_v0` smoke-grid enumerator and report writer. |
 | `src/fts_lab/fbt/atlas_v1.py` | Manifest-backed Stage 4 atlas v1 raw-cell engine over the draft config. |
+| `src/fts_lab/fbt/atlas_v1_aggregate.py` | Manifest-backed Stage 4 atlas v1 aggregate/report layer that consumes saved raw-cell artifacts without hidden recomputation. |
 | `tests/exact/test_fbt_atlas_grid.py` | Exact tests for Stage 4 atlas grid v0 config, enumeration, status accounting, and report wording. |
 | `tests/exact/test_fbt_atlas_v1_spec.py` | Spec-gate tests for Stage 4 atlas v1 draft config traceability, grid identity, denominator semantics, and wording boundaries. |
 | `tests/exact/test_fbt_atlas_v1_engine.py` | Exact tests for Stage 4 atlas v1 raw-cell enumeration, cell identity, edge statuses, and no-aggregate scope. |
+| `tests/exact/test_fbt_atlas_v1_aggregate.py` | Exact tests for Stage 4 atlas v1 aggregate/report semantics over raw-cell artifacts. |
 | `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |
@@ -73,6 +76,7 @@
 | `docs/decisions/RDR-0004-stage4-fbt-blockers.md` | Approved Stage 4 decision for FBT finite-atlas MAP ties, zero-marginal observations, grid semantics, and primary truth-strategy policy. |
 | `docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md` | Independent review brief for the Stage 4 FBT specs, finite-cell oracle, grid-smoke runner, tests, and manifest discipline. |
 | `docs/reviews/REV-TASK-004-FBT-ATLAS-001.md` | Independent review report accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings. |
+| `docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md` | Independent review brief for the atlas v1 design, raw engine, raw artifacts, aggregate/report layer, tests, and manifest discipline. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 
