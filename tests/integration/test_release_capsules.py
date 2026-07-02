@@ -110,6 +110,39 @@ def test_stage4_p4_draft_capsule_cli_validates_local_archive() -> None:
     assert "checked_files=17" in result.stdout
 
 
+def test_stage4_v1_draft_capsule_checksums_match_files() -> None:
+    capsule_root = find_project_root() / "release/stage4-v1-draft"
+    result = validate_release_capsule(capsule_root)
+
+    assert result.checksum_file == capsule_root.resolve() / "checksums.txt"
+    assert "raw_data/fbt_atlas_v1_draft.json" in result.checked_files
+    assert "raw_data/fbt_atlas_v1_raw_cells.json" in result.checked_files
+    assert "derived_data/fbt_atlas_v1_aggregate.json" in result.checked_files
+    assert "derived_data/fbt_atlas_v1_report.md" in result.checked_files
+    assert "derived_data/stage4_atlas_v1_checkpoint.json" in result.checked_files
+
+
+def test_stage4_v1_draft_capsule_cli_validates_local_archive() -> None:
+    root = find_project_root()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "validate-release-capsule",
+            "release/stage4-v1-draft",
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "release_capsule_valid=" in result.stdout
+    assert "checked_files=17" in result.stdout
+
+
 def test_release_capsule_validation_rejects_unlisted_files(tmp_path: Path) -> None:
     source_root = find_project_root() / "release/stage2-p2-draft"
     capsule_copy = tmp_path / "stage2-p2-draft"

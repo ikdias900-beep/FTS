@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-004-FBT-ATLAS-V1-AGGREGATE" in result.stdout
+    assert "Active task: TASK-004-ATLAS-V1-CAPSULE" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:

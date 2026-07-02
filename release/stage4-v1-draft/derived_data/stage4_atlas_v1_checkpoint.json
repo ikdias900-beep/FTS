@@ -1,0 +1,90 @@
+{
+  "artifact_kind": "stage4_atlas_v1_checkpoint",
+  "assumption_ids": [
+    "ASM-FBT-0001",
+    "ASM-FBT-0002",
+    "ASM-FBT-0003",
+    "ASM-FBT-0004"
+  ],
+  "capsule_id": "STAGE4-V1-DRAFT",
+  "claim_boundary": {
+    "allowed": [
+      "The reviewed atlas v1 bundle can produce manifest-backed exact raw-cell tables.",
+      "The aggregate/report layer summarizes saved raw-cell artifacts without hidden recomputation.",
+      "The packaged grid_frequency values describe only the included draft-grid raw artifact."
+    ],
+    "forbidden": [
+      "The full finite atlas has been run.",
+      "Theorem 4 has been implemented, proved, reproduced, or reviewed.",
+      "A project grid_frequency is a source theorem probability.",
+      "The capsule supports biological, metaphysical, ML/RL, UI, notebook, figure, or evolutionary-dynamics claims."
+    ]
+  },
+  "claim_ids": [
+    "CLM-FBT-ATLAS-001"
+  ],
+  "epistemic_status": "E",
+  "git": {
+    "packaging_base_commit": "4a015ca85aed88cecab0c4cda82a384b530ff3a9",
+    "reviewed_commit": "8e7399a32029a5726420df82318ae0b141e96e7b"
+  },
+  "grid_version": "fbt_atlas_v1_draft",
+  "included_artifacts": {
+    "aggregate_json": {
+      "path": "derived_data/fbt_atlas_v1_aggregate.json",
+      "sha256": "2512ab5833a2da993b31af21b1db4c529837eeb5930f7d2764de201860767328"
+    },
+    "aggregate_markdown": {
+      "path": "derived_data/fbt_atlas_v1_report.md",
+      "sha256": "786e48e0495822828d128580fe87199a253fdff71ad7939d2b0049a0796848a6"
+    },
+    "aggregate_manifest": {
+      "manifest_id": "ART-TASK-004-FBT-ATLAS-V1-AGGREGATE-MANIFEST-20260702T080924Z-1A6A67BF",
+      "path": "manifests/ART-TASK-004-FBT-ATLAS-V1-AGGREGATE-MANIFEST-20260702T080924Z-1A6A67BF.json"
+    },
+    "draft_config": {
+      "path": "raw_data/fbt_atlas_v1_draft.json",
+      "sha256": "0f8e927ca0f5bd291689fb8879e7d4b404d3514216e789f33118182cd7b8d08d"
+    },
+    "raw_cell_json": {
+      "path": "raw_data/fbt_atlas_v1_raw_cells.json",
+      "sha256": "582e7e50fd8b1bfab149feab6e00d80cd95bda29268ff6fec99e0a5ed4748613"
+    },
+    "raw_cell_manifest": {
+      "manifest_id": "ART-TASK-004-FBT-ATLAS-V1-RAW-CELLS-MANIFEST-20260702T080919Z-0AE3BB9C",
+      "path": "manifests/ART-TASK-004-FBT-ATLAS-V1-RAW-CELLS-MANIFEST-20260702T080919Z-0AE3BB9C.json"
+    }
+  },
+  "review": {
+    "review_id": "REV-TASK-004-FBT-ATLAS-V1-001",
+    "review_status_token": "REV-TASK-004-FBT-ATLAS-V1-001_no_fatal_or_major",
+    "verdict": "accepted"
+  },
+  "schema_version": "1.0",
+  "source_ids": [
+    "SRC-FBT-2021"
+  ],
+  "summary": {
+    "aggregate_label": "grid_frequency",
+    "denominator_policy": "all_enumerated_cells",
+    "grid_frequencies_by_status": {
+      "blocked_zero_marginal": "5/16",
+      "map_tie_policy_sensitive": "11/144",
+      "same_best_observation": "17/144",
+      "truth_decision_tie": "71/144"
+    },
+    "raw_cell_count": 144,
+    "status_counts": {
+      "blocked_zero_marginal": 45,
+      "map_tie_policy_sensitive": 11,
+      "same_best_observation": 17,
+      "truth_decision_tie": 71
+    }
+  },
+  "task_ids": [
+    "TASK-004-FBT-ATLAS-V1-SPEC",
+    "TASK-004-FBT-ATLAS-V1-ENGINE",
+    "TASK-004-FBT-ATLAS-V1-AGGREGATE",
+    "TASK-004-ATLAS-V1-CAPSULE"
+  ]
+}

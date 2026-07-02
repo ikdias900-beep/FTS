@@ -13,7 +13,8 @@ The Stage 4 spec/oracle/grid-smoke bundle is accepted by
 design/engine/raw/aggregate bundle with no fatal, major, or minor findings. This
 review covers manifest-backed raw-cell tables and derived status-count/grid_frequency
 summaries from raw artifacts only; it does not add a full atlas result, theorem
-implementation, figure, UI, or biological/metaphysical claim.
+implementation, figure, UI, or biological/metaphysical claim. The reviewed v1 scope is
+packaged in `release/stage4-v1-draft/`.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -57,6 +58,7 @@ uv run fts fbt atlas-v1-aggregate --raw-cells results/raw/<run-id>/fbt_atlas_v1_
 uv run fts validate-release-capsule release/stage2-p2-draft
 uv run fts validate-release-capsule release/stage3-p3-draft
 uv run fts validate-release-capsule release/stage4-p4-draft
+uv run fts validate-release-capsule release/stage4-v1-draft
 ```
 
 Equivalent Make targets are available:
@@ -269,6 +271,17 @@ artifact checksum. It does not read the draft config or regenerate cells. The re
 values are reviewed project `grid_frequency` summaries over the input raw cells only.
 This review does not convert them into source theorem results.
 
+The Stage 4 atlas v1 checkpoint package is under `release/stage4-v1-draft/`. Validate
+the committed archive contents with:
+
+```bash
+uv run fts validate-release-capsule release/stage4-v1-draft
+```
+
+This capsule packages the already reviewed atlas v1 bundle. It adds no new scientific
+claims, generated figures, full atlas run, theorem implementation, or source-level
+probability.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -301,6 +314,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 atlas v1 spec task](tasks/TASK-004_fbt_atlas_v1_spec.md)
 - [Stage 4 atlas v1 raw-cell engine task](tasks/TASK-004_fbt_atlas_v1_engine.md)
 - [Stage 4 atlas v1 aggregate/report task](tasks/TASK-004_fbt_atlas_v1_aggregate.md)
+- [Stage 4 atlas v1 checkpoint capsule task](tasks/TASK-004_atlas_v1_release_capsule.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
@@ -310,6 +324,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
 - [Stage 3 draft checkpoint capsule](release/stage3-p3-draft/README.md)
 - [Stage 4 draft checkpoint capsule](release/stage4-p4-draft/README.md)
+- [Stage 4 atlas v1 draft checkpoint capsule](release/stage4-v1-draft/README.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)
