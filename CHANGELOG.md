@@ -34,3 +34,4 @@
 - Record `REV-TASK-004-FBT-ATLAS-001`, accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings, and mark `CLM-FBT-ATLAS-001` reviewed for that limited scope.
 - Add `TASK-004-P4-CAPSULE` and a draft Stage 4 checkpoint capsule packaging the reviewed FBT spec/oracle/grid-smoke bundle with raw inputs, generated smoke output, manifest, review summary, limitations, reproduction commands, and checksums.
 - Start `TASK-004-FBT-ATLAS-V1-SPEC` with a draft atlas v1 design spec, non-executable config contract, and spec-gate tests, without production engine work or a full atlas run.
+- Start `TASK-004-FBT-ATLAS-V1-ENGINE` with a reusable exact raw-cell engine, CLI command, manifest-backed raw JSON table, and tests, without aggregate reporting or a full atlas claim.

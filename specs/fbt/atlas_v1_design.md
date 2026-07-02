@@ -9,20 +9,22 @@ ASSUMPTION IDS: `ASM-FBT-0001`, `ASM-FBT-0002`, `ASM-FBT-0003`, `ASM-FBT-0004`
 ## Purpose
 
 Atlas v1 is the next Stage 4 block after the reviewed spec/oracle/grid-smoke
-checkpoint. This document freezes design expectations before a reusable engine is
-implemented. It is not a run plan for a large result and it does not add a new public
+checkpoint. This document freezes design expectations for a reusable raw-cell engine.
+It is not a run plan for a large public result and it does not add a new public
 scientific claim.
 
 ## Scope
 
-The first v1 deliverable is a spec gate:
+The first v1 deliverable was a spec gate:
 
 - a draft config contract;
 - stable cell identity requirements;
 - denominator and edge-case semantics;
 - tests that reject claim-boundary drift.
 
-Production implementation comes later only after this contract is stable.
+`TASK-004-FBT-ATLAS-V1-ENGINE` now implements the first production path: a
+manifest-backed raw-cell table. Aggregate reports and public claim upgrades still come
+later.
 
 ## Source-Derived Core
 
@@ -63,7 +65,21 @@ Every future v1 raw cell must have a deterministic identity derived from:
 - primary-comparison ID;
 - edge-policy ID.
 
-The draft config records this identity contract but does not enumerate the full v1 grid.
+The draft config records this identity contract and the first engine enumerates exact
+raw cells over the declared representative families. This is still not a full public
+atlas result.
+
+## Draft Representative Families
+
+The v1 draft config declares representative project families:
+
+- priors: `uniform`, `single_state_heavy`, `rational_simplex_small`;
+- kernels: `pure_map`, `noisy_map`, `uninformative`, `zero_marginal_probe`;
+- fitness functions: `single_peak`, `equal`, `multi_peak`;
+- offered-observation sets: `all_observations`.
+
+These families are deterministic project grid choices. They are not claimed to exhaust
+the source theorem domain.
 
 ## Arithmetic And Denominator Semantics
 
@@ -81,8 +97,7 @@ silently removing them from the summary base.
 
 ## Manifest Discipline
 
-Before any v1 aggregate is publishable, the engine must write raw cell artifacts and a
-manifest that records:
+The v1 raw-cell engine writes a raw cell artifact and a manifest that records:
 
 - task IDs;
 - claim IDs;
@@ -95,12 +110,26 @@ manifest that records:
 - dependency-lock checksum;
 - output paths and checksums.
 
-The spec gate does not write v1 manifests.
+The raw-cell engine writes manifests. Later aggregate/report commands must consume raw
+cell artifacts rather than recomputing hidden cells.
+
+## Raw-Cell Engine
+
+`TASK-004-FBT-ATLAS-V1-ENGINE` adds:
+
+- module: `src/fts_lab/fbt/atlas_v1.py`;
+- CLI: `fts fbt atlas-v1-raw-cells`;
+- output: `results/raw/<run_id>/fbt_atlas_v1_raw_cells.json`;
+- manifest: `experiments/manifests/<manifest_id>.json`.
+
+The engine reads `experiments/configs/fbt_atlas_v1_draft.json`, expands deterministic
+representative families into exact finite cells, evaluates each cell through the
+reviewed Stage 4 finite-cell oracle, and saves the raw table. It does not compute
+aggregate frequencies.
 
 ## Forbidden For The Spec Gate
 
 - full atlas run;
-- reusable production engine;
 - aggregate result publication;
 - Theorem 4 implementation;
 - stochastic simulation;
@@ -110,10 +139,11 @@ The spec gate does not write v1 manifests.
 
 ## Acceptance
 
-This spec gate is complete when:
+This engine gate is complete when:
 
 - `experiments/configs/fbt_atlas_v1_draft.json` links the required traceability IDs;
 - tests validate primary comparison, grid identity, exact arithmetic, and denominator
   semantics;
 - tests verify that draft config wording cannot be mistaken for a source-level
-  probability claim.
+  probability claim;
+- the CLI writes a manifest-backed raw-cell table and no aggregate result.

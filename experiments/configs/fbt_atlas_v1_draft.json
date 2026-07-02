@@ -1,7 +1,10 @@
 {
   "schema_version": "1.0",
   "artifact_kind": "fbt_atlas_v1_draft_config",
-  "task_ids": ["TASK-004-FBT-ATLAS-V1-SPEC"],
+  "task_ids": [
+    "TASK-004-FBT-ATLAS-V1-SPEC",
+    "TASK-004-FBT-ATLAS-V1-ENGINE"
+  ],
   "claim_ids": ["CLM-FBT-ATLAS-001"],
   "source_ids": ["SRC-FBT-2021"],
   "assumption_ids": [
@@ -13,9 +16,9 @@
   "grid_version": "fbt_atlas_v1_draft",
   "epistemic_status": "E",
   "execution": {
-    "phase": "spec_gate_only",
-    "engine_status": "not_started",
-    "runner_command": null,
+    "phase": "raw_cell_engine",
+    "engine_status": "raw_cell_table_implemented_pending_review",
+    "runner_command": "fts fbt atlas-v1-raw-cells",
     "full_grid_run": false
   },
   "primary_comparison": {
@@ -63,10 +66,29 @@
     "manifest_required": true
   },
   "edge_case_policies": {
+    "edge_policy_id": "rdr0004_stage4_edge_policies",
     "map_ties": "full_map_sets",
     "map_tie_sensitive_status": "map_tie_policy_sensitive",
     "zero_marginal": "zero_marginal_undefined",
     "blocked_status": "blocked_zero_marginal"
+  },
+  "family_definitions": {
+    "priors": {
+      "uniform": "All world states receive equal exact rational mass 1/n.",
+      "single_state_heavy": "w1 receives weight 2/(n+1); every other world state receives weight 1/(n+1).",
+      "rational_simplex_small": "wi receives weight i / (1 + ... + n), preserving world-state order."
+    },
+    "kernels": {
+      "pure_map": "Each world state maps deterministically to x((i mod m)+1).",
+      "noisy_map": "Mapped observation receives 3/4; remaining observations share 1/4 equally.",
+      "uninformative": "Every world state emits every observation with exact rational mass 1/m.",
+      "zero_marginal_probe": "The last observation has zero likelihood for every world state; remaining observations share mass uniformly."
+    },
+    "fitness_functions": {
+      "single_peak": "w1 has fitness 10; all other world states have fitness 0.",
+      "equal": "All world states have fitness 5.",
+      "multi_peak": "w1 and w2 have fitness 10; all later world states have fitness 0."
+    }
   },
   "reporting": {
     "aggregate_label": "grid_frequency",
@@ -83,5 +105,5 @@
     "notebooks",
     "figures"
   ],
-  "notes": "Draft v1 config contract only. Future summaries must remain project grid_frequency values and require raw cell artifacts plus manifests before publication."
+  "notes": "Draft v1 raw-cell engine config. This config supports manifest-backed raw cell tables only; future summaries must remain project grid_frequency values and require separate review before publication."
 }

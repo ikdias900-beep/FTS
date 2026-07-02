@@ -15,7 +15,10 @@ def test_atlas_v1_draft_config_links_required_traceability_ids() -> None:
     assert config["schema_version"] == "1.0"
     assert config["artifact_kind"] == "fbt_atlas_v1_draft_config"
     assert config["epistemic_status"] == "E"
-    assert config["task_ids"] == ["TASK-004-FBT-ATLAS-V1-SPEC"]
+    assert config["task_ids"] == [
+        "TASK-004-FBT-ATLAS-V1-SPEC",
+        "TASK-004-FBT-ATLAS-V1-ENGINE",
+    ]
     assert config["claim_ids"] == ["CLM-FBT-ATLAS-001"]
     assert config["source_ids"] == ["SRC-FBT-2021"]
     assert config["assumption_ids"] == [
@@ -26,14 +29,14 @@ def test_atlas_v1_draft_config_links_required_traceability_ids() -> None:
     ]
 
 
-def test_atlas_v1_draft_config_is_spec_gate_only() -> None:
+def test_atlas_v1_draft_config_is_raw_cell_engine_only() -> None:
     config = _load_config()
     execution = _object(config, "execution")
 
     assert config["grid_version"] == "fbt_atlas_v1_draft"
-    assert execution["phase"] == "spec_gate_only"
-    assert execution["engine_status"] == "not_started"
-    assert execution["runner_command"] is None
+    assert execution["phase"] == "raw_cell_engine"
+    assert execution["engine_status"] == "raw_cell_table_implemented_pending_review"
+    assert execution["runner_command"] == "fts fbt atlas-v1-raw-cells"
     assert execution["full_grid_run"] is False
 
     disabled = set(_list(config, "disabled_features"))
@@ -89,6 +92,7 @@ def test_atlas_v1_denominator_semantics_preserve_blocked_and_tie_sensitive_cells
     policies = _object(config, "edge_case_policies")
     reporting = _object(config, "reporting")
 
+    assert policies["edge_policy_id"] == "rdr0004_stage4_edge_policies"
     assert enumeration["arithmetic"] == "exact_rational"
     assert enumeration["randomness"] == "none"
     assert enumeration["stochastic_simulation"] is False
@@ -105,6 +109,24 @@ def test_atlas_v1_denominator_semantics_preserve_blocked_and_tie_sensitive_cells
     assert reporting["include_blocked_zero_marginal_in_denominator"] is True
     assert reporting["include_map_tie_policy_sensitive_in_denominator"] is True
     assert reporting["theorem_probability_claim"] is False
+
+
+def test_atlas_v1_family_definitions_are_explicit() -> None:
+    config = _load_config()
+    definitions = _object(config, "family_definitions")
+
+    priors = _object(definitions, "priors")
+    kernels = _object(definitions, "kernels")
+    fitness_functions = _object(definitions, "fitness_functions")
+
+    assert tuple(priors) == ("uniform", "single_state_heavy", "rational_simplex_small")
+    assert tuple(kernels) == (
+        "pure_map",
+        "noisy_map",
+        "uninformative",
+        "zero_marginal_probe",
+    )
+    assert tuple(fitness_functions) == ("single_peak", "equal", "multi_peak")
 
 
 def test_atlas_v1_draft_config_contains_no_source_probability_wording() -> None:
