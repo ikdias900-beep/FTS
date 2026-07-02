@@ -36,3 +36,4 @@
 - Start `TASK-004-FBT-ATLAS-V1-SPEC` with a draft atlas v1 design spec, non-executable config contract, and spec-gate tests, without production engine work or a full atlas run.
 - Start `TASK-004-FBT-ATLAS-V1-ENGINE` with a reusable exact raw-cell engine, CLI command, manifest-backed raw JSON table, and tests, without aggregate reporting or a full atlas claim.
 - Add `TASK-004-FBT-ATLAS-V1-AGGREGATE` with a derived aggregate/report CLI that reads saved raw-cell artifacts, writes manifest-backed JSON/Markdown summaries, and prepares the v1 bundle for independent review.
+- Record `REV-TASK-004-FBT-ATLAS-V1-001`, accepting the atlas v1 design/engine/raw/aggregate bundle with no fatal, major, or minor findings while keeping Theorem 4 and full-atlas claims out of scope.
