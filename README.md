@@ -9,9 +9,11 @@ accepted with minor findings and follow-up cleanup completed. A repository-local
 The Stage 4 spec/oracle/grid-smoke bundle is accepted by
 `REV-TASK-004-FBT-ATLAS-001` with no fatal, major, or minor findings, and packaged in
 `release/stage4-p4-draft/`.
-`TASK-004-FBT-ATLAS-V1-AGGREGATE` has added a manifest-backed aggregate/report layer
-that reads saved v1 raw-cell artifacts. It does not add a full atlas result, theorem
-implementation, figure, UI, or public claim upgrade.
+`REV-TASK-004-FBT-ATLAS-V1-001` accepted the Stage 4 atlas v1
+design/engine/raw/aggregate bundle with no fatal, major, or minor findings. This
+review covers manifest-backed raw-cell tables and derived status-count/grid_frequency
+summaries from raw artifacts only; it does not add a full atlas result, theorem
+implementation, figure, UI, or biological/metaphysical claim.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -231,7 +233,8 @@ This capsule packages the already reviewed Stage 4 bundle. It adds no new scient
 claims, generated figures, full atlas run, theorem implementation, or source-level
 probability.
 
-Atlas v1 now has a spec gate, raw-cell engine, and derived aggregate/report layer:
+Atlas v1 now has a reviewed spec gate, raw-cell engine, and derived aggregate/report
+layer:
 
 - `specs/fbt/atlas_v1_design.md`
 - `experiments/configs/fbt_atlas_v1_draft.json`
@@ -241,6 +244,7 @@ Atlas v1 now has a spec gate, raw-cell engine, and derived aggregate/report laye
 - `src/fts_lab/fbt/atlas_v1_aggregate.py`
 - `tests/exact/test_fbt_atlas_v1_aggregate.py`
 - `docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md`
+- `docs/reviews/REV-TASK-004-FBT-ATLAS-V1-001.md`
 
 The v1 draft config records traceability, grid identity, exact rational enumeration
 requirements, denominator semantics, and disabled out-of-scope features. The v1 engine
@@ -262,8 +266,8 @@ uv run fts fbt atlas-v1-aggregate --raw-cells results/raw/<run-id>/fbt_atlas_v1_
 The aggregate command reads the raw-cell JSON as its input, counts `cells[*].status`,
 writes derived JSON and Markdown reports, and validates a manifest that records the raw
 artifact checksum. It does not read the draft config or regenerate cells. The reported
-values are project `grid_frequency` summaries over the input raw cells only, pending
-independent review.
+values are reviewed project `grid_frequency` summaries over the input raw cells only.
+This review does not convert them into source theorem results.
 
 ## Epistemic Status
 
@@ -316,6 +320,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 FBT independent review brief](docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md)
 - [Stage 4 FBT independent review report](docs/reviews/REV-TASK-004-FBT-ATLAS-001.md)
 - [Stage 4 atlas v1 independent review brief](docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md)
+- [Stage 4 atlas v1 independent review report](docs/reviews/REV-TASK-004-FBT-ATLAS-V1-001.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

@@ -77,6 +77,7 @@
 | `docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md` | Independent review brief for the Stage 4 FBT specs, finite-cell oracle, grid-smoke runner, tests, and manifest discipline. |
 | `docs/reviews/REV-TASK-004-FBT-ATLAS-001.md` | Independent review report accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings. |
 | `docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md` | Independent review brief for the atlas v1 design, raw engine, raw artifacts, aggregate/report layer, tests, and manifest discipline. |
+| `docs/reviews/REV-TASK-004-FBT-ATLAS-V1-001.md` | Independent review report accepting the Stage 4 atlas v1 design/engine/raw/aggregate bundle with no fatal, major, or minor findings. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 
