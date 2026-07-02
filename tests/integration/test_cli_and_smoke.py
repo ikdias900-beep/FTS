@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-004-FBT-ATLAS-V1-ENGINE" in result.stdout
+    assert "Active task: TASK-004-FBT-ATLAS-V1-AGGREGATE" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -379,6 +379,69 @@ def test_fbt_atlas_v1_raw_cells_cli_writes_output_and_valid_manifest() -> None:
     assert len(manifest["outputs"]) == 1
 
 
+def test_fbt_atlas_v1_aggregate_cli_reads_raw_cells_and_writes_valid_manifest() -> None:
+    root = find_project_root()
+    raw_result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", "fbt", "atlas-v1-raw-cells"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert raw_result.returncode == 0, raw_result.stdout + raw_result.stderr
+    raw_cell_path = _line_value_from_output(raw_result.stdout, "raw_cell_table_path")
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "fts_lab.cli",
+            "fbt",
+            "atlas-v1-aggregate",
+            "--raw-cells",
+            raw_cell_path,
+        ],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "json_report_checksum=" in result.stdout
+    assert "json_report_path=" in result.stdout
+    assert "markdown_report_checksum=" in result.stdout
+    assert "markdown_report_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+    assert "cell_count=144" in result.stdout
+
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fbt_atlas_v1_aggregate_report"
+    assert manifest["epistemic_status"] == "E"
+    assert manifest["task_ids"] == [
+        "TASK-004-FBT-ATLAS-V1-SPEC",
+        "TASK-004-FBT-ATLAS-V1-ENGINE",
+        "TASK-004-FBT-ATLAS-V1-AGGREGATE",
+    ]
+    assert manifest["claim_ids"] == ["CLM-FBT-ATLAS-001"]
+    assert manifest["source_ids"] == ["SRC-FBT-2021"]
+    assert manifest["assumption_ids"] == [
+        "ASM-FBT-0001",
+        "ASM-FBT-0002",
+        "ASM-FBT-0003",
+        "ASM-FBT-0004",
+    ]
+    assert manifest["parameters"]["aggregate_label"] == "grid_frequency"
+    assert manifest["parameters"]["denominator_policy"] == "all_enumerated_cells"
+    assert manifest["parameters"]["denominator_basis"] == "all_raw_cells"
+    assert manifest["parameters"]["recomputes_cells"] is False
+    assert manifest["parameters"]["raw_cell_count"] == 144
+    assert len(manifest["inputs"]) == 1
+    assert Path(manifest["inputs"][0]["path"]) == Path(raw_cell_path)
+    assert len(manifest["outputs"]) == 2
+
+
 def test_manifest_validation_fails_after_artifact_corruption(tmp_path: Path) -> None:
     root = find_project_root()
     result = run_smoke(command="test smoke corrupt")
@@ -403,7 +466,12 @@ def test_context_file_checker_detects_missing_required_file(tmp_path: Path) -> N
 
 
 def _manifest_path_from_output(output: str) -> Path:
+    return Path(_line_value_from_output(output, "manifest_path"))
+
+
+def _line_value_from_output(output: str, key: str) -> str:
+    prefix = f"{key}="
     for line in output.splitlines():
-        if line.startswith("manifest_path="):
-            return Path(line.removeprefix("manifest_path="))
+        if line.startswith(prefix):
+            return line.removeprefix(prefix)
     raise AssertionError(f"manifest path not found in output: {output}")

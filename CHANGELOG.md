@@ -35,3 +35,4 @@
 - Add `TASK-004-P4-CAPSULE` and a draft Stage 4 checkpoint capsule packaging the reviewed FBT spec/oracle/grid-smoke bundle with raw inputs, generated smoke output, manifest, review summary, limitations, reproduction commands, and checksums.
 - Start `TASK-004-FBT-ATLAS-V1-SPEC` with a draft atlas v1 design spec, non-executable config contract, and spec-gate tests, without production engine work or a full atlas run.
 - Start `TASK-004-FBT-ATLAS-V1-ENGINE` with a reusable exact raw-cell engine, CLI command, manifest-backed raw JSON table, and tests, without aggregate reporting or a full atlas claim.
+- Add `TASK-004-FBT-ATLAS-V1-AGGREGATE` with a derived aggregate/report CLI that reads saved raw-cell artifacts, writes manifest-backed JSON/Markdown summaries, and prepares the v1 bundle for independent review.

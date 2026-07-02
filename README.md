@@ -9,9 +9,9 @@ accepted with minor findings and follow-up cleanup completed. A repository-local
 The Stage 4 spec/oracle/grid-smoke bundle is accepted by
 `REV-TASK-004-FBT-ATLAS-001` with no fatal, major, or minor findings, and packaged in
 `release/stage4-p4-draft/`.
-`TASK-004-FBT-ATLAS-V1-ENGINE` has started with a manifest-backed raw-cell engine over
-the v1 draft config. It does not add aggregate reporting, a full atlas result, or a
-theorem implementation.
+`TASK-004-FBT-ATLAS-V1-AGGREGATE` has added a manifest-backed aggregate/report layer
+that reads saved v1 raw-cell artifacts. It does not add a full atlas result, theorem
+implementation, figure, UI, or public claim upgrade.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -51,6 +51,7 @@ uv run fts reproduce-smoke
 uv run fts fbt reproduce-numerical-example
 uv run fts fbt atlas-grid-v0-smoke
 uv run fts fbt atlas-v1-raw-cells
+uv run fts fbt atlas-v1-aggregate --raw-cells results/raw/<run-id>/fbt_atlas_v1_raw_cells.json
 uv run fts validate-release-capsule release/stage2-p2-draft
 uv run fts validate-release-capsule release/stage3-p3-draft
 uv run fts validate-release-capsule release/stage4-p4-draft
@@ -230,13 +231,16 @@ This capsule packages the already reviewed Stage 4 bundle. It adds no new scient
 claims, generated figures, full atlas run, theorem implementation, or source-level
 probability.
 
-Atlas v1 has moved from a spec gate to a raw-cell engine:
+Atlas v1 now has a spec gate, raw-cell engine, and derived aggregate/report layer:
 
 - `specs/fbt/atlas_v1_design.md`
 - `experiments/configs/fbt_atlas_v1_draft.json`
 - `tests/exact/test_fbt_atlas_v1_spec.py`
 - `src/fts_lab/fbt/atlas_v1.py`
 - `tests/exact/test_fbt_atlas_v1_engine.py`
+- `src/fts_lab/fbt/atlas_v1_aggregate.py`
+- `tests/exact/test_fbt_atlas_v1_aggregate.py`
+- `docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md`
 
 The v1 draft config records traceability, grid identity, exact rational enumeration
 requirements, denominator semantics, and disabled out-of-scope features. The v1 engine
@@ -248,6 +252,18 @@ uv run fts fbt atlas-v1-raw-cells
 
 This command writes raw cell data only. It does not publish aggregate frequencies,
 launch a full atlas run, implement Theorem 4, or create figures.
+
+Build derived status summaries from a saved raw-cell artifact:
+
+```bash
+uv run fts fbt atlas-v1-aggregate --raw-cells results/raw/<run-id>/fbt_atlas_v1_raw_cells.json
+```
+
+The aggregate command reads the raw-cell JSON as its input, counts `cells[*].status`,
+writes derived JSON and Markdown reports, and validates a manifest that records the raw
+artifact checksum. It does not read the draft config or regenerate cells. The reported
+values are project `grid_frequency` summaries over the input raw cells only, pending
+independent review.
 
 ## Epistemic Status
 
@@ -280,6 +296,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 P4 checkpoint capsule task](tasks/TASK-004_p4_release_capsule.md)
 - [Stage 4 atlas v1 spec task](tasks/TASK-004_fbt_atlas_v1_spec.md)
 - [Stage 4 atlas v1 raw-cell engine task](tasks/TASK-004_fbt_atlas_v1_engine.md)
+- [Stage 4 atlas v1 aggregate/report task](tasks/TASK-004_fbt_atlas_v1_aggregate.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
@@ -298,6 +315,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 FBT blocker decision brief](docs/decisions/RDR-0004-stage4-fbt-blockers.md)
 - [Stage 4 FBT independent review brief](docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md)
 - [Stage 4 FBT independent review report](docs/reviews/REV-TASK-004-FBT-ATLAS-001.md)
+- [Stage 4 atlas v1 independent review brief](docs/reviews/TASK-004-FBT-ATLAS-V1-independent-review-brief.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

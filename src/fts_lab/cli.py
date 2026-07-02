@@ -10,6 +10,7 @@ from pathlib import Path
 from fts_lab.doctor import find_project_root, run_doctor
 from fts_lab.fbt.atlas_grid import run_fbt_atlas_grid_v0
 from fts_lab.fbt.atlas_v1 import run_fbt_atlas_v1_raw_cells
+from fts_lab.fbt.atlas_v1_aggregate import run_fbt_atlas_v1_aggregate
 from fts_lab.fbt.numerical_example import run_fbt_numerical_example
 from fts_lab.fff.admissibility import admissible_count
 from fts_lab.fff.cyclic_groups import (
@@ -91,6 +92,16 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=None,
         help="Path to the FBT atlas v1 draft config JSON",
+    )
+    atlas_v1_aggregate = fbt_subcommands.add_parser(
+        "atlas-v1-aggregate",
+        help="Build Stage 4 FBT atlas v1 aggregate/report outputs from a raw-cell artifact",
+    )
+    atlas_v1_aggregate.add_argument(
+        "--raw-cells",
+        type=Path,
+        required=True,
+        help="Path to a manifest-backed FBT atlas v1 raw-cell JSON artifact",
     )
 
     fff = subcommands.add_parser("fff", help="Run exact FFF Stage 1 helpers")
@@ -325,6 +336,19 @@ def _run_fbt_command(args: argparse.Namespace) -> int:
         )
         print(f"raw_cell_table_checksum={result['raw_cell_table_checksum']}")
         print(f"raw_cell_table_path={result['raw_cell_table_path']}")
+        print(f"manifest_path={result['manifest_path']}")
+        print(f"cell_count={result['cell_count']}")
+        return 0
+
+    if args.fbt_command == "atlas-v1-aggregate":
+        result = run_fbt_atlas_v1_aggregate(
+            args.raw_cells,
+            command=f"uv run fts fbt atlas-v1-aggregate --raw-cells {args.raw_cells}",
+        )
+        print(f"json_report_checksum={result['json_report_checksum']}")
+        print(f"json_report_path={result['json_report_path']}")
+        print(f"markdown_report_checksum={result['markdown_report_checksum']}")
+        print(f"markdown_report_path={result['markdown_report_path']}")
         print(f"manifest_path={result['manifest_path']}")
         print(f"cell_count={result['cell_count']}")
         return 0
