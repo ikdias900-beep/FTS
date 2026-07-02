@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "fbt_atlas_grid_config",
+  "task_ids": ["TASK-004-FBT-ATLAS-GRID-V0"],
+  "claim_ids": ["CLM-FBT-ATLAS-001"],
+  "source_ids": ["SRC-FBT-2021"],
+  "assumption_ids": [
+    "ASM-FBT-0001",
+    "ASM-FBT-0002",
+    "ASM-FBT-0003",
+    "ASM-FBT-0004"
+  ],
+  "grid_version": "fbt_atlas_v0",
+  "epistemic_status": "E",
+  "observations": ["x1", "x2"],
+  "world_states": ["w1", "w2"],
+  "offered_observations": [["x1", "x2"]],
+  "priors": [
+    {"id": "uniform", "values": {"w1": "1/2", "w2": "1/2"}},
+    {"id": "w1_heavy", "values": {"w1": "3/4", "w2": "1/4"}}
+  ],
+  "kernels": [
+    {
+      "id": "identity",
+      "values": {
+        "w1": {"x1": "1", "x2": "0"},
+        "w2": {"x1": "0", "x2": "1"}
+      }
+    },
+    {
+      "id": "noisy_identity",
+      "values": {
+        "w1": {"x1": "3/4", "x2": "1/4"},
+        "w2": {"x1": "1/4", "x2": "3/4"}
+      }
+    },
+    {
+      "id": "uninformative",
+      "values": {
+        "w1": {"x1": "1/2", "x2": "1/2"},
+        "w2": {"x1": "1/2", "x2": "1/2"}
+      }
+    },
+    {
+      "id": "zero_x2",
+      "values": {
+        "w1": {"x1": "1", "x2": "0"},
+        "w2": {"x1": "1", "x2": "0"}
+      }
+    }
+  ],
+  "fitness_functions": [
+    {"id": "w1_high", "values": {"w1": "10", "w2": "0"}},
+    {"id": "w2_high", "values": {"w1": "0", "w2": "10"}},
+    {"id": "equal", "values": {"w1": "5", "w2": "5"}}
+  ],
+  "reporting": {
+    "aggregate_label": "grid_frequency",
+    "denominator_policy": "all_enumerated_cells",
+    "theorem_probability_claim": false
+  },
+  "notes": "Frozen small exact Stage 4 smoke grid. Counts are project grid_frequency values for fbt_atlas_v0 only, not source theorem probabilities."
+}

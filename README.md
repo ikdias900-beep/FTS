@@ -50,6 +50,7 @@ uv run fts fbt reproduce-numerical-example
 uv run fts fbt atlas-grid-v0-smoke
 uv run fts validate-release-capsule release/stage2-p2-draft
 uv run fts validate-release-capsule release/stage3-p3-draft
+uv run fts validate-release-capsule release/stage4-p4-draft
 ```
 
 Equivalent Make targets are available:
@@ -215,6 +216,17 @@ or release result.
 no fatal, major, or minor findings. This does not implement Theorem 4 or run the full
 atlas.
 
+The Stage 4 checkpoint package is under `release/stage4-p4-draft/`. Validate the
+committed archive contents with:
+
+```bash
+uv run fts validate-release-capsule release/stage4-p4-draft
+```
+
+This capsule packages the already reviewed Stage 4 bundle. It adds no new scientific
+claims, generated figures, full atlas run, theorem implementation, or theorem
+probability.
+
 ## Epistemic Status
 
 Scientific artifacts must use exactly one status:
@@ -243,6 +255,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 FBT finite atlas spec task](tasks/TASK-004_fbt_finite_atlas_spec.md)
 - [Stage 4 FBT finite-cell oracle task](tasks/TASK-004_fbt_atlas_oracle.md)
 - [Stage 4 FBT atlas grid v0 smoke task](tasks/TASK-004_fbt_atlas_grid_v0.md)
+- [Stage 4 P4 checkpoint capsule task](tasks/TASK-004_p4_release_capsule.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
@@ -250,6 +263,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)
 - [Stage 3 draft checkpoint capsule](release/stage3-p3-draft/README.md)
+- [Stage 4 draft checkpoint capsule](release/stage4-p4-draft/README.md)
 - [Stage 1 publication table note](docs/research_notes/stage1_publication_tables.md)
 - [Stage 2 FBT numerical appendix note](docs/research_notes/stage2_fbt_numerical_appendix.md)
 - [Stage 2 batched review bundle](docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md)

@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "task_id": "TASK-004-FBT-ATLAS-ORACLE",
+    "source_ids": ["SRC-FBT-2021"],
+    "claim_ids": ["CLM-FBT-ATLAS-001"],
+    "assumption_ids": [
+      "ASM-FBT-0001",
+      "ASM-FBT-0002",
+      "ASM-FBT-0003",
+      "ASM-FBT-0004"
+    ],
+    "epistemic_status": "E",
+    "purpose": "Exact small finite-cell oracle fixtures for approved Stage 4 FBT atlas policies."
+  },
+  "cases": [
+    {
+      "case_id": "same_best_observation_unique_map",
+      "observations": ["x1", "x2"],
+      "offered_observations": ["x1", "x2"],
+      "world_states": [
+        {
+          "id": "w_low",
+          "prior": "1/2",
+          "fitness": "0",
+          "likelihoods": {"x1": "1", "x2": "0"}
+        },
+        {
+          "id": "w_high",
+          "prior": "1/2",
+          "fitness": "10",
+          "likelihoods": {"x1": "0", "x2": "1"}
+        }
+      ],
+      "expected": {
+        "status": "same_best_observation",
+        "fitness_only_best_observations": ["x2"],
+        "truth_map_best_observations": ["x2"]
+      }
+    },
+    {
+      "case_id": "map_tie_same_truth_fitness",
+      "observations": ["x"],
+      "offered_observations": ["x"],
+      "world_states": [
+        {
+          "id": "w1",
+          "prior": "1/2",
+          "fitness": "3",
+          "likelihoods": {"x": "1"}
+        },
+        {
+          "id": "w2",
+          "prior": "1/2",
+          "fitness": "3",
+          "likelihoods": {"x": "1"}
+        }
+      ],
+      "expected": {
+        "status": "same_best_observation",
+        "map_tie_kind": "same_truth_fitness",
+        "map_estimates": ["w1", "w2"],
+        "truth_score_values": ["3"]
+      }
+    },
+    {
+      "case_id": "map_tie_policy_sensitive",
+      "observations": ["x1", "x2"],
+      "offered_observations": ["x1", "x2"],
+      "world_states": [
+        {
+          "id": "w_high",
+          "prior": "1/4",
+          "fitness": "10",
+          "likelihoods": {"x1": "1", "x2": "0"}
+        },
+        {
+          "id": "w_mid",
+          "prior": "1/2",
+          "fitness": "5",
+          "likelihoods": {"x1": "0", "x2": "1"}
+        },
+        {
+          "id": "w_low",
+          "prior": "1/4",
+          "fitness": "0",
+          "likelihoods": {"x1": "1", "x2": "0"}
+        }
+      ],
+      "expected": {
+        "status": "map_tie_policy_sensitive",
+        "policy_sensitive_observation": "x1",
+        "possible_truth_map_best_observation_sets": [["x1"], ["x2"]]
+      }
+    },
+    {
+      "case_id": "blocked_zero_marginal",
+      "observations": ["x1", "x2"],
+      "offered_observations": ["x1", "x2"],
+      "world_states": [
+        {
+          "id": "w1",
+          "prior": "1",
+          "fitness": "1",
+          "likelihoods": {"x1": "1", "x2": "0"}
+        }
+      ],
+      "expected": {
+        "status": "blocked_zero_marginal",
+        "zero_marginal_observation": "x2"
+      }
+    },
+    {
+      "case_id": "fitness_only_strictly_dominates_truth",
+      "observations": ["x1", "x2"],
+      "offered_observations": ["x1", "x2"],
+      "world_states": [
+        {
+          "id": "w_high",
+          "prior": "89/200",
+          "fitness": "10",
+          "likelihoods": {"x1": "40/89", "x2": "49/89"}
+        },
+        {
+          "id": "w_mid",
+          "prior": "2/5",
+          "fitness": "5",
+          "likelihoods": {"x1": "3/8", "x2": "5/8"}
+        },
+        {
+          "id": "w_low",
+          "prior": "31/200",
+          "fitness": "0",
+          "likelihoods": {"x1": "30/31", "x2": "1/31"}
+        }
+      ],
+      "expected": {
+        "status": "fitness_only_strictly_dominates_truth",
+        "fitness_only_best_observations": ["x2"],
+        "truth_map_best_observations": ["x1"],
+        "expected_fitness": {"x1": "11/2", "x2": "37/5"}
+      }
+    }
+  ]
+}

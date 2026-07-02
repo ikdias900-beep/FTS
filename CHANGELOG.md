@@ -32,3 +32,4 @@
 - Start `TASK-004-FBT-ATLAS-GRID-V0` with a frozen `fbt_atlas_v0` config and manifest-backed small-grid smoke-run, reporting only project `grid_frequency` values and no theorem-probability claim.
 - Add the independent review brief for the Stage 4 FBT spec/oracle/grid-smoke bundle.
 - Record `REV-TASK-004-FBT-ATLAS-001`, accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings, and mark `CLM-FBT-ATLAS-001` reviewed for that limited scope.
+- Add `TASK-004-P4-CAPSULE` and a draft Stage 4 checkpoint capsule packaging the reviewed FBT spec/oracle/grid-smoke bundle with raw inputs, generated smoke output, manifest, review summary, limitations, reproduction commands, and checksums.
