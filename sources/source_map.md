@@ -63,6 +63,7 @@
 | `docs/decisions/RDR-0003-stage2-batched-review-cadence.md` | Approved Stage 2 review cadence decision. |
 | `docs/decisions/RDR-0004-stage4-fbt-blockers.md` | Approved Stage 4 decision for FBT finite-atlas MAP ties, zero-marginal observations, grid semantics, and primary truth-strategy policy. |
 | `docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md` | Independent review brief for the Stage 4 FBT specs, finite-cell oracle, grid-smoke runner, tests, and manifest discipline. |
+| `docs/reviews/REV-TASK-004-FBT-ATLAS-001.md` | Independent review report accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings. |
 | `sources/claim_matrix.csv` | Claim-to-source-to-test traceability. |
 | `assumptions/register.md` | Scientific assumptions and unresolved decision points. |
 
