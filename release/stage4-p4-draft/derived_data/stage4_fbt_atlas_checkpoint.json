@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "stage4_fbt_atlas_checkpoint_summary",
+  "assumption_ids": [
+    "ASM-FBT-0001",
+    "ASM-FBT-0002",
+    "ASM-FBT-0003",
+    "ASM-FBT-0004"
+  ],
+  "capsule_id": "STAGE4-P4-DRAFT",
+  "claim_ids": ["CLM-FBT-ATLAS-001"],
+  "epistemic_status": "E",
+  "grid_smoke": {
+    "aggregate_label": "grid_frequency",
+    "denominator_policy": "all_enumerated_cells",
+    "grid_version": "fbt_atlas_v0",
+    "status_counts": {
+      "blocked_zero_marginal": 6,
+      "map_tie_policy_sensitive": 4,
+      "same_best_observation": 6,
+      "truth_decision_tie": 8
+    },
+    "theorem_probability_claim": false,
+    "total_cells": 24
+  },
+  "packaged_task_ids": [
+    "TASK-004-FBT-ATLAS-SPEC",
+    "TASK-004-FBT-ATLAS-ORACLE",
+    "TASK-004-FBT-ATLAS-GRID-V0"
+  ],
+  "review_status": "REV-TASK-004-FBT-ATLAS-001_no_fatal_or_major",
+  "schema_version": "1.0",
+  "source_ids": ["SRC-FBT-2021"],
+  "task_ids": ["TASK-004-P4-CAPSULE"],
+  "theorem4_implementation_status": "not_started"
+}

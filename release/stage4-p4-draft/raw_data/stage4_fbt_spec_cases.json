@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "task_id": "TASK-004-FBT-ATLAS-SPEC",
+    "source_id": "SRC-FBT-2021",
+    "claim_ids": [
+      "CLM-FBT-THM-001",
+      "CLM-FBT-ATLAS-001"
+    ],
+    "assumption_ids": [
+      "ASM-FBT-0001",
+      "ASM-FBT-0002",
+      "ASM-FBT-0003",
+      "ASM-FBT-0004"
+    ],
+    "epistemic_status": "R",
+    "purpose": "Stage 4 FBT theorem-domain and finite-atlas spec-gate fixtures."
+  },
+  "theorem4_bound": {
+    "strict_domination_lower_bound_formula": "(abs_x - 3) / (abs_x - 1)",
+    "same_best_territory_probability_formula": "2 / (abs_x - 1)",
+    "cases": [
+      {
+        "case_id": "x_size_3_zero_lower_bound",
+        "abs_x": 3,
+        "same_best_territory_probability": "1",
+        "strict_domination_lower_bound": "0",
+        "nonnegative_lower_bound": true
+      },
+      {
+        "case_id": "x_size_4_one_third_lower_bound",
+        "abs_x": 4,
+        "same_best_territory_probability": "2/3",
+        "strict_domination_lower_bound": "1/3",
+        "nonnegative_lower_bound": true
+      },
+      {
+        "case_id": "x_size_5_one_half_lower_bound",
+        "abs_x": 5,
+        "same_best_territory_probability": "1/2",
+        "strict_domination_lower_bound": "1/2",
+        "nonnegative_lower_bound": true
+      },
+      {
+        "case_id": "x_size_10_seven_ninths_lower_bound",
+        "abs_x": 10,
+        "same_best_territory_probability": "2/9",
+        "strict_domination_lower_bound": "7/9",
+        "nonnegative_lower_bound": true
+      }
+    ]
+  },
+  "atlas_design_boundaries": {
+    "grid_count_semantics": "project_defined_grid_frequency_not_source_theorem_probability",
+    "primary_source_strategy_family": [
+      "truth_map",
+      "fitness_only_expected"
+    ],
+    "extension_strategy_families": [
+      "posterior_sampling",
+      "posterior_mean_requires_metric",
+      "full_posterior_decision"
+    ],
+    "approved_policy_ids": [
+      "ASM-FBT-0001",
+      "ASM-FBT-0002",
+      "ASM-FBT-0003",
+      "ASM-FBT-0004"
+    ],
+    "production_modules_forbidden_in_spec_gate": [
+      "src/fts_lab/fbt/theorem4.py",
+      "src/fts_lab/fbt/finite_atlas.py"
+    ]
+  }
+}

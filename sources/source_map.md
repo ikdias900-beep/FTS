@@ -33,6 +33,7 @@
 | `tasks/TASK-004_fbt_finite_atlas_spec.md` | Stage 4 FBT theorem-domain and finite-atlas spec-gate task. |
 | `tasks/TASK-004_fbt_atlas_oracle.md` | Stage 4 FBT finite-cell exact oracle task implementing approved edge-case policies without a full atlas run. |
 | `tasks/TASK-004_fbt_atlas_grid_v0.md` | Stage 4 FBT frozen small-grid smoke-run task for `fbt_atlas_v0`. |
+| `tasks/TASK-004_p4_release_capsule.md` | Stage 4 P4 draft checkpoint capsule task packaging the reviewed spec/oracle/grid-smoke bundle. |
 | `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
 | `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fff/permutation_groups.md` | Reviewed Stage 3 permutation-group source transcription and oracle-design spec. |
@@ -54,6 +55,7 @@
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |
 | `release/stage3-p3-draft/` | Draft Stage 3 P3 checkpoint capsule packaging the reviewed FFF permutation/measurable structure bundle. |
+| `release/stage4-p4-draft/` | Draft Stage 4 P4 checkpoint capsule packaging the reviewed FBT spec/oracle/grid-smoke bundle. |
 | `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
