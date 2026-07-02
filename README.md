@@ -7,7 +7,9 @@ bundle for FFF permutation groups and measurable spaces, with independent review
 accepted with minor findings and follow-up cleanup completed. A repository-local Stage
 3 P3 draft checkpoint capsule is available under `release/stage3-p3-draft/`.
 `TASK-004-FBT-ATLAS-GRID-V0` is active as a Stage 4 frozen small-grid smoke-run
-task after the Stage 4 spec gate and finite-cell oracle.
+task after the Stage 4 spec gate and finite-cell oracle; the Stage 4
+spec/oracle/grid-smoke bundle is accepted by `REV-TASK-004-FBT-ATLAS-001` with no
+fatal, major, or minor findings.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -207,7 +209,11 @@ a scientific manifest with `epistemic_status: E`. Its aggregate values are
 `grid_frequency` values for `fbt_atlas_v0` only.
 
 This is not a full atlas run, theorem implementation, theorem-probability calculation,
-or reviewed release result.
+or release result.
+
+`REV-TASK-004-FBT-ATLAS-001` accepted the Stage 4 spec/oracle/grid-smoke bundle with
+no fatal, major, or minor findings. This does not implement Theorem 4 or run the full
+atlas.
 
 ## Epistemic Status
 
@@ -251,6 +257,8 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 independent review report](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md)
 - [Stage 2 review follow-up](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md)
 - [Stage 4 FBT blocker decision brief](docs/decisions/RDR-0004-stage4-fbt-blockers.md)
+- [Stage 4 FBT independent review brief](docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md)
+- [Stage 4 FBT independent review report](docs/reviews/REV-TASK-004-FBT-ATLAS-001.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)

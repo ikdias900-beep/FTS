@@ -30,3 +30,5 @@
 - Approve `RDR-0004` for the four Stage 4 FBT finite-atlas blocker policies and mark `ASM-FBT-0001..0004` approved for the Stage 4 scope.
 - Start `TASK-004-FBT-ATLAS-ORACLE` with an exact finite-cell oracle and small fixtures for approved Stage 4 MAP-tie, zero-marginal, and primary-comparison policies, without running a full atlas.
 - Start `TASK-004-FBT-ATLAS-GRID-V0` with a frozen `fbt_atlas_v0` config and manifest-backed small-grid smoke-run, reporting only project `grid_frequency` values and no theorem-probability claim.
+- Add the independent review brief for the Stage 4 FBT spec/oracle/grid-smoke bundle.
+- Record `REV-TASK-004-FBT-ATLAS-001`, accepting the Stage 4 FBT spec/oracle/grid-smoke bundle with no fatal, major, or minor findings, and mark `CLM-FBT-ATLAS-001` reviewed for that limited scope.
