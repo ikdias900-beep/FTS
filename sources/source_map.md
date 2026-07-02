@@ -32,6 +32,7 @@
 | `tasks/TASK-003_p3_release_capsule.md` | Stage 3 P3 draft checkpoint capsule task. |
 | `tasks/TASK-004_fbt_finite_atlas_spec.md` | Stage 4 FBT theorem-domain and finite-atlas spec-gate task. |
 | `tasks/TASK-004_fbt_atlas_oracle.md` | Stage 4 FBT finite-cell exact oracle task implementing approved edge-case policies without a full atlas run. |
+| `tasks/TASK-004_fbt_atlas_grid_v0.md` | Stage 4 FBT frozen small-grid smoke-run task for `fbt_atlas_v0`. |
 | `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
 | `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fff/permutation_groups.md` | Reviewed Stage 3 permutation-group source transcription and oracle-design spec. |
@@ -46,6 +47,9 @@
 | `src/fts_lab/fbt/atlas_oracle.py` | Stage 4 exact finite-cell oracle for the approved primary comparison and edge-case policies. |
 | `tests/fixtures/fbt/stage4_fbt_oracle_cases.json` | Stage 4 exact small-cell oracle fixtures covering MAP ties, zero-marginal observations, and strict dominance. |
 | `tests/exact/test_fbt_atlas_oracle.py` | Exact tests for the Stage 4 finite-cell oracle. |
+| `experiments/configs/fbt_atlas_v0.json` | Frozen Stage 4 small exact FBT atlas smoke-grid config. |
+| `src/fts_lab/fbt/atlas_grid.py` | Manifest-backed Stage 4 `fbt_atlas_v0` smoke-grid enumerator and report writer. |
+| `tests/exact/test_fbt_atlas_grid.py` | Exact tests for Stage 4 atlas grid v0 config, enumeration, status accounting, and report wording. |
 | `docs/reviews/TASK-003-FFF-STRUCTURE-independent-review-brief.md` | Independent review brief for the Stage 3 FFF structure specs, fixtures, implementation, and tests. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001.md` | Independent review report accepting the Stage 3 FFF structure bundle with minor findings only. |
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |

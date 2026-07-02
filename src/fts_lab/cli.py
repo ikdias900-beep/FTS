@@ -8,6 +8,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from fts_lab.doctor import find_project_root, run_doctor
+from fts_lab.fbt.atlas_grid import run_fbt_atlas_grid_v0
 from fts_lab.fbt.numerical_example import run_fbt_numerical_example
 from fts_lab.fff.admissibility import admissible_count
 from fts_lab.fff.cyclic_groups import (
@@ -69,6 +70,16 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=None,
         help="Path to the FBT numerical example source-table JSON",
+    )
+    atlas_grid_v0 = fbt_subcommands.add_parser(
+        "atlas-grid-v0-smoke",
+        help="Run the manifest-backed Stage 4 FBT atlas grid v0 smoke enumeration",
+    )
+    atlas_grid_v0.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to the FBT atlas grid v0 config JSON",
     )
 
     fff = subcommands.add_parser("fff", help="Run exact FFF Stage 1 helpers")
@@ -277,6 +288,21 @@ def _run_fbt_command(args: argparse.Namespace) -> int:
         print(f"markdown_report_checksum={result['markdown_report_checksum']}")
         print(f"markdown_report_path={result['markdown_report_path']}")
         print(f"manifest_path={result['manifest_path']}")
+        return 0
+
+    if args.fbt_command == "atlas-grid-v0-smoke":
+        result = run_fbt_atlas_grid_v0(
+            args.config,
+            command="uv run fts fbt atlas-grid-v0-smoke"
+            if args.config is None
+            else f"uv run fts fbt atlas-grid-v0-smoke --config {args.config}",
+        )
+        print(f"json_report_checksum={result['json_report_checksum']}")
+        print(f"json_report_path={result['json_report_path']}")
+        print(f"markdown_report_checksum={result['markdown_report_checksum']}")
+        print(f"markdown_report_path={result['markdown_report_path']}")
+        print(f"manifest_path={result['manifest_path']}")
+        print(f"cell_count={result['cell_count']}")
         return 0
 
     raise AssertionError(f"unhandled FBT command: {args.fbt_command}")

@@ -28,7 +28,7 @@ def test_doctor_succeeds_in_valid_checkout() -> None:
     )
 
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "Active task: TASK-004-FBT-ATLAS-ORACLE" in result.stdout
+    assert "Active task: TASK-004-FBT-ATLAS-GRID-V0" in result.stdout
 
 
 def test_smoke_run_writes_payload_and_valid_manifest() -> None:
@@ -299,6 +299,43 @@ def test_fbt_numerical_example_cli_writes_outputs_and_valid_manifest() -> None:
     ]
     assert manifest["source_ids"] == ["SRC-FBT-2021"]
     assert manifest["assumption_ids"] == []
+    assert len(manifest["inputs"]) == 1
+    assert len(manifest["outputs"]) == 2
+
+
+def test_fbt_atlas_grid_v0_cli_writes_outputs_and_valid_manifest() -> None:
+    root = find_project_root()
+    result = subprocess.run(
+        [sys.executable, "-m", "fts_lab.cli", "fbt", "atlas-grid-v0-smoke"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "json_report_checksum=" in result.stdout
+    assert "json_report_path=" in result.stdout
+    assert "markdown_report_checksum=" in result.stdout
+    assert "markdown_report_path=" in result.stdout
+    assert "manifest_path=" in result.stdout
+    assert "cell_count=24" in result.stdout
+
+    manifest_path = _manifest_path_from_output(result.stdout)
+    manifest = validate_manifest_file(manifest_path, project_root=root)
+    assert manifest["artifact_kind"] == "fbt_atlas_grid_v0_smoke"
+    assert manifest["epistemic_status"] == "E"
+    assert manifest["task_ids"] == ["TASK-004-FBT-ATLAS-GRID-V0"]
+    assert manifest["claim_ids"] == ["CLM-FBT-ATLAS-001"]
+    assert manifest["source_ids"] == ["SRC-FBT-2021"]
+    assert manifest["assumption_ids"] == [
+        "ASM-FBT-0001",
+        "ASM-FBT-0002",
+        "ASM-FBT-0003",
+        "ASM-FBT-0004",
+    ]
+    assert manifest["parameters"]["grid_version"] == "fbt_atlas_v0"
+    assert manifest["parameters"]["aggregate_label"] == "grid_frequency"
     assert len(manifest["inputs"]) == 1
     assert len(manifest["outputs"]) == 2
 

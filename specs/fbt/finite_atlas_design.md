@@ -140,6 +140,20 @@ The oracle evaluates the approved primary comparison for one finite cell and rec
 The oracle is not a grid enumerator, does not freeze a `grid_version`, does not write
 manifests, and does not produce atlas aggregates.
 
+## Grid v0 Smoke-Run
+
+`TASK-004-FBT-ATLAS-GRID-V0` freezes the first small smoke grid:
+
+- `grid_version: fbt_atlas_v0`
+- config: `experiments/configs/fbt_atlas_v0.json`
+- runner: `src/fts_lab/fbt/atlas_grid.py`
+- command: `fts fbt atlas-grid-v0-smoke`
+
+The smoke grid enumerates exact cells through the approved finite-cell oracle and writes
+manifest-backed JSON and Markdown outputs. Its aggregate values are labeled
+`grid_frequency` under `grid_version: fbt_atlas_v0`. They are not source theorem
+probabilities and must not be used as full-atlas results.
+
 ## Aggregate Statistics
 
 Aggregate statistics may be reported only after raw cell results are saved. Aggregates
@@ -153,15 +167,14 @@ must keep separate:
 
 ## Remaining Gates Before Production Implementation
 
-- exact oracle / fixture design using the approved `RDR-0004` policies;
-- independent review of the Stage 4 spec/oracle/implementation bundle before public
-  claim upgrade.
+- independent review of the Stage 4 spec/oracle/grid-smoke bundle before public claim
+  upgrade or full atlas production work.
 
 ## Out Of Scope For This Spec Gate
 
-- atlas engine;
-- grid enumeration;
-- manifests for atlas runs;
+- full atlas engine;
+- full grid enumeration beyond `fbt_atlas_v0` smoke-run;
+- production atlas manifests beyond the smoke-run manifest;
 - figures;
 - UI;
 - evolutionary dynamics;
