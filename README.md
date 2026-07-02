@@ -251,6 +251,7 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 2 independent review report](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001.md)
 - [Stage 2 review follow-up](docs/reviews/REV-TASK-002-FBT-NUMERICAL-001-followup.md)
 - [Stage 4 FBT blocker decision brief](docs/decisions/RDR-0004-stage4-fbt-blockers.md)
+- [Stage 4 FBT independent review brief](docs/reviews/TASK-004-FBT-ATLAS-independent-review-brief.md)
 - [Source map](sources/source_map.md)
 - [Claim matrix](sources/claim_matrix.csv)
 - [Assumption register](assumptions/register.md)
