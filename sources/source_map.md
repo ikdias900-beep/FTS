@@ -37,6 +37,7 @@
 | `tasks/TASK-004_fbt_atlas_v1_spec.md` | Stage 4 atlas v1 spec-gate task for design/config contract only, without engine or full run. |
 | `tasks/TASK-004_fbt_atlas_v1_engine.md` | Stage 4 atlas v1 raw-cell engine task for manifest-backed exact raw-cell tables without aggregate claims. |
 | `tasks/TASK-004_fbt_atlas_v1_aggregate.md` | Stage 4 atlas v1 aggregate/report task for derived summaries from raw-cell artifacts only. |
+| `tasks/TASK-004_atlas_v1_release_capsule.md` | Stage 4 atlas v1 draft checkpoint capsule task packaging the reviewed v1 design/engine/raw/aggregate bundle. |
 | `specs/fbt/theorem4_domain.md` | Draft Stage 4 FBT Theorem 4 domain transcription and boundary spec. |
 | `specs/fbt/finite_atlas_design.md` | Draft Stage 4 finite-atlas design spec separating source definitions from project grid choices. |
 | `specs/fbt/atlas_v1_design.md` | Draft Stage 4 atlas v1 design spec for grid identity, exact enumeration, and denominator semantics. |
@@ -66,6 +67,7 @@
 | `docs/reviews/REV-TASK-003-FFF-STRUCTURE-001-followup.md` | Follow-up closing Stage 3 minor findings and recording Human PI status updates. |
 | `release/stage3-p3-draft/` | Draft Stage 3 P3 checkpoint capsule packaging the reviewed FFF permutation/measurable structure bundle. |
 | `release/stage4-p4-draft/` | Draft Stage 4 P4 checkpoint capsule packaging the reviewed FBT spec/oracle/grid-smoke bundle. |
+| `release/stage4-v1-draft/` | Draft Stage 4 atlas v1 checkpoint capsule packaging the reviewed design/engine/raw/aggregate bundle. |
 | `release/stage2-p2-draft/` | Draft Stage 2 FBT numerical checkpoint capsule; accepted with minor findings in independent review. |
 | `docs/research_notes/stage2_fbt_numerical_appendix.md` | Human-facing note for the Stage 2 FBT appendix reproduction. |
 | `docs/reviews/TASK-002-FBT-NUMERICAL-batched-review-bundle.md` | End-of-Stage 2 independent-review bundle for the FBT appendix reproduction. |
