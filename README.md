@@ -6,10 +6,11 @@ Current status: `TASK-003-FFF-STRUCTURE-IMPL` is complete as a Stage 3 implement
 bundle for FFF permutation groups and measurable spaces, with independent review
 accepted with minor findings and follow-up cleanup completed. A repository-local Stage
 3 P3 draft checkpoint capsule is available under `release/stage3-p3-draft/`.
-`TASK-004-FBT-ATLAS-GRID-V0` is active as a Stage 4 frozen small-grid smoke-run
-task after the Stage 4 spec gate and finite-cell oracle; the Stage 4
-spec/oracle/grid-smoke bundle is accepted by `REV-TASK-004-FBT-ATLAS-001` with no
-fatal, major, or minor findings.
+The Stage 4 spec/oracle/grid-smoke bundle is accepted by
+`REV-TASK-004-FBT-ATLAS-001` with no fatal, major, or minor findings, and packaged in
+`release/stage4-p4-draft/`.
+`TASK-004-FBT-ATLAS-V1-SPEC` has started as a design/config spec gate only; it does
+not add a production v1 engine or full atlas run.
 `TASK-002-FBT-NUMERICAL` is complete
 through independent review with minor findings only; `TASK-000` bootstrap,
 `TASK-001` exact core, `TASK-001-SWEEP`, `TASK-001-PUBTABLES`, and the Stage 1 draft
@@ -209,8 +210,8 @@ through `src/fts_lab/fbt/atlas_grid.py`, writes JSON and Markdown outputs, and v
 a scientific manifest with `epistemic_status: E`. Its aggregate values are
 `grid_frequency` values for `fbt_atlas_v0` only.
 
-This is not a full atlas run, theorem implementation, theorem-probability calculation,
-or release result.
+This is not a full atlas run, theorem implementation, source-level probability
+calculation, or release result.
 
 `REV-TASK-004-FBT-ATLAS-001` accepted the Stage 4 spec/oracle/grid-smoke bundle with
 no fatal, major, or minor findings. This does not implement Theorem 4 or run the full
@@ -225,7 +226,17 @@ uv run fts validate-release-capsule release/stage4-p4-draft
 
 This capsule packages the already reviewed Stage 4 bundle. It adds no new scientific
 claims, generated figures, full atlas run, theorem implementation, or theorem
-probability.
+source-level probability.
+
+Atlas v1 has started as a spec gate:
+
+- `specs/fbt/atlas_v1_design.md`
+- `experiments/configs/fbt_atlas_v1_draft.json`
+- `tests/exact/test_fbt_atlas_v1_spec.py`
+
+The v1 draft config records traceability, grid identity, exact rational enumeration
+requirements, denominator semantics, and disabled out-of-scope features. It is not an
+executable atlas engine and does not launch a full run.
 
 ## Epistemic Status
 
@@ -256,9 +267,11 @@ Infrastructure smoke artifacts use `epistemic_status: null`, `claim_ids: []`, an
 - [Stage 4 FBT finite-cell oracle task](tasks/TASK-004_fbt_atlas_oracle.md)
 - [Stage 4 FBT atlas grid v0 smoke task](tasks/TASK-004_fbt_atlas_grid_v0.md)
 - [Stage 4 P4 checkpoint capsule task](tasks/TASK-004_p4_release_capsule.md)
+- [Stage 4 atlas v1 spec task](tasks/TASK-004_fbt_atlas_v1_spec.md)
 - [Stage 2 FBT numerical appendix spec](specs/fbt/numerical_appendix.md)
 - [Stage 4 FBT theorem-domain spec](specs/fbt/theorem4_domain.md)
 - [Stage 4 FBT finite-atlas design spec](specs/fbt/finite_atlas_design.md)
+- [Stage 4 FBT atlas v1 design spec](specs/fbt/atlas_v1_design.md)
 - [Stage 3 permutation-group spec](specs/fff/permutation_groups.md)
 - [Stage 3 measurable-space spec](specs/fff/measurable_spaces.md)
 - [Stage 2 draft checkpoint capsule](release/stage2-p2-draft/README.md)

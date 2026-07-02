@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "artifact_kind": "fbt_atlas_v1_draft_config",
+  "task_ids": ["TASK-004-FBT-ATLAS-V1-SPEC"],
+  "claim_ids": ["CLM-FBT-ATLAS-001"],
+  "source_ids": ["SRC-FBT-2021"],
+  "assumption_ids": [
+    "ASM-FBT-0001",
+    "ASM-FBT-0002",
+    "ASM-FBT-0003",
+    "ASM-FBT-0004"
+  ],
+  "grid_version": "fbt_atlas_v1_draft",
+  "epistemic_status": "E",
+  "execution": {
+    "phase": "spec_gate_only",
+    "engine_status": "not_started",
+    "runner_command": null,
+    "full_grid_run": false
+  },
+  "primary_comparison": {
+    "comparison_id": "truth_map_vs_fitness_only_expected",
+    "truth_strategy": "truth_map",
+    "fitness_strategy": "fitness_only_expected",
+    "extension_baselines_in_primary_results": false
+  },
+  "extension_baselines": {
+    "enabled": false,
+    "candidates": [
+      "posterior_sampling",
+      "posterior_mean",
+      "full_posterior_decision"
+    ],
+    "activation_requires_new_task": true
+  },
+  "grid_identity": {
+    "freeze_status": "draft_not_frozen",
+    "cell_id_components": [
+      "grid_version",
+      "world_state_count",
+      "perceptual_state_count",
+      "prior_family_id",
+      "kernel_family_id",
+      "fitness_family_id",
+      "offered_observation_set_id",
+      "primary_comparison_id",
+      "edge_policy_id"
+    ],
+    "draft_axes": {
+      "world_state_counts": [2, 3],
+      "perceptual_state_counts": [2, 3],
+      "prior_families": ["uniform", "single_state_heavy", "rational_simplex_small"],
+      "kernel_families": ["pure_map", "noisy_map", "uninformative", "zero_marginal_probe"],
+      "fitness_families": ["single_peak", "equal", "multi_peak"],
+      "offered_observation_sets": ["all_observations"]
+    }
+  },
+  "enumeration": {
+    "arithmetic": "exact_rational",
+    "randomness": "none",
+    "stochastic_simulation": false,
+    "raw_cell_artifacts_required_before_aggregates": true,
+    "manifest_required": true
+  },
+  "edge_case_policies": {
+    "map_ties": "full_map_sets",
+    "map_tie_sensitive_status": "map_tie_policy_sensitive",
+    "zero_marginal": "zero_marginal_undefined",
+    "blocked_status": "blocked_zero_marginal"
+  },
+  "reporting": {
+    "aggregate_label": "grid_frequency",
+    "denominator_policy": "all_enumerated_cells",
+    "include_blocked_zero_marginal_in_denominator": true,
+    "include_map_tie_policy_sensitive_in_denominator": true,
+    "theorem_probability_claim": false
+  },
+  "disabled_features": [
+    "full_atlas_run",
+    "stochastic_simulation",
+    "ml_rl",
+    "ui_dashboard",
+    "notebooks",
+    "figures"
+  ],
+  "notes": "Draft v1 config contract only. Future summaries must remain project grid_frequency values and require raw cell artifacts plus manifests before publication."
+}
